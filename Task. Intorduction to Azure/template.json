@@ -1,0 +1,729 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "publicIPAddresses_Public_ip_name": {
+            "defaultValue": "Public_ip",
+            "type": "String"
+        },
+        "virtualMachines_Server_Web_1_name": {
+            "defaultValue": "Server-Web-1",
+            "type": "String"
+        },
+        "virtualMachines_Server_Web_2_name": {
+            "defaultValue": "Server-Web-2",
+            "type": "String"
+        },
+        "sshPublicKeys_Server_Web_1_key_name": {
+            "defaultValue": "Server-Web-1_key",
+            "type": "String"
+        },
+        "sshPublicKeys_Server_Web_2_key_name": {
+            "defaultValue": "Server-Web-2_key",
+            "type": "String"
+        },
+        "loadBalancers_Load_balancer_web_name": {
+            "defaultValue": "Load_balancer_web",
+            "type": "String"
+        },
+        "networkInterfaces_server_web_123_name": {
+            "defaultValue": "server-web-123",
+            "type": "String"
+        },
+        "networkInterfaces_server_web_2256_name": {
+            "defaultValue": "server-web-2256",
+            "type": "String"
+        },
+        "networkSecurityGroups_Server_Web_1_nsg_name": {
+            "defaultValue": "Server-Web-1-nsg",
+            "type": "String"
+        },
+        "networkSecurityGroups_Server_Web_2_nsg_name": {
+            "defaultValue": "Server-Web-2-nsg",
+            "type": "String"
+        },
+        "virtualNetworks_Load_balanser_group_vnet_name": {
+            "defaultValue": "Load-balanser-group-vnet",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/sshPublicKeys",
+            "apiVersion": "2022-08-01",
+            "name": "[parameters('sshPublicKeys_Server_Web_1_key_name')]",
+            "location": "northeurope",
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "properties": {
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCt6E51QrEaWBBlsw3IJwt5+9yutRmEvEvUSh3rhgFi3Oj/2HzqNIhAOpo+3K23fY08Z/7uEkDuq/TTl+w6I3XyvfoKbjsaA/6ADzv4fNnqI5Jgl4d/LwqiW1R195qlIFa7CWkYzPV4i55d4gzh/Ydbf1bB/uXFj9Z48MpDatGgjQIW9bUbJgc0bWdWzNRg8a9+Ib8W71srXp6BjNakFymhjvB64HNhT+e7yWYhSPgx0thSqmWc7qgyBQSHRDNp/ABC6ClM8TUVmdN8GRBliCf59O6czrk+/3lhgItQDJk1G931suEHaG1bIobizXeXlz5gAdDArrDzIHfZBLOEj+nUAeYedDjqqTud8fGwNVmM0WFnvbP6OHMzCC6k5OeYNqonJjvvW2B2yHMBXrS30brg9YdzZavyL/HhA5s8mR9R7jCoJ0u4aTHZcYg9D5L9c48jmhULI64Ax0C3RgiLEhQ6ZG0tGg5vm/w9jv6R9Rep+CWLkbi6OI966sMtdoSVBPU= generated-by-azure"
+            }
+        },
+        {
+            "type": "Microsoft.Compute/sshPublicKeys",
+            "apiVersion": "2022-08-01",
+            "name": "[parameters('sshPublicKeys_Server_Web_2_key_name')]",
+            "location": "northeurope",
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "properties": {
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjRe/T0Fy10NK0mihYXXNjfM8vDN13i/iZovelkZ+400JSoUcjfwgeT3NjJ10fZufoFJbLM1iaebgm058a5G52SblSnWXkxOJLYt6Uki6niqm44lP+AR6Zy9i1QpL4s2dUxvG1lemUrsL7NQZqhkZDQNLcGKCh8JFkoq8yjIr0uKSI1uxODwKaZSGRc0e8yl3kYYf8M70TLx/jf1uFU0ZLjcR4xDVIQ+BVWPkNflWYPf8TjgS8oRYktNLxLLWurnb+Ma1y2QffT6fmwvpQ2wqMOpkzO0Z/yMWHLjYR8tbl4hcEeJdQMN5vA0wLyIEhe2mq/w/4J+5VuSJsDhTebbTymhYh3JVi8c6G84THy+mWb5hvB2Pf/xx4f3mUOH25wjdYnXlDqqhM93A+HH5E0mDKIQxSBgwbA0vOs0YJmcjQR6L5TMOo7lLj4/rsDRVu5TEfXRZbJPwqSHCI2yrM3ZdmsA2H5o9E+dHbPfHxuy0emK9BNRh7hsgrJcM49ZGMxWk= generated-by-azure"
+            }
+        },
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('publicIPAddresses_Public_ip_name')]",
+            "location": "northeurope",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "zones": [
+                "2",
+                "3",
+                "1"
+            ],
+            "properties": {
+                "ipAddress": "20.157.111.20",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Static",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": [
+                    {
+                        "ipTagType": "RoutingPreference",
+                        "tag": "Internet"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-08-01",
+            "name": "[parameters('virtualMachines_Server_Web_1_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server_web_123_name'))]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D2s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "canonical",
+                        "offer": "0001-com-ubuntu-server-jammy",
+                        "sku": "22_04-lts-gen2",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_Server_Web_1_name'), '_OsDisk_1_feda25e3c2374609987f14bc3070ba2f')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_Server_Web_1_name'), '_OsDisk_1_feda25e3c2374609987f14bc3070ba2f'))]"
+                        },
+                        "deleteOption": "Delete",
+                        "diskSizeGB": 30
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_Server_Web_1_name')]",
+                    "adminUsername": "azureuser",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "/home/azureuser/.ssh/authorized_keys",
+                                    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCt6E51QrEaWBBlsw3IJwt5+9yutRmEvEvUSh3rhgFi3Oj/2HzqNIhAOpo+3K23fY08Z/7uEkDuq/TTl+w6I3XyvfoKbjsaA/6ADzv4fNnqI5Jgl4d/LwqiW1R195qlIFa7CWkYzPV4i55d4gzh/Ydbf1bB/uXFj9Z48MpDatGgjQIW9bUbJgc0bWdWzNRg8a9+Ib8W71srXp6BjNakFymhjvB64HNhT+e7yWYhSPgx0thSqmWc7qgyBQSHRDNp/ABC6ClM8TUVmdN8GRBliCf59O6czrk+/3lhgItQDJk1G931suEHaG1bIobizXeXlz5gAdDArrDzIHfZBLOEj+nUAeYedDjqqTud8fGwNVmM0WFnvbP6OHMzCC6k5OeYNqonJjvvW2B2yHMBXrS30brg9YdzZavyL/HhA5s8mR9R7jCoJ0u4aTHZcYg9D5L9c48jmhULI64Ax0C3RgiLEhQ6ZG0tGg5vm/w9jv6R9Rep+CWLkbi6OI966sMtdoSVBPU= generated-by-azure"
+                                }
+                            ]
+                        },
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server_web_123_name'))]",
+                            "properties": {
+                                "deleteOption": "Delete"
+                            }
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-08-01",
+            "name": "[parameters('virtualMachines_Server_Web_2_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server_web_2256_name'))]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_D2s_v3"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "canonical",
+                        "offer": "0001-com-ubuntu-server-jammy",
+                        "sku": "22_04-lts-gen2",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_Server_Web_2_name'), '_OsDisk_1_0b8b556b1c2f4e66b6f947290d092f69')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_Server_Web_2_name'), '_OsDisk_1_0b8b556b1c2f4e66b6f947290d092f69'))]"
+                        },
+                        "deleteOption": "Delete",
+                        "diskSizeGB": 30
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_Server_Web_2_name')]",
+                    "adminUsername": "azureuser",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": true,
+                        "ssh": {
+                            "publicKeys": [
+                                {
+                                    "path": "/home/azureuser/.ssh/authorized_keys",
+                                    "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCjRe/T0Fy10NK0mihYXXNjfM8vDN13i/iZovelkZ+400JSoUcjfwgeT3NjJ10fZufoFJbLM1iaebgm058a5G52SblSnWXkxOJLYt6Uki6niqm44lP+AR6Zy9i1QpL4s2dUxvG1lemUrsL7NQZqhkZDQNLcGKCh8JFkoq8yjIr0uKSI1uxODwKaZSGRc0e8yl3kYYf8M70TLx/jf1uFU0ZLjcR4xDVIQ+BVWPkNflWYPf8TjgS8oRYktNLxLLWurnb+Ma1y2QffT6fmwvpQ2wqMOpkzO0Z/yMWHLjYR8tbl4hcEeJdQMN5vA0wLyIEhe2mq/w/4J+5VuSJsDhTebbTymhYh3JVi8c6G84THy+mWb5hvB2Pf/xx4f3mUOH25wjdYnXlDqqhM93A+HH5E0mDKIQxSBgwbA0vOs0YJmcjQR6L5TMOo7lLj4/rsDRVu5TEfXRZbJPwqSHCI2yrM3ZdmsA2H5o9E+dHbPfHxuy0emK9BNRh7hsgrJcM49ZGMxWk= generated-by-azure"
+                                }
+                            ]
+                        },
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        },
+                        "enableVMAgentPlatformUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server_web_2256_name'))]",
+                            "properties": {
+                                "deleteOption": "Detach"
+                            }
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('networkSecurityGroups_Server_Web_1_nsg_name'), '/HTTP')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_1_nsg_name'))]"
+            ],
+            "properties": {
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 320,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('networkSecurityGroups_Server_Web_2_nsg_name'), '/HTTP')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_2_nsg_name'))]"
+            ],
+            "properties": {
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 320,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('networkSecurityGroups_Server_Web_1_nsg_name'), '/SSH')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_1_nsg_name'))]"
+            ],
+            "properties": {
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 300,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('networkSecurityGroups_Server_Web_2_nsg_name'), '/SSH')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_2_nsg_name'))]"
+            ],
+            "properties": {
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 300,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('virtualNetworks_Load_balanser_group_vnet_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Load_balanser_group_vnet_name'), 'default')]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Load_balanser_group_vnet_name'), 'default')]",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24",
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        },
+                        "type": "Microsoft.Network/virtualNetworks/subnets"
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('virtualNetworks_Load_balanser_group_vnet_name'), '/default')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Load_balanser_group_vnet_name'))]"
+            ],
+            "properties": {
+                "addressPrefix": "10.0.0.0/24",
+                "delegations": [],
+                "privateEndpointNetworkPolicies": "Disabled",
+                "privateLinkServiceNetworkPolicies": "Enabled"
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers/backendAddressPools",
+            "apiVersion": "2022-05-01",
+            "name": "[concat(parameters('loadBalancers_Load_balancer_web_name'), '/Load_balancer_servers_pool')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_Load_balancer_web_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Load_balanser_group_vnet_name'))]"
+            ],
+            "properties": {
+                "loadBalancerBackendAddresses": [
+                    {
+                        "name": "8392101a-aceb-4f38-9568-ccee5268e3f5",
+                        "properties": {
+                            "ipAddress": "10.0.0.4",
+                            "virtualNetwork": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Load_balanser_group_vnet_name'))]"
+                            }
+                        }
+                    },
+                    {
+                        "name": "0c32ca06-c855-4d72-8234-ff48d0c5bdf5",
+                        "properties": {
+                            "ipAddress": "10.0.0.5",
+                            "virtualNetwork": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Load_balanser_group_vnet_name'))]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('networkInterfaces_server_web_123_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Load_balanser_group_vnet_name'), 'default')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_1_nsg_name'))]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server_web_123_name')), '/ipConfigurations/ipconfig1')]",
+                        "etag": "W/\"ab236363-04ba-474e-b1a0-b73f5030b8c3\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Load_balanser_group_vnet_name'), 'default')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": true,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_1_nsg_name'))]"
+                },
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('networkInterfaces_server_web_2256_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Load_balanser_group_vnet_name'), 'default')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_2_nsg_name'))]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "kind": "Regular",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_server_web_2256_name')), '/ipConfigurations/ipconfig1')]",
+                        "etag": "W/\"1f4477ac-4a9a-412f-9446-0bebda34efdc\"",
+                        "type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.0.5",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_Load_balanser_group_vnet_name'), 'default')]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": []
+                },
+                "enableAcceleratedNetworking": true,
+                "enableIPForwarding": false,
+                "disableTcpStateTracking": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_Server_Web_2_nsg_name'))]"
+                },
+                "nicType": "Standard"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('networkSecurityGroups_Server_Web_1_nsg_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_1_nsg_name'), 'SSH')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_1_nsg_name'), 'HTTP')]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "SSH",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_1_nsg_name'), 'SSH')]",
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 300,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "HTTP",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_1_nsg_name'), 'HTTP')]",
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 320,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('networkSecurityGroups_Server_Web_2_nsg_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_2_nsg_name'), 'SSH')]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_2_nsg_name'), 'HTTP')]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "SSH",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_2_nsg_name'), 'SSH')]",
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 300,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "HTTP",
+                        "id": "[resourceId('Microsoft.Network/networkSecurityGroups/securityRules', parameters('networkSecurityGroups_Server_Web_2_nsg_name'), 'HTTP')]",
+                        "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 320,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2022-05-01",
+            "name": "[parameters('loadBalancers_Load_balancer_web_name')]",
+            "location": "northeurope",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Public_ip_name'))]",
+                "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_Load_balancer_web_name'), 'Load_balancer_servers_pool')]",
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Load_balanser_group_vnet_name'))]"
+            ],
+            "tags": {
+                "load-balanser-web": ""
+            },
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+            "properties": {
+                "frontendIPConfigurations": [
+                    {
+                        "name": "Frontend_IP",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_Load_balancer_web_name')), '/frontendIPConfigurations/Frontend_IP')]",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_Public_ip_name'))]"
+                            }
+                        }
+                    }
+                ],
+                "backendAddressPools": [
+                    {
+                        "name": "Load_balancer_servers_pool",
+                        "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_Load_balancer_web_name'), 'Load_balancer_servers_pool')]",
+                        "properties": {
+                            "loadBalancerBackendAddresses": [
+                                {
+                                    "name": "8392101a-aceb-4f38-9568-ccee5268e3f5",
+                                    "properties": {
+                                        "ipAddress": "10.0.0.4",
+                                        "virtualNetwork": {
+                                            "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Load_balanser_group_vnet_name'))]"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "0c32ca06-c855-4d72-8234-ff48d0c5bdf5",
+                                    "properties": {
+                                        "ipAddress": "10.0.0.5",
+                                        "virtualNetwork": {
+                                            "id": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_Load_balanser_group_vnet_name'))]"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "loadBalancingRules": [
+                    {
+                        "name": "Load_balansing_rule_web",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_Load_balancer_web_name')), '/loadBalancingRules/Load_balansing_rule_web')]",
+                        "properties": {
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_Load_balancer_web_name')), '/frontendIPConfigurations/Frontend_IP')]"
+                            },
+                            "frontendPort": 80,
+                            "backendPort": 80,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 4,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_Load_balancer_web_name'), 'Load_balancer_servers_pool')]"
+                            },
+                            "backendAddressPools": [
+                                {
+                                    "id": "[resourceId('Microsoft.Network/loadBalancers/backendAddressPools', parameters('loadBalancers_Load_balancer_web_name'), 'Load_balancer_servers_pool')]"
+                                }
+                            ],
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_Load_balancer_web_name')), '/probes/its_alive_web')]"
+                            }
+                        }
+                    }
+                ],
+                "probes": [
+                    {
+                        "name": "its_alive_web",
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_Load_balancer_web_name')), '/probes/its_alive_web')]",
+                        "properties": {
+                            "protocol": "Tcp",
+                            "port": 80,
+                            "intervalInSeconds": 5,
+                            "numberOfProbes": 1,
+                            "probeThreshold": 1
+                        }
+                    }
+                ],
+                "inboundNatRules": [],
+                "outboundRules": [],
+                "inboundNatPools": []
+            }
+        }
+    ]
+}
