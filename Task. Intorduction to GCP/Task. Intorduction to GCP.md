@@ -1,6 +1,6 @@
 hometask4.tf - main terraform file
-install_wp.sh -  script  that  install wordpres
-db_pass.txt -file that stored user database password
+install_wp.sh -script  that  install wordpres
+db_pass.txt - file that stored user database password
 
 hometask4.tf 
 1)  Init autorization/ project data
