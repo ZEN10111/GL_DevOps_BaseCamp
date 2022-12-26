@@ -15,9 +15,9 @@ provider "google" {
   region      = "us-central1"
   zone        = "europe-west3-c"
 }
-
+```
 2) create network/subnetwork
-
+```
 resource "google_compute_network" "private" {
   name = "my-network"
 }
@@ -30,7 +30,7 @@ resource "google_compute_subnetwork" "private" {
 }
 ```
 3) create  instance
-
+```
 resource "google_compute_instance" "webserver" {
   name         = "webserver"
   machine_type = "e2-medium"
@@ -57,9 +57,9 @@ resource "google_compute_instance" "webserver" {
 })
  
 }
-
+```
 4)  create  firewall rules open  http and  ssh port
-
+```
 resource "google_compute_firewall" "rules" {
   project     = "pro-zone-372114"
   name        = "my-firewall-rule"
@@ -85,11 +85,11 @@ resource "google_compute_firewall" "ssh" {
   source_ranges = ["0.0.0.0/0"]
   target_tags = ["ssh"]
 }
-
+```
 install_wp.sh 
 
 1) install packages
-
+```
 sudo apt-get update
 sudo apt-get install -y apache2 \
                  ghostscript \
@@ -105,9 +105,9 @@ sudo apt-get install -y apache2 \
                  php-mysql \
                  php-xml \
                  php-zip
-
-2) process of  install and  configure  wordpres/apache2
-
+```
+2) process of  install and configure  wordpres/apache2
+```
 sudo mkdir -p /srv/www 
 sudo chown www-data: /srv/www 
 curl https://wordpress.org/latest.tar.gz | sudo -u www-data tar zx -C /srv/www 
@@ -133,19 +133,19 @@ sudo -u www-data cp /srv/www/wordpress/wp-config-sample.php /srv/www/wordpress/w
 sudo -u www-data sed -i 's/database_name_here/wordpress/' /srv/www/wordpress/wp-config.php
 sudo -u www-data sed -i 's/username_here/wordpress/' /srv/www/wordpress/wp-config.php
 sudo -u www-data sed -i "s/password_here/${DB_PASSWORD}/" /srv/www/wordpress/wp-config.php
-
+```
 3) setup database  data
-
+```
 echo "CREATE DATABASE wordpress;" | sudo mysql -u root
 echo "CREATE USER wordpress@localhost IDENTIFIED BY '${DB_PASSWORD}';" | sudo mysql -u root
 echo "GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER ON wordpress.* TO wordpress@localhost;" | sudo mysql -u root 
 echo "FLUSH PRIVILEGES;" | sudo mysql -u root 
 sudo service mysql start
-
+```
 db_pass.txt 
-
+```
 put_pass_here
-
+```
 ![изображение](https://user-images.githubusercontent.com/97990456/209515254-d3d3d8bb-75eb-4848-9ad8-0ff1889e55cb.png)
 
 ![изображение](https://user-images.githubusercontent.com/97990456/209515357-b36c0f30-de2b-4ff4-afc0-7c5da532b38d.png)
