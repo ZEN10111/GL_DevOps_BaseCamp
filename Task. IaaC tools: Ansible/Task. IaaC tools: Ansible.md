@@ -3,8 +3,8 @@ project structure
 hosts  -inventory file with host groups
 group_vars/all/vars.yml - variables that belong to all project
 roles - folder  with two roles
-    - create_file
-    - fetch_linux_distro_name_version 
+- create_file
+- fetch_linux_distro_name_version 
 
 ansible.cfg -configure  file
 hometsk5.yml - main file with  playbooks
