@@ -1,13 +1,16 @@
-project structure
+Project structure
 
-hosts  -inventory file with host groups
-group_vars/all/vars.yml - variables that belong to all project
-roles - folder  with two roles
+1) hosts  -inventory file with host groups
+
+2) group_vars/all/vars.yml - variables that belong to all project
+
+3) roles - folder  with two roles:
 - create_file
 - fetch_linux_distro_name_version 
 
-ansible.cfg -configure  file
-hometsk5.yml - main file with  playbooks
+4) ansible.cfg -configure  file
+
+5) hometsk5.yml - main file with  playbooks
 
 hosts  
 
@@ -38,6 +41,7 @@ all:
 group_vars/all/vars.yml
 
 define hosts and user variables for entire project
+
 ```
 web_server_1 :  18.192.99.31
 web_server_2 :  18.192.6.74
@@ -46,9 +50,9 @@ user: ubuntu
 ```
 
 roles
-create file creating a empty file /etc/iaac with rigths 0500 
+- create file creating a empty file /etc/iaac with rigths 0500 
 
-create_file/tasks/main.yml
+- create_file/tasks/main.yml
 
 ```
 ---
@@ -63,9 +67,10 @@ create_file/tasks/main.yml
 ```
 
 fetch a linux distro name/version
+
 fetch_linux_distro_name_version/tasks/main.yml
 
-'''
+```
 ---
 - name: System details
   debug: 
@@ -74,13 +79,13 @@ fetch_linux_distro_name_version/tasks/main.yml
 ```
 
 ansible.cfg
+
 ```
 # basic default values
 [defaults]
 inventory = ./hosts
 host_key_checking = false
-
-'''
+```
 
 hometsk5.yml with two playbooks
 
@@ -105,10 +110,11 @@ hometsk5.yml with two playbooks
     - fetch_linux_distro_name_version
 
 ```
-run playbook file  with  ssh private  key
+run playbook file  with private ssh key(one  for  all hosts)
 
-hometsk5.yml  --private-key /path_to_key/devops.pem
-
+```
+ansible-playbook hometsk5.yml  --private-key /path_to_key/devops.pem
+```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/209868283-6c6093d4-c6dc-4d3d-ba92-5ea7c83a1110.png)
 
