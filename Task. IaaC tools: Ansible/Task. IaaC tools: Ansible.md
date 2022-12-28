@@ -11,7 +11,7 @@ hometsk5.yml - main file with  playbooks
 
 hosts  
 
-'''
+```
 all:
   children:
     webservers_group_1:
@@ -33,26 +33,24 @@ all:
       children:
         webservers_group_1:
         webservers_group_2:
-
-'''
+```
 
 group_vars/all/vars.yml
 
-define hosts and user variable for entire project
-
-'''
+define hosts and user variables for entire project
+```
 web_server_1 :  18.192.99.31
 web_server_2 :  18.192.6.74
 web_server_3 :  3.75.234.119
 user: ubuntu
-'''
+```
 
 roles
 create file creating a empty file /etc/iaac with rigths 0500 
 
 create_file/tasks/main.yml
 
-'''
+```
 ---
 - name: create a new file
   file:
@@ -62,7 +60,7 @@ create_file/tasks/main.yml
     group: root
     mode: '0500'
     
-'''
+```
 
 fetch a linux distro name/version
 fetch_linux_distro_name_version/tasks/main.yml
@@ -73,11 +71,10 @@ fetch_linux_distro_name_version/tasks/main.yml
   debug: 
     msg:
     - "Hostname - {{ ansible_hostname }} --- Distribution - {{ ansible_distribution }} --- Version - {{ ansible_distribution_version }}"
- '''
+```
 
 ansible.cfg
-
-'''
+```
 # basic default values
 [defaults]
 inventory = ./hosts
@@ -87,7 +84,7 @@ host_key_checking = false
 
 hometsk5.yml with two playbooks
 
-'''
+```
 ---
 
 - name: creating a empty file /etc/iaac with rigths 0500
@@ -107,9 +104,10 @@ hometsk5.yml with two playbooks
   roles:
     - fetch_linux_distro_name_version
 
-''''
+```
 run playbook file  with  ssh private  key
-hometsk5.yml  --private-key /home/zen/.ssh/devops.pem
+
+hometsk5.yml  --private-key /path_to_key/devops.pem
 
 
 ![зображення](https://user-images.githubusercontent.com/97990456/209868283-6c6093d4-c6dc-4d3d-ba92-5ea7c83a1110.png)
