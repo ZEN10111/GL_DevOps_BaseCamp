@@ -1,0 +1,8 @@
+---
+- name: create a new file
+  file:
+    path: "/etc/iaac"
+    state: touch
+    owner: root
+    group: root
+    mode: '0500'

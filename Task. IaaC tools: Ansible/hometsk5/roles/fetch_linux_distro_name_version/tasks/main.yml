@@ -1,0 +1,8 @@
+---
+- name: System details
+  debug: 
+    msg:
+    - "Hostname - {{ ansible_hostname }} --- Distribution - {{ ansible_distribution }} --- Version - {{ ansible_distribution_version }}"
+  
+
+ 
