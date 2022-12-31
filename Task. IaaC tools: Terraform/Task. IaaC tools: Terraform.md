@@ -41,8 +41,7 @@ Generate ssh key
 ssh-keygen
 
 ````
-![зображення](https://user-images.githubusercontent.com/97990456/210135876-1329179c-cedc-473c-9d43-be8e6904b641.png)
-
+![зображення](https://user-images.githubusercontent.com/97990456/210136213-8a4a9193-2cc9-4880-ad4b-a3023d43cce9.png)
 
 copy public key to project folder
 
