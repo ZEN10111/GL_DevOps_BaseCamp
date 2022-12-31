@@ -39,8 +39,10 @@ Generate ssh key
 ```
 
 ssh-keygen
+
 ````
-![зображення](https://user-images.githubusercontent.com/97990456/210135292-cc5e9774-2d4c-49b1-b038-83de0e63d837.png)
+![зображення](https://user-images.githubusercontent.com/97990456/210135876-1329179c-cedc-473c-9d43-be8e6904b641.png)
+
 
 copy public key to project folder
 
@@ -107,3 +109,10 @@ module "azure_grafana" {
 }
 ```
 
+To delete all created resources, run
+
+```
+terraform destroy
+
+yes
+```
