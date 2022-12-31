@@ -5,6 +5,106 @@ get  project:
 ```
 git clone https://github.com/ZEN10111/GL_DevOps_BaseCamp.git
 
-cd 
+cd cd "GL_DevOps_BaseCamp/Task. IaaC tools: Terraform/Hometask6/"
 
 ```
+
+enter AWS credentials on file:
+
+nano Modules/AWS/provider.tf
+
+```
+access_key = "put_access_key"
+secret_key = "put_secret_key"
+
+```
+
+Install  Azure CLI 
+
+```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+```
+
+Enter  Azure account
+
+```
+az login
+
+```
+Generate ssh key
+
+```
+
+ssh-keygen
+````
+![зображення](https://user-images.githubusercontent.com/97990456/210135292-cc5e9774-2d4c-49b1-b038-83de0e63d837.png)
+
+copy to project folder
+
+```
+cp ~/.ssh/id_rsa.pub ./ssh_pub_key/
+
+```
+
+Initialize providers
+
+```
+terraform init
+
+```
+
+watch ingrastructure plan
+
+```
+terraform plan
+
+```
+
+apply ingrastructure plan
+
+```
+terraform appy
+
+yes
+
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/210135554-2485eaf4-5976-4d97-9452-c21d1435898b.png)
+
+![зображення](https://user-images.githubusercontent.com/97990456/210135597-f1ff2aff-1108-4947-8f13-c49a97e15562.png)
+![зображення](https://user-images.githubusercontent.com/97990456/210135628-a8661746-e3c2-4fdb-b3be-17e3347bf18a.png)
+
+if  you  want  change  some  parameters you may do thit  in  Hometask6/main.tf
+
+```
+module "aws_grafana" {
+    source ="./Modules/AWS"
+  # AWS module configurations 
+  #region        = "eu-central-1"
+  #instance_type = "t2.micro"
+  #key_name      = "id_rsa"
+  #ssh_pub_key   = "ssh_pub_key/id_rsa.pub"
+  #ami           = "ami-09c5ba4f838d8684a"
+
+}
+
+module "azure_grafana" {
+    source ="./Modules/Azure"
+  # Azure module configurations 
+  #prefix                  = "Grafana"
+  #location                = "Norway East"
+  #vm_size                 = "Standard_D2s_v3"
+  #vm_admin_username       = "ubuntu"
+  #ssh_pub_key             = "ssh_pub_key/id_rsa.pub"
+  #distr_publisher         = "Canonical"
+  #distr_offer             = "UbuntuServer"
+  #distr_sku               = "18.04-LTS"
+  #distr_version           = "latest"
+
+}
+```
+
+
+
+
