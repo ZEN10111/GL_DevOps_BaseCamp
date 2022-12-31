@@ -110,7 +110,7 @@ module "azure_grafana" {
 }
 ```
 
-To delete all created resources, run
+To delete all created resources run
 
 ```
 terraform destroy
