@@ -5,7 +5,7 @@ Get  project:
 ```
 git clone https://github.com/ZEN10111/GL_DevOps_BaseCamp.git
 
-cd cd "GL_DevOps_BaseCamp/Task. IaaC tools: Terraform/Hometask6/"
+cd "GL_DevOps_BaseCamp/Task. IaaC tools: Terraform/Hometask6/"
 
 ```
 
