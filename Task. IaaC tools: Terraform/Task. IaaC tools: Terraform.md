@@ -67,7 +67,7 @@ terraform plan
 Apply ingrastructure plan
 
 ```
-terraform appy
+terraform apply
 
 yes
 
