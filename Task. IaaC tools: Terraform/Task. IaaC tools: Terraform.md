@@ -74,7 +74,7 @@ yes
 
 ```
 
-![зображення](https://user-images.githubusercontent.com/97990456/210135554-2485eaf4-5976-4d97-9452-c21d1435898b.png)
+![зображення](https://user-images.githubusercontent.com/97990456/210136055-e8c20824-8f9b-4a90-86c0-20a459c8a964.png)
 
 ![зображення](https://user-images.githubusercontent.com/97990456/210135597-f1ff2aff-1108-4947-8f13-c49a97e15562.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/210135628-a8661746-e3c2-4fdb-b3be-17e3347bf18a.png)
