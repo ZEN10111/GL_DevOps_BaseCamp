@@ -42,7 +42,7 @@ ssh-keygen
 ````
 ![зображення](https://user-images.githubusercontent.com/97990456/210135292-cc5e9774-2d4c-49b1-b038-83de0e63d837.png)
 
-copy to project folder
+copy public key to project folder
 
 ```
 cp ~/.ssh/id_rsa.pub ./ssh_pub_key/
