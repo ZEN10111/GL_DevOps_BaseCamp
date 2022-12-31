@@ -80,6 +80,14 @@ Grafana
 ![зображення](https://user-images.githubusercontent.com/97990456/210135597-f1ff2aff-1108-4947-8f13-c49a97e15562.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/210135628-a8661746-e3c2-4fdb-b3be-17e3347bf18a.png)
 
+Enter to instances via ssh using single ssh private  key
+
+```
+ssh -i ~/.ssh/id_rsa ubuntu@18.156.174.155
+ssh -i ~/.ssh/id_rsa ubuntu@20.251.56.46
+
+```
+
 If  you  want to change  some  parameters you may do thit  in  Hometask6/main.tf
 
 ```
