@@ -1,7 +1,7 @@
 
 This  project  create infrastructure(vm and network) on  two platforms - AWS and Azure
 
-get  project:
+Get  project:
 ```
 git clone https://github.com/ZEN10111/GL_DevOps_BaseCamp.git
 
@@ -9,9 +9,11 @@ cd cd "GL_DevOps_BaseCamp/Task. IaaC tools: Terraform/Hometask6/"
 
 ```
 
-enter AWS credentials on file:
+Enter AWS credentials on file:
 
+```
 nano Modules/AWS/provider.tf
+```
 
 ```
 access_key = "put_access_key"
@@ -26,7 +28,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 ```
 
-Enter  Azure account
+Enter into Azure account
 
 ```
 az login
@@ -54,14 +56,14 @@ terraform init
 
 ```
 
-watch ingrastructure plan
+Watch ingrastructure plan
 
 ```
 terraform plan
 
 ```
 
-apply ingrastructure plan
+Apply ingrastructure plan
 
 ```
 terraform appy
@@ -75,7 +77,7 @@ yes
 ![зображення](https://user-images.githubusercontent.com/97990456/210135597-f1ff2aff-1108-4947-8f13-c49a97e15562.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/210135628-a8661746-e3c2-4fdb-b3be-17e3347bf18a.png)
 
-if  you  want  change  some  parameters you may do thit  in  Hometask6/main.tf
+If  you  want to change  some  parameters you may do thit  in  Hometask6/main.tf
 
 ```
 module "aws_grafana" {
@@ -104,7 +106,4 @@ module "azure_grafana" {
 
 }
 ```
-
-
-
 
