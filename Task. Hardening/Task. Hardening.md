@@ -116,7 +116,7 @@ set a more secure password and it's updated successfully
 
 same situation when user tries to change his password
 
-- simplepsssword 12345678
+- simple password 12345678
 - password  same as users login
 - more secure password
 
