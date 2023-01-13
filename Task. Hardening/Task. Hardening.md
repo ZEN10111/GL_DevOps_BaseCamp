@@ -93,7 +93,7 @@ ansible-playbook hometask7-8.yml --private-key /path_to_key/Dev0ps2.pem
 
 ![зображення](https://user-images.githubusercontent.com/97990456/212216049-50b5fc5e-9a7f-4e15-8036-249e84db4911.png)
 
-go to server vis ssh
+go to server via ssh
 
 ```
 ssh -i "/path_to_key" ubuntu@35.159.38.227
