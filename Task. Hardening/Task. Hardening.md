@@ -93,28 +93,28 @@ ansible-playbook hometask7-8.yml --private-key /path_to_key/Dev0ps2.pem
 
 ![зображення](https://user-images.githubusercontent.com/97990456/212216049-50b5fc5e-9a7f-4e15-8036-249e84db4911.png)
 
-go to server
+go to server vis ssh
 
 ```
 ssh -i "/path_to_key" ubuntu@35.159.38.227
 
 ```
-create user and try setup password  same as users login 
+create user and try setup password same as user`s login 
 
 ![зображення](https://user-images.githubusercontent.com/97990456/212216876-44d96ade-ce37-425c-bd79-5861a27e0c36.png)
 
 we have an error
 
-try setup simply password 12345678  and  we have an error too
+try to set a simple password 12345678 and we also have an error
 
 ![зображення](https://user-images.githubusercontent.com/97990456/212217103-fb57dc13-60c2-42a9-a290-4ea01f175cd4.png)
 
-setup more secure password and it`s updated successfully
+set a more secure password and it's updated successfully
 
 ![зображення](https://user-images.githubusercontent.com/97990456/212217322-0a82bdbd-3d4b-4fff-b979-e9181e4c1673.png)
 
 
-the  same  situation when  a  user  try change his password
+same situation when user tries to change his password
 
 - simplepsssword 12345678
 - password  same as users login
