@@ -13,7 +13,7 @@ Project structure
 
 4) ansible.cfg -configure file
 
-5) hometask7-8.yml - main file with  playbooks
+5) hometask7-8.yml - main file with  playbook
 
 hosts
 
