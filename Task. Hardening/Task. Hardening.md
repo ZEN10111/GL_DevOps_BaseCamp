@@ -51,7 +51,7 @@ roles
 
 ```
 - Do_not use_username_in_password
-- 
+
 ```
 - name: Add a rule for  users and root  "Do not use your username in password" 
   ansible.builtin.replace:
