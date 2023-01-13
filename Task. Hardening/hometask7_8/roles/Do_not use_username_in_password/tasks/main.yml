@@ -1,0 +1,5 @@
+- name: Add a rule for  users and root  "Do not use your username in password" 
+  ansible.builtin.replace:
+    path: /etc/pam.d/common-password
+    regexp: 'pam_pwquality.so retry=3'
+    replace: 'pam_pwquality.so retry=3 usercheck = 1 enforce_for_root'

@@ -1,0 +1,11 @@
+---
+
+- name: Install_pwquality
+  hosts: webservers_group_1
+  become: yes
+  roles:
+    - Install_pwquality
+    - Do_not use_username_in_password
+
+
+  

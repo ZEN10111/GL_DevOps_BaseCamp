@@ -1,0 +1,8 @@
+all:
+  children:
+    webservers_group_1:
+      hosts:
+        "{{ web_server_1 }}"
+      vars:
+        ansible_user: "{{ user }}"
+   
