@@ -123,7 +123,7 @@ Add a Webhook Multibranch Pipeline in Two Steps
 
  - On Github
    - Go Settings -> Webhooks -> add webhook
-   - enter <Jenkins url>/multibranch-webhook-trigger/invoke?token=<token>
+   - enter "<Jenkins url>/multibranch-webhook-trigger/invoke?token=<token>"
 
    ![зображення](https://user-images.githubusercontent.com/97990456/213931955-22367c35-507d-442e-aa54-f7452d8d31a1.png)
 
