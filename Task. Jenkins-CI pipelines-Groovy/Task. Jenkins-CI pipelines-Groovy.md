@@ -86,7 +86,7 @@ contain two branches - main and dev
 1) main
 ![зображення](https://user-images.githubusercontent.com/97990456/213929672-81e3cb8f-214e-4583-af67-e2e594003742.png)
 --------------------
-2)dev
+2) dev
 ![зображення](https://user-images.githubusercontent.com/97990456/213929711-78713dde-5e5b-4748-bb9d-768115927330.png)
 
 
