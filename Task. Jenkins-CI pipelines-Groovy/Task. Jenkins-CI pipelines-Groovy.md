@@ -285,8 +285,8 @@ For Jenkins add сredentials:
 
  - Stage "Build" - use github  to get Site files
  - Stage "Test"-  serach word Bukovel on index.html and  pass win fins 1  or more сoincidence 
- - Deploy  - Deliver site  files  to  servers via ssh
- - Notification (Telegram bot) - how  to use - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md
+ - Stage "Deploy"  - Deliver site  files  to  servers via ssh
+ - Stage "Notification" (Telegram bot) - how  to use - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md
  
  
  For  Deliver site  files  to  servers via ssh need :
