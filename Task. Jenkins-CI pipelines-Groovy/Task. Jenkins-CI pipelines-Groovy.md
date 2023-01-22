@@ -97,13 +97,13 @@ project repository contain two branches:
 
 In Jenkins add Credentials:
 
--  first need create a  token  for  Jenkins on  github
+- first need create a  token  for  Jenkins on  github
   (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
   
  ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
-
- - add token with github username to Jenkins
+ 
+- add token with github username to Jenkins
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
 
