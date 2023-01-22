@@ -1,8 +1,8 @@
 The  project include
 1) [Optional] Script for automated Jenkins setup (with user, plugins). Name install_jenkins.sh
 2) Multibranch pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile
-3) Jenkinsfile has several stages: build, tests, notification (telegram bot, etc.)
-4) [Optional] Use branch conditions, vars, etc
+3) Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)
+4) [Optional] Used branch conditions, vars
 
 
 **Script for automatic configuration of Jenkins (with user, plugins):**
@@ -127,5 +127,164 @@ Add a Webhook Multibranch Pipeline in Two Steps
 
    ![зображення](https://user-images.githubusercontent.com/97990456/213931955-22367c35-507d-442e-aa54-f7452d8d31a1.png)
 
+  **Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)**
   
+ ```
+ pipeline {
+    agent any
+    
+    stages {
+        stage('1-Build-Dev') {
+            when {
+                anyOf {
+                    branch "dev"
+                }
+            }
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/dev']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Git_hub_ssh', url: 'git@github.com:ZEN10111/MY_Site.git']]]) 
+            }
+        }
+        stage('2-Test-Dev') {
+            when {
+                anyOf {
+                    branch "dev"
+                }
+            }
+            steps {
+            sh '''
+            echo "------------------pre test Starter-------------------------"
+            ls -la
+            cat Site/index.html
+            echo "------------------pre test Finished------------------------" 
+              '''
+            sh '''
+            echo "------------------Test Starter-------------------------"
+            result=`grep "Bukovel" Site/index.html | wc -l`
+            echo $result 
+            if [ "$result" -ge "1" ]; 
+            then 
+                echo "Test Pased"
+            else
+                echo "Failed Pased"
+            exit 1
+            fi
+            echo "------------------Test Finished-------------------------" 
+             '''
+            }
+        }
+        stage('3-Deploy-Dev') {
+            when {
+                anyOf {
+                    branch "dev"
+                }
+            }
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                           configName: "Dev_server",
+                           verbose: true,
+                           transfers: [
+                                sshTransfer(sourceFiles: "Site/*",),
+                                sshTransfer(execCommand: 'sed -i "s/%%hostname%%/$(hostname)/" /var/www/html/Site/index.html'),
+                                sshTransfer(execCommand: "sudo systemctl restart nginx")
+                                
+                            ]
+                        )
+                    ]
+                )
+           }
+        }
+
+          stage('1-Build-Prod') {
+             when {
+                anyOf {
+                    branch "main"
+                }
+            }
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'Git_hub_ssh', url: 'git@github.com:ZEN10111/MY_Site.git']]]) 
+            }
+        }
+        stage('2-Test-Prod') {
+             when {
+                anyOf {
+                    branch "main"
+                }
+            }
+            steps {
+            sh '''
+            echo "------------------pre test Starter-------------------------"
+            ls -la
+            cat Site/index.html
+            echo "------------------pre test Finished------------------------" 
+              '''
+            sh '''
+            echo "------------------Test Starter-------------------------"
+            result=`grep "Bukovel" Site/index.html | wc -l`
+            echo $result 
+            if [ "$result" -ge "1" ]; 
+            then 
+                echo "Test Pased"
+            else
+                echo "Failed Pased"
+            exit 1
+            fi
+            echo "------------------Test Finished-------------------------" 
+             '''
+            }
+        }
+        stage('3-Deploy-Prod') {
+             when {
+                anyOf {
+                    branch "main"
+                }
+            }
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                           configName: "Prod_server",
+                           verbose: true,
+                           transfers: [
+                                sshTransfer(sourceFiles: "Site/*",),
+                                sshTransfer(execCommand: 'sed -i "s/%%hostname%%/$(hostname)/" /var/www/html/Site/index.html'),
+                                sshTransfer(execCommand: "sudo systemctl restart nginx")
+                                
+                            ]
+                        )
+                    ]
+                )
+           }
+        }   
+        stage('4-Notification') {
+            steps {
+                telegramSend "Branch - ${BRANCH_NAME}. Deploy is finished"
+            }
+        }
+
+    }
+}
+```
+
+ - Stage "Build" - use github  to get Site files
+ - Stage "Test"-  serach word Bukovel on index.html and  pass win fins 1  or more сoincidence 
+ - Deploy  - Deliver site  files  to  servers via ssh
+ - Notification (Telegram bot)
+
+for  Deliver site  files  to  servers via ssh need :
+ - add credentials
+ - add servers 
+ - add Remote Directory
+
+![зображення](https://user-images.githubusercontent.com/97990456/213933669-8e2208d3-4994-418a-b654-a67892a00708.png)
+![зображення](https://user-images.githubusercontent.com/97990456/213933688-ac9005c5-c997-464d-88ae-f9d19e33c295.png)
+![зображення](https://user-images.githubusercontent.com/97990456/213933715-6083fb4f-01ce-4d38-98d1-2a60f9841ae7.png)
+
+
+
+
+
 
