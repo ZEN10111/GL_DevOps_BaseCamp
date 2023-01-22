@@ -139,6 +139,7 @@ For Jenkins add сredentials:
    ![зображення](https://user-images.githubusercontent.com/97990456/213931955-22367c35-507d-442e-aa54-f7452d8d31a1.png)
 
   
+  
 **3) Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)**
   
   
