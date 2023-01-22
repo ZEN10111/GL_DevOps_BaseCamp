@@ -276,9 +276,9 @@ After validating credentials, jenkins displays branches:
  - Stage "Build" - use github  to get Site files
  - Stage "Test"-  serach word Bukovel on index.html and  pass win fins 1  or more сoincidence 
  - Deploy  - Deliver site  files  to  servers via ssh
- - Notification (Telegram bot)
-
-for  Deliver site  files  to  servers via ssh need :
+ - Notification (Telegram bot) - how  to use - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md
+ - 
+For  Deliver site  files  to  servers via ssh need :
  - add credentials
  - add servers 
  - add Remote Directory
