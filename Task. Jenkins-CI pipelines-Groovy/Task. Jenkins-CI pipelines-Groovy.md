@@ -106,11 +106,6 @@ In Jenkins add Credentials:
    `generated token`
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
  
- - setup on Jenkins configuration:
- 
-  ![зображення](https://user-images.githubusercontent.com/97990456/213937785-aac81e39-bfca-441e-91b3-4b5a392daa0c.png)
-
-
 **Create Mutibranch pupline**
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930581-79e11ca4-7e97-48da-9249-61781f30b71c.png)
@@ -312,6 +307,10 @@ In Jenkins add Credentials:
 For use telegrambot  need:
 
  - geterate token  for Telegram bot on git hub on same  way as  for Jenkins
+ - setup on Jenkins configuration:
+  ![зображення](https://user-images.githubusercontent.com/97990456/213937785-aac81e39-bfca-441e-91b3-4b5a392daa0c.png)
+
+
 
 **4) [Optional] Used branch conditions, vars**
 
