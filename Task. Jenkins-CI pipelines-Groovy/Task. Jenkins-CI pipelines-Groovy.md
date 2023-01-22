@@ -118,7 +118,6 @@ After validating credentials, jenkins displays branches:
 
  - On jenkins
     - enter Trigger token
-    - 
       ![зображення](https://user-images.githubusercontent.com/97990456/213931699-9dc15658-5be8-4c39-814a-402e2e4ea610.png)
 
 
@@ -288,7 +287,18 @@ For  Deliver site  files  to  servers via ssh need :
 ![зображення](https://user-images.githubusercontent.com/97990456/213933715-6083fb4f-01ce-4d38-98d1-2a60f9841ae7.png)
 
 
+**[Optional] Used branch conditions, vars**
 
+ - On jenkins  file  there are  Stages for only main and for only dev branch (branch conditions)
+
+![зображення](https://user-images.githubusercontent.com/97990456/213934326-cee6a311-da2f-4670-b918-459b8fbe362f.png)
+
+
+![зображення](https://user-images.githubusercontent.com/97990456/213934340-ce6e53b6-d7f7-4772-89da-a3390e192d33.png)
+
+- On jenkins  file we have  several variables:
+ - $result - result of serch condition for  test
+ - ${BRANCH_NAME} - name  of brunch on telegram bot message
 
 
 
