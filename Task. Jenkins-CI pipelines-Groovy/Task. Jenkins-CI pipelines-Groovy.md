@@ -286,10 +286,11 @@ After validating credentials, jenkins displays branches:
  
  For  Deliver site  files  to  servers via ssh need :
  - add credentials (private key)
- - add servers 
- - add Remote Directory
-
 ![зображення](https://user-images.githubusercontent.com/97990456/213933669-8e2208d3-4994-418a-b654-a67892a00708.png)
+
+- add servers 
+- add Remote Directory
+
 ![зображення](https://user-images.githubusercontent.com/97990456/213933688-ac9005c5-c997-464d-88ae-f9d19e33c295.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213933715-6083fb4f-01ce-4d38-98d1-2a60f9841ae7.png)
 
