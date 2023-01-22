@@ -81,14 +81,16 @@ fi
 
 sudo systemctl restart jenkins
 ```
+
 **Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:**
+
  contain two branches - main and dev
 1) main branch
 2) dev branch
 ![зображення](https://user-images.githubusercontent.com/97990456/213929672-81e3cb8f-214e-4583-af67-e2e594003742.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930061-ddf1abb8-bc26-43ab-819a-e5f55ef9eb8c.png)
 
-Steps:
+**Steps:**
 
 In Jenkins add Credentials:
 - you must first  create a  token  for  Jenkins on  github
@@ -102,7 +104,7 @@ In Jenkins add Credentials:
 ![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
 
 
-Create Mutibranch pupline
+**Create Mutibranch pupline**
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930581-79e11ca4-7e97-48da-9249-61781f30b71c.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930609-9b988c14-83ad-41fe-833c-be750f71b58b.png)
@@ -112,7 +114,7 @@ After validating credentials, jenkins displays branches:
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
 
-Add a Webhook Multibranch Pipeline in Two Steps
+**Add a Webhook Multibranch Pipeline in Two Steps **
 
  - On jenkins
     - enter Trigger token
@@ -127,7 +129,9 @@ Add a Webhook Multibranch Pipeline in Two Steps
 
    ![зображення](https://user-images.githubusercontent.com/97990456/213931955-22367c35-507d-442e-aa54-f7452d8d31a1.png)
 
+  
   **Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)**
+  
   
  ```
  pipeline {
