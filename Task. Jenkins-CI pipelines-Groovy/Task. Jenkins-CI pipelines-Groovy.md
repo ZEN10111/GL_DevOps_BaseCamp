@@ -300,22 +300,26 @@ After validating credentials, jenkins displays branches:
  - ${BRANCH_NAME} - name  of brunch on telegram bot message
 
 
-Infrastructure:
+**Infrastructure:**
 
- 3 instances on AWS
+ 3 instances on AWS:
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213934867-1e1f42a8-ab5a-4d80-bf4d-a25d406262e4.png)
 
  - Jenkisn  server with our project
- - Dev server
- - Prod server 
  
  ![зображення](https://user-images.githubusercontent.com/97990456/213934981-06502b96-1f08-434b-8919-5dcf704b5e2f.png)
+ 
+ - Dev server
+ 
  ![зображення](https://user-images.githubusercontent.com/97990456/213935159-c2fefd9e-277b-468c-b29a-d3f4631980f7.png)
+
+ - Prod server 
+
  ![зображення](https://user-images.githubusercontent.com/97990456/213935188-cb99f2e2-b783-45ef-bc5e-8e60981946df.png)
 
 
-Telegram notifications:
+**Telegram notifications:**
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213935257-c0487021-f992-40c4-9fa8-871f677d3d2a.png)
 
