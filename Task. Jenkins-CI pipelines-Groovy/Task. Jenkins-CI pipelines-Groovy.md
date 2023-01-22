@@ -289,12 +289,11 @@ For  Deliver site  files  to  servers via ssh need :
 
 **[Optional] Used branch conditions, vars**
 
- - On jenkins  file  there are  Stages for only main and for only dev branch (branch conditions)
-
-![зображення](https://user-images.githubusercontent.com/97990456/213934326-cee6a311-da2f-4670-b918-459b8fbe362f.png)
-
-
-![зображення](https://user-images.githubusercontent.com/97990456/213934340-ce6e53b6-d7f7-4772-89da-a3390e192d33.png)
+ - On jenkins  file has  Stages:
+   - for only main branch
+    ![зображення](https://user-images.githubusercontent.com/97990456/213934326-cee6a311-da2f-4670-b918-459b8fbe362f.png)
+   - and only for dev branch
+    ![зображення](https://user-images.githubusercontent.com/97990456/213934340-ce6e53b6-d7f7-4772-89da-a3390e192d33.png)
 
 - On jenkins  file we have  several variables:
  - $result - result of serch condition for  test
