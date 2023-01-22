@@ -90,7 +90,7 @@ sudo systemctl restart jenkins
 project repository contain two branches:
 1) main branch
 2) dev branch
-![зображення](https://user-images.githubusercontent.com/97990456/213929672-81e3cb8f-214e-4583-af67-e2e594003742.png)
+![зображення](https://user-images.githubusercontent.com/97990456/213935813-18e6e682-2eae-4a66-a559-591f00a3a1f7.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930061-ddf1abb8-bc26-43ab-819a-e5f55ef9eb8c.png)
 
 **Steps:**
