@@ -113,12 +113,11 @@ After validating credentials, jenkins displays branches:
 Add a Webhook Multibranch Pipeline in Two Steps
 
  - On jenkins
+ - On Github
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213931699-9dc15658-5be8-4c39-814a-402e2e4ea610.png)
 
  enter Trigger token
-
- - On Github
 
 Settings -> Webhooks -> add webhook
 
