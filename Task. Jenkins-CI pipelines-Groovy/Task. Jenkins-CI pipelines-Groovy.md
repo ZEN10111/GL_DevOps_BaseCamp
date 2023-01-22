@@ -117,7 +117,7 @@ For Jenkins add сredentials:
 ![зображення](https://user-images.githubusercontent.com/97990456/213930609-9b988c14-83ad-41fe-833c-be750f71b58b.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930644-bcf63757-e85e-4628-bd58-2f08078021a8.png)
 
-**After validating credentials, Jenkins displays branches:**
+**After validating the credentials, Jenkins displays the branches:**
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
 
