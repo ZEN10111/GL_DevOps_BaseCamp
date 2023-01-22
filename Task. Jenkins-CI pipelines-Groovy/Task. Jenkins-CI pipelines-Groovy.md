@@ -83,13 +83,20 @@ sudo systemctl restart jenkins
 ```
 Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:
 contain two branches - main and dev
-1) main branche
-2) dev branche
+1) main branch
+2) dev branch
 ![зображення](https://user-images.githubusercontent.com/97990456/213929672-81e3cb8f-214e-4583-af67-e2e594003742.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930061-ddf1abb8-bc26-43ab-819a-e5f55ef9eb8c.png)
 
 In Jenkins add Credentials:
+- you must first  create a  token  for  jenkins on  github
+  (Settings-> Developer settings -> Personal access tokens (classic) -> New personal access token (classic)
+  ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
+ ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
+
+add token to Jenkins
 ![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
+
 
 Create Mutibranch pupline
 ![зображення](https://user-images.githubusercontent.com/97990456/213930581-79e11ca4-7e97-48da-9249-61781f30b71c.png)
@@ -99,6 +106,12 @@ Create Mutibranch pupline
 After validating credentials, jenkins displays branches
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
+
+ADD Multibranch Pipeline Webhook
+
+On jenkins
+
+
 
 
 
