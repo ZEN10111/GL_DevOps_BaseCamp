@@ -120,11 +120,11 @@ In Jenkins add Credentials:
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
 
-**Add a Webhook Multibranch Pipeline in Two Steps**
+**Add a Webhook Multibranch Pipeline in Two Steps:**
 
 (this options  need  for  automatic  run jobs after  push to github)
 
- - On jenkins
+ - On Jenkins
     - enter Trigger token
       ![зображення](https://user-images.githubusercontent.com/97990456/213931699-9dc15658-5be8-4c39-814a-402e2e4ea610.png)
 
