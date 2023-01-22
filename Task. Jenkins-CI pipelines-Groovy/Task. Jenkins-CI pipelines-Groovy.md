@@ -108,7 +108,7 @@ For Jenkins add сredentials:
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
  
 - add credettials to Jenkins
-  ![зображення](https://user-images.githubusercontent.com/97990456/213941528-971eff02-de39-43f7-af5c-7224e46f7357.png)
+ ![зображення](https://user-images.githubusercontent.com/97990456/213941528-971eff02-de39-43f7-af5c-7224e46f7357.png)
 
  
 **Create Mutibranch pupline:**
