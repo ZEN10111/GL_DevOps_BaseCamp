@@ -328,7 +328,7 @@ For use Telegram bot need:
     ![зображення](https://user-images.githubusercontent.com/97990456/213934340-ce6e53b6-d7f7-4772-89da-a3390e192d33.png)
 
 - Jenkinsfile has several variables:
- - $result - result of serch condition for  test
+ - $result - result of search for test stage condition
  - ${BRANCH_NAME} - name  of brunch on telegram bot message
 
 
