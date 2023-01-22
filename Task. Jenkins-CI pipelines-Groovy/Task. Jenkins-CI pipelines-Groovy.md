@@ -294,7 +294,19 @@ In Jenkins add Credentials:
 ![зображення](https://user-images.githubusercontent.com/97990456/213933688-ac9005c5-c997-464d-88ae-f9d19e33c295.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213933715-6083fb4f-01ce-4d38-98d1-2a60f9841ae7.png)
 
-For use  telegrambot we need
+ - for Ubuntu 22.04 if receive an error "jenkins.plugins.publish_over.BapPublisherException: Failed to connect and initialize SSH connection Message [Auth fail]"
+   must be done on remote servers  :
+   - add two line in /etc/ssh/sshd_config
+   ```
+   PubkeyAuthentication yes
+   PubkeyAcceptedKeyTypes +ssh-rsa
+   ```
+   ```
+   sudo service sshd restart
+   
+   ```
+
+For use telegrambot  need:
 
  - geterate token  for Telegram bot on git hub
    - (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
