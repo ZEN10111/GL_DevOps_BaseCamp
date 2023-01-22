@@ -58,6 +58,8 @@ if [ -f "jenkins-cli.jar" ]; then
     declare  -a PluginList=(
         "blueocean"
         "Locale"
+        "Publish Over SSH"
+        "Multibranch Scan Webhook Trigger"
     )
 
     for plugin in ${PluginList[@]}; do
