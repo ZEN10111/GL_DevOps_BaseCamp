@@ -96,7 +96,7 @@ project repository contain two branches:
 
 **Steps:**
 
-In Jenkins add Credentials:
+For Jenkins add сredentials:
 
 - geterate token  for Jenkins on github
    - (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
