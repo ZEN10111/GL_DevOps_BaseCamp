@@ -1,8 +1,8 @@
 The  project include
 1) [Optional] Script for automated Jenkins setup (with user, plugins). Name install_jenkins.sh
 2) Multibranch pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile
-3)Jenkinsfile has several stages: build, tests, notification (telegram bot, etc.)
-4)[Optional] Use branch conditions, vars, etc
+3) Jenkinsfile has several stages: build, tests, notification (telegram bot, etc.)
+4) [Optional] Use branch conditions, vars, etc
 
 
 Script for automated Jenkins setup (with user, plugins).
