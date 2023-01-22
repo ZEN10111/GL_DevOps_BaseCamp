@@ -89,33 +89,36 @@ contain two branches - main and dev
 ![зображення](https://user-images.githubusercontent.com/97990456/213930061-ddf1abb8-bc26-43ab-819a-e5f55ef9eb8c.png)
 
 In Jenkins add Credentials:
-- you must first  create a  token  for  jenkins on  github
-  (Settings-> Developer settings -> Personal access tokens (classic) -> New personal access token (classic)
-  ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
+- you must first  create a  token  for  Jenkins on  github
+  (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
+  
+ ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
 
-add token with github username to Jenkins
+ - add token with github username to Jenkins
+ - 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
 
 
 Create Mutibranch pupline
+
 ![зображення](https://user-images.githubusercontent.com/97990456/213930581-79e11ca4-7e97-48da-9249-61781f30b71c.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930609-9b988c14-83ad-41fe-833c-be750f71b58b.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930644-bcf63757-e85e-4628-bd58-2f08078021a8.png)
 
-After validating credentials, jenkins displays branches
+After validating credentials, jenkins displays branches:
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
 
-ADD Multibranch Pipeline Webhook on two steps
+Add a Webhook Multibranch Pipeline in Two Steps
 
-On jenkins
+ - On jenkins
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213931699-9dc15658-5be8-4c39-814a-402e2e4ea610.png)
 
-enter Trigger token
+ enter Trigger token
 
-On Github
+ - On Github
 
 Settings -> Webhooks -> add webhook
 
