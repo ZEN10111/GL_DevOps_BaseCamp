@@ -7,7 +7,7 @@ The  project include
 4) [Optional] Used branch conditions, vars
 
 
-**Script for automatic configuration of Jenkins (with user, plugins):**
+**1) Script for automatic configuration of Jenkins (with user, plugins):**
 
 install_jenkins.sh
 
@@ -85,7 +85,7 @@ fi
 sudo systemctl restart jenkins
 ```
 
-**Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:**
+**2) Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:**
 
 project repository contain two branches:
 1) main branch
@@ -135,7 +135,7 @@ In Jenkins add Credentials:
    ![зображення](https://user-images.githubusercontent.com/97990456/213931955-22367c35-507d-442e-aa54-f7452d8d31a1.png)
 
   
-  **Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)**
+**3) Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)**
   
   
  ```
@@ -309,7 +309,7 @@ For use  telegrambot we need
   ![зображення](https://user-images.githubusercontent.com/97990456/213937785-aac81e39-bfca-441e-91b3-4b5a392daa0c.png)
 
 
-**[Optional] Used branch conditions, vars**
+**4) [Optional] Used branch conditions, vars**
 
  - Jenkinsfile has  Stages:
    - for only main branch
