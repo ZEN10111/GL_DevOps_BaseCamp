@@ -102,7 +102,7 @@ In Jenkins add Credentials:
   
  ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
  
-  generated token
+   `generated token`
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
  
 - add token with github username to Jenkins
