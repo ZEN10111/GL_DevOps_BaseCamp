@@ -97,17 +97,14 @@ project repository contain two branches:
 
 In Jenkins add Credentials:
 
-- first need create a  token  for  Jenkins on  github
-  (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
-  
- ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
- 
-   `generated token`
- ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
- 
-- add token with github username to Jenkins
+- first need generate ssh key
+   - ssh-keygen
+- add public key to  github 
+  -  Settings -> SSH adn GPG Keys -> new ssh key
+  ![зображення](https://user-images.githubusercontent.com/97990456/213937167-c4e0159d-7ed9-42d4-b5fe-b0269544716b.png)
+- add credentials on Jenkins
 
-![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
+ ![зображення](https://user-images.githubusercontent.com/97990456/213937549-160a48b2-c928-4d77-a000-a956354f41d7.png)
 
 
 **Create Mutibranch pupline**
@@ -285,6 +282,7 @@ In Jenkins add Credentials:
  - Deploy  - Deliver site  files  to  servers via ssh
  - Notification (Telegram bot) - how  to use - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md
  
+ 
  For  Deliver site  files  to  servers via ssh need :
  - add credentials (private key)
 ![зображення](https://user-images.githubusercontent.com/97990456/213933669-8e2208d3-4994-418a-b654-a67892a00708.png)
@@ -294,6 +292,20 @@ In Jenkins add Credentials:
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213933688-ac9005c5-c997-464d-88ae-f9d19e33c295.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213933715-6083fb4f-01ce-4d38-98d1-2a60f9841ae7.png)
+
+For use  telegrambot we need
+
+ - geterate token  for Telegram bot on git hub
+   - (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
+  
+ ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
+ 
+   `generated token`
+ ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
+ 
+ - setup on Jenkins configuration:
+ 
+  ![зображення](https://user-images.githubusercontent.com/97990456/213937785-aac81e39-bfca-441e-91b3-4b5a392daa0c.png)
 
 
 **[Optional] Used branch conditions, vars**
