@@ -74,6 +74,7 @@ if [ -f "jenkins-cli.jar" ]; then
         "Locale"
         "Publish Over SSH"
         "Multibranch Scan Webhook Trigger"
+
     )
 
     for plugin in ${PluginList[@]}; do
@@ -83,6 +84,7 @@ if [ -f "jenkins-cli.jar" ]; then
 fi
 
 sudo systemctl restart jenkins
+
 ```
 
 **2) Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:**
