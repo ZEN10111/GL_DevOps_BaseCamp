@@ -102,7 +102,8 @@ In Jenkins add Credentials:
 - add public key to  github 
   -  Settings -> SSH adn GPG Keys -> new ssh key
   ![зображення](https://user-images.githubusercontent.com/97990456/213937167-c4e0159d-7ed9-42d4-b5fe-b0269544716b.png)
-- add credentials on Jenkins
+  
+- add credentials(user and private key) on Jenkins
 
  ![зображення](https://user-images.githubusercontent.com/97990456/213937549-160a48b2-c928-4d77-a000-a956354f41d7.png)
 
