@@ -96,13 +96,14 @@ sudo systemctl restart jenkins
 **Steps:**
 
 In Jenkins add Credentials:
-- you must first  create a  token  for  Jenkins on  github
+
+-  first need create a  token  for  Jenkins on  github
   (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
   
  ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
 
- - Add token with github username to Jenkins
+ - add token with github username to Jenkins
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
 
@@ -117,7 +118,8 @@ After validating credentials, jenkins displays branches:
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
 
-**Add a Webhook Multibranch Pipeline in Two Steps **
+**Add a Webhook Multibranch Pipeline in Two Steps**
+(this options  need  for  automatic  run jobs after  push to github)
 
  - On jenkins
     - enter Trigger token
