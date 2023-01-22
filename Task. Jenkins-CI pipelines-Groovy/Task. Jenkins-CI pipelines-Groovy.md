@@ -96,7 +96,7 @@ In Jenkins add Credentials:
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
 
  - add token with github username to Jenkins
- - 
+
 ![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
 
 
@@ -113,12 +113,12 @@ After validating credentials, jenkins displays branches:
 Add a Webhook Multibranch Pipeline in Two Steps
 
  - On jenkins
- - On Github
-
+   enter Trigger token
 ![зображення](https://user-images.githubusercontent.com/97990456/213931699-9dc15658-5be8-4c39-814a-402e2e4ea610.png)
 
- enter Trigger token
 
+
+ - On Github
 Settings -> Webhooks -> add webhook
 
 enter <Jenkins url>/multibranch-webhook-trigger/invoke?token=<token>
