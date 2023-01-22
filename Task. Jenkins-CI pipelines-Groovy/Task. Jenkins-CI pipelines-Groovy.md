@@ -5,7 +5,7 @@ The  project include
 4) [Optional] Use branch conditions, vars, etc
 
 
-Script for automated Jenkins setup (with user, plugins).
+Script for automatic configuration of Jenkins (with user, plugins).
 install_jenkins.sh
 
 ```
