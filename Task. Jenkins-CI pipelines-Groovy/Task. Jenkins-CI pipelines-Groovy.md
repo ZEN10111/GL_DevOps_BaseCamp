@@ -7,7 +7,7 @@ The  project include:
 4) [Optional] Used branch conditions, vars
 
 
-**1) Script for automatic configuration of Jenkins (with user, plugins):**
+**1)Bash script for automatic configuration of Jenkins (with user, plugins):**
 
 install_jenkins.sh
 
