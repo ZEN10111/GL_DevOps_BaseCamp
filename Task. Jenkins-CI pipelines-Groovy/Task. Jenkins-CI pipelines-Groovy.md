@@ -1,3 +1,5 @@
+**Project "My Site"**
+
 The  project include
 1) [Optional] Script for automated Jenkins setup (with user, plugins). Name install_jenkins.sh
 2) Multibranch pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile
@@ -6,6 +8,7 @@ The  project include
 
 
 **Script for automatic configuration of Jenkins (with user, plugins):**
+
 install_jenkins.sh
 
 ```
@@ -84,7 +87,7 @@ sudo systemctl restart jenkins
 
 **Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:**
 
- contain two branches - main and dev
+ contain two branches - main and dev:
 1) main branch
 2) dev branch
 ![зображення](https://user-images.githubusercontent.com/97990456/213929672-81e3cb8f-214e-4583-af67-e2e594003742.png)
