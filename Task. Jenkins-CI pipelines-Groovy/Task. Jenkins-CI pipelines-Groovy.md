@@ -83,9 +83,11 @@ sudo systemctl restart jenkins
 ```
 Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:
 contain two branches - main and dev
-1) main
-2) dev
+1) main branche
+2) dev branche
 ![зображення](https://user-images.githubusercontent.com/97990456/213929672-81e3cb8f-214e-4583-af67-e2e594003742.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930061-ddf1abb8-bc26-43ab-819a-e5f55ef9eb8c.png)
 
+In Jenkins add Credentials:
+![зображення](https://user-images.githubusercontent.com/97990456/213930322-d3f768ac-3592-4009-aa42-1a50096d0222.png)
 
