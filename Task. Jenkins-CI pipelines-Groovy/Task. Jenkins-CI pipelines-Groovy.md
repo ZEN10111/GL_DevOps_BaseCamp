@@ -116,6 +116,7 @@ Add a Webhook Multibranch Pipeline in Two Steps
 
  - On jenkins
     - enter Trigger token
+    - 
       ![зображення](https://user-images.githubusercontent.com/97990456/213931699-9dc15658-5be8-4c39-814a-402e2e4ea610.png)
 
 
@@ -124,13 +125,7 @@ Add a Webhook Multibranch Pipeline in Two Steps
    - Go Settings -> Webhooks -> add webhook
    - enter <Jenkins url>/multibranch-webhook-trigger/invoke?token=<token>
 
-![зображення](https://user-images.githubusercontent.com/97990456/213931955-22367c35-507d-442e-aa54-f7452d8d31a1.png)
+   ![зображення](https://user-images.githubusercontent.com/97990456/213931955-22367c35-507d-442e-aa54-f7452d8d31a1.png)
 
   
-
-
-
-
-
-
 
