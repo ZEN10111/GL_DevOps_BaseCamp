@@ -99,7 +99,8 @@ project repository contain two branches:
 For Jenkins add сredentials:
 
 - geterate token  for Jenkins on github
-   - (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
+
+  (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
   
  ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
  
