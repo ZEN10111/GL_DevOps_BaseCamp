@@ -81,7 +81,7 @@ fi
 
 sudo systemctl restart jenkins
 ```
-Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:
+**Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:**
 contain two branches - main and dev
 1) main branch
 2) dev branch
