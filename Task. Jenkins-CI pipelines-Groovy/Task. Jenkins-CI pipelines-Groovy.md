@@ -98,13 +98,17 @@ project repository contain two branches:
 
 In Jenkins add Credentials:
 
-- geterate token  for Telegram bot on git hub
+- geterate token  for Jenkins on github
    - (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
   
  ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
  
    `generated token`
  ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
+ 
+- add credettials to Jenkins
+  ![зображення](https://user-images.githubusercontent.com/97990456/213941528-971eff02-de39-43f7-af5c-7224e46f7357.png)
+
  
 **Create Mutibranch pupline**
 
