@@ -338,7 +338,7 @@ For use Telegram bot need:
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213934867-1e1f42a8-ab5a-4d80-bf4d-a25d406262e4.png)
 
- - Jenkisn  server with our project
+ - Jenkisn  server with  project
  
  ![зображення](https://user-images.githubusercontent.com/97990456/213934981-06502b96-1f08-434b-8919-5dcf704b5e2f.png)
  
