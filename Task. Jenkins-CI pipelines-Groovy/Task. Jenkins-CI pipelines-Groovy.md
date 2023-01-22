@@ -309,9 +309,9 @@ For Jenkins add сredentials:
    
    ```
 
-For use telegrambot  need:
+For use Telegram bot need:
 
- - geterate token  for Telegram bot on git hub on same  way as  for Jenkins
+ - generate token for Telegram bot on git hub on same way as for Jenkin
  - setup on Jenkins configuration:
   ![зображення](https://user-images.githubusercontent.com/97990456/213937785-aac81e39-bfca-441e-91b3-4b5a392daa0c.png)
 
