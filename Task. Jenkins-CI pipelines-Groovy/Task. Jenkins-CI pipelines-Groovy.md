@@ -1,6 +1,6 @@
 **Project "My Site"**
 
-The  project include
+The  project include:
 1) [Optional] Script for automated Jenkins setup (with user, plugins). Name install_jenkins.sh
 2) Multibranch pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile
 3) Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)
@@ -110,13 +110,13 @@ In Jenkins add Credentials:
   ![зображення](https://user-images.githubusercontent.com/97990456/213941528-971eff02-de39-43f7-af5c-7224e46f7357.png)
 
  
-**Create Mutibranch pupline**
+**Create Mutibranch pupline:**
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930581-79e11ca4-7e97-48da-9249-61781f30b71c.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930609-9b988c14-83ad-41fe-833c-be750f71b58b.png)
 ![зображення](https://user-images.githubusercontent.com/97990456/213930644-bcf63757-e85e-4628-bd58-2f08078021a8.png)
 
-**After validating credentials, jenkins displays branches:**
+**After validating credentials, Jenkins displays branches:**
 
 ![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
 
