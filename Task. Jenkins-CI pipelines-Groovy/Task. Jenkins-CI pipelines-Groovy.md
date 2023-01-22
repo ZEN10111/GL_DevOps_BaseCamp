@@ -98,15 +98,17 @@ project repository contain two branches:
 
 In Jenkins add Credentials:
 
-- first need generate ssh key
-   - ssh-keygen
-- add public key to  github 
-  -  Settings -> SSH adn GPG Keys -> new ssh key
-  ![зображення](https://user-images.githubusercontent.com/97990456/213937167-c4e0159d-7ed9-42d4-b5fe-b0269544716b.png)
+- geterate token  for Telegram bot on git hub
+   - (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
   
-- add credentials(user and private key) on Jenkins
-
- ![зображення](https://user-images.githubusercontent.com/97990456/213937549-160a48b2-c928-4d77-a000-a956354f41d7.png)
+ ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
+ 
+   `generated token`
+ ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
+ 
+ - setup on Jenkins configuration:
+ 
+  ![зображення](https://user-images.githubusercontent.com/97990456/213937785-aac81e39-bfca-441e-91b3-4b5a392daa0c.png)
 
 
 **Create Mutibranch pupline**
@@ -309,18 +311,7 @@ In Jenkins add Credentials:
 
 For use telegrambot  need:
 
- - geterate token  for Telegram bot on git hub
-   - (Settings-> Developer settings -> Personal access tokens (classic) -> Generate new token ->  Generate new token(Classic) 
-  
- ![зображення](https://user-images.githubusercontent.com/97990456/213931180-2b674ce7-a81b-4c3c-b7a8-1ddb0e6dfa4a.png)
- 
-   `generated token`
- ![зображення](https://user-images.githubusercontent.com/97990456/213931568-f2977fbd-7001-4964-a96e-1c869f36840e.png)
- 
- - setup on Jenkins configuration:
- 
-  ![зображення](https://user-images.githubusercontent.com/97990456/213937785-aac81e39-bfca-441e-91b3-4b5a392daa0c.png)
-
+ - geterate token  for Telegram bot on git hub on same  way as  for Jenkins
 
 **4) [Optional] Used branch conditions, vars**
 
