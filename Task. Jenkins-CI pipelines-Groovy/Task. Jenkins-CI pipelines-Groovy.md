@@ -119,7 +119,8 @@ For Jenkins add сredentials:
 
 **After validating the credentials, Jenkins displays the branches:**
 
-![зображення](https://user-images.githubusercontent.com/97990456/213930729-9bd11e7e-1e2d-42f3-af80-b7001b654123.png)
+![зображення](https://user-images.githubusercontent.com/97990456/213942433-e135a828-ea44-4c95-8747-ad6a7076b9c3.png)
+
 
 **Add a Webhook Multibranch Pipeline in Two Steps:**
 
