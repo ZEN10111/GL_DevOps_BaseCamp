@@ -275,7 +275,7 @@ For Jenkins add сredentials:
         }   
         stage('4-Notification') {
             steps {
-                telegramSend "Branch - ${BRANCH_NAME}. Deploy is finished"
+                telegramSend "Branch - ${BRANCH_NAME}. Deploy finished. Build number-${BUILD_NUMBER}"
             }
         }
 
@@ -353,6 +353,6 @@ For use Telegram bot need:
 
 **Telegram notifications:**
 
-![зображення](https://user-images.githubusercontent.com/97990456/213935257-c0487021-f992-40c4-9fa8-871f677d3d2a.png)
+![image](https://user-images.githubusercontent.com/97990456/214017058-9cd620aa-0394-4b16-8cd6-517946e35f2d.png)
 
 
