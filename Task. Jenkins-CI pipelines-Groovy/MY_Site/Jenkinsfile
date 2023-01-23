@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+      
     stages {
         stage('1-Build-Dev') {
             when {
@@ -129,7 +129,7 @@ pipeline {
         }   
         stage('4-Notification') {
             steps {
-                telegramSend "Branch - ${BRANCH_NAME}. Deploy is finished"
+                telegramSend "Branch - ${BRANCH_NAME}. Deploy finished. Build number-${BUILD_NUMBER}"
             }
         }
 
