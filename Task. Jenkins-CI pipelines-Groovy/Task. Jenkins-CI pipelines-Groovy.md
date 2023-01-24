@@ -185,12 +185,6 @@ For Jenkins add сredentials:
             }
             steps {
             sh '''
-            echo "------------------pre test Starter-------------------------"
-            ls -la
-            cat Site/index.html
-            echo "------------------pre test Finished------------------------" 
-              '''
-            sh '''
             echo "------------------Test Starter-------------------------"
             result=`grep "Bukovel" Site/index.html | wc -l`
             echo $result 
@@ -247,12 +241,6 @@ For Jenkins add сredentials:
                 }
             }
             steps {
-            sh '''
-            echo "------------------pre test Starter-------------------------"
-            ls -la
-            cat Site/index.html
-            echo "------------------pre test Finished------------------------" 
-              '''
             sh '''
             echo "------------------Test Starter-------------------------"
             result=`grep "Bukovel" Site/index.html | wc -l`
