@@ -90,7 +90,7 @@ sudo systemctl restart jenkins
 **2) Multibranch  pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile:**
 
 
-Private project repository My_Site contain two branches:
+Private project repository **My_Site** contain two branches:
 1) main branch
 ![зображення](https://user-images.githubusercontent.com/97990456/213935813-18e6e682-2eae-4a66-a559-591f00a3a1f7.png)
 2) dev branch
