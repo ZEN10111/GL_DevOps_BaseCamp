@@ -1,6 +1,25 @@
 pipeline {
+    environment{
+        Log ="console"
+        Chng= "changes"
+        Message_OK = """
+        *Project/Branch - ${JOB_NAME}*
+        \n*Deploy Finished: SUCCESS*
+        \nBuild number - ${BUILD_NUMBER}
+        \nLog - ${BUILD_URL}${Log}
+        \nGit Commit details - ${BUILD_URL}${Chng}
+        """
+        Message_NOT_OK = """
+        *Project/Branch - ${JOB_NAME}*
+        \n*Deploy Finished: FAILURE*
+        \nBuild number - ${BUILD_NUMBER}
+        \nLog - ${BUILD_URL}${Log}
+        \nGit Commit details - ${BUILD_URL}${Chng}
+        """
+    
+    }
     agent any
-      
+    
     stages {
         stage('1-Build-Dev') {
             when {
@@ -127,11 +146,13 @@ pipeline {
                 )
            }
         }   
-        stage('4-Notification') {
-            steps {
-                telegramSend "Branch - ${BRANCH_NAME}. Deploy finished. Build number-${BUILD_NUMBER}"
-            }
-        }
-
     }
+    post {
+        success {
+            telegramSend "$env.Message_OK"
+                }
+        failure {
+            telegramSend "$env.Message_NOT_OK"
+                }
+        }
 }
