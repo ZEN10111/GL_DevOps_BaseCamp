@@ -357,8 +357,8 @@ For use Telegram bot need:
   - ${JOB_NAME} - Project/Branch Name
   - ${BUILD_NUMBER} - Build number
   - ${BUILD_URL} - Build url
-  - $Log - add console to ${BUILD_URL}
-  - $Chng - add changes to ${BUILD_URL}
+  - $Log - add "console" to BUILD_URL
+  - $Chng - add "changes" to BUILD_URL
  
 
 **Infrastructure:**
