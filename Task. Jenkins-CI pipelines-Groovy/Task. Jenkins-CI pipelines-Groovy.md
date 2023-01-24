@@ -340,7 +340,7 @@ For use Telegram bot need:
 - Jenkinsfile has several variables:
   - $result - result of search for test`s stage conditionn
   - $Message_OK - message  for Telegram Bot when BUILD SUCCESS
-  - $Message_NOT_OK - message  for Telegram Bot when BUILDFAILURE 
+  - $Message_NOT_OK - message  for Telegram Bot when BUILD FAILURE 
   - ${BRANCH_NAME} - name of branch 
   - ${JOB_NAME} - Project/Branch Name
   - ${BUILD_NUMBER} - Build number
