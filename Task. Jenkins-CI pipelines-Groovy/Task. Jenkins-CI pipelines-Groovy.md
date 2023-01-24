@@ -140,7 +140,7 @@ For Jenkins add сredentials:
 
   
   
-**3) Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)**
+**3) Jenkinsfile has several stages and post section (Telegram bot notification): Build, Test, Deploy, post**
   
   
 ```
