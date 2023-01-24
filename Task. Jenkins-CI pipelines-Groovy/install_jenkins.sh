@@ -60,6 +60,7 @@ if [ -f "jenkins-cli.jar" ]; then
         "Locale"
         "Publish-Over-SSH"
         "Multibranch-Scan-Webhook-Trigger"
+        "Telegram-Notifications"
     )
 
     for plugin in ${PluginList[@]}; do
