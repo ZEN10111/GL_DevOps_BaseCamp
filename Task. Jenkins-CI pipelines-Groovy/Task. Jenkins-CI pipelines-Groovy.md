@@ -366,14 +366,14 @@ For use Telegram bot need:
  - Prod server 
 
  ![зображення](https://user-images.githubusercontent.com/97990456/213935188-cb99f2e2-b783-45ef-bc5e-8e60981946df.png)
-
+ 
 
 **Telegram notifications:**
 
-![зображення](https://user-images.githubusercontent.com/97990456/214297955-660951dd-6926-425c-9794-cc15af690353.png)
+ - ![зображення](https://user-images.githubusercontent.com/97990456/214297955-660951dd-6926-425c-9794-cc15af690353.png)
 
 
-![зображення](https://user-images.githubusercontent.com/97990456/214297995-57879c56-2a52-497e-a47b-2ca0077a1133.png)
+ - ![зображення](https://user-images.githubusercontent.com/97990456/214297995-57879c56-2a52-497e-a47b-2ca0077a1133.png)
 
 
 
