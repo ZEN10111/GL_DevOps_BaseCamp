@@ -350,15 +350,15 @@ For use Telegram bot need:
     ![зображення](https://user-images.githubusercontent.com/97990456/214297722-4e7232cb-0c39-4147-a97a-964a520d8fa8.png)
 
 - Jenkinsfile has several variables:
- - $result - result of search for test`s stage conditionn
- - $Message_OK - message  for Telegram Bot when BUILD SUCCESS
- - $Message_NOT_OK - message  for Telegram Bot when BUILDFAILURE 
- - ${BRANCH_NAME} - name of branch 
- - ${JOB_NAME} - Project/Branch Name
- - ${BUILD_NUMBER} - Build number
- - ${BUILD_URL} - Build url
- - $Log - add console to ${BUILD_URL}
- - $Chng - add changes to ${BUILD_URL}
+  - $result - result of search for test`s stage conditionn
+  - $Message_OK - message  for Telegram Bot when BUILD SUCCESS
+  - $Message_NOT_OK - message  for Telegram Bot when BUILDFAILURE 
+  - ${BRANCH_NAME} - name of branch 
+  - ${JOB_NAME} - Project/Branch Name
+  - ${BUILD_NUMBER} - Build number
+  - ${BUILD_URL} - Build url
+  - $Log - add console to ${BUILD_URL}
+  - $Chng - add changes to ${BUILD_URL}
  
 
 **Infrastructure:**
