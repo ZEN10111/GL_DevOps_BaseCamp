@@ -3,7 +3,7 @@
 The  project include:
 1) [Optional] Script for automated Jenkins setup (with user, plugins). Name install_jenkins.sh
 2) Multibranch pipeline connect  with the Gitlab/Github project repository with the Jenkinsfile
-3) Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)
+3) Jenkinsfile has several stages and post section (Telegram bot notification): Build, Test, Deploy, post
 4) [Optional] Used branch conditions, vars
 
 
@@ -143,8 +143,27 @@ For Jenkins add сredentials:
 **3) Jenkinsfile has several stages: Build, Test, Deploy, Notification (Telegram bot)**
   
   
- ```
+```
  pipeline {
+    environment{
+        Log ="console"
+        Chng= "changes"
+        Message_OK = """
+        *Project/Branch - ${JOB_NAME}*
+        \n*Deploy Finished: SUCCESS*
+        \nBuild number - ${BUILD_NUMBER}
+        \nLog - ${BUILD_URL}${Log}
+        \nGit Commit details - ${BUILD_URL}${Chng}
+        """
+        Message_NOT_OK = """
+        *Project/Branch - ${JOB_NAME}*
+        \n*Deploy Finished: FAILURE*
+        \nBuild number - ${BUILD_NUMBER}
+        \nLog - ${BUILD_URL}${Log}
+        \nGit Commit details - ${BUILD_URL}${Chng}
+        """
+    
+    }
     agent any
     
     stages {
@@ -273,20 +292,23 @@ For Jenkins add сredentials:
                 )
            }
         }   
-        stage('4-Notification') {
-            steps {
-                telegramSend "Branch - ${BRANCH_NAME}. Deploy finished. Build number-${BUILD_NUMBER}"
-            }
-        }
-
     }
+    post {
+        success {
+            telegramSend "$env.Message_OK"
+                }
+        failure {
+            telegramSend "$env.Message_NOT_OK"
+                }
+        }
 }
+
 ```
 
  - Stage "Build" - use github  to get Site files
  - Stage "Test"-  serach word Bukovel on index.html and  pass win fins 1  or more сoincidence 
  - Stage "Deploy"  - Deliver site  files  to  servers via ssh
- - Stage "Notification" (Telegram bot) - how  to use - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md
+ - post section (Telegram bot notification) - how  to use Telegram bot - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md
  
  
  For  Deliver site  files  to  servers via ssh need :
@@ -323,14 +345,21 @@ For use Telegram bot need:
 
  - Jenkinsfile has  Stages:
    - for only main branch
-    ![зображення](https://user-images.githubusercontent.com/97990456/213934326-cee6a311-da2f-4670-b918-459b8fbe362f.png)
+    ![зображення](https://user-images.githubusercontent.com/97990456/214297447-87ccf422-5129-43e6-b5ab-68073b505d98.png)
    -  only for dev branch
-    ![зображення](https://user-images.githubusercontent.com/97990456/213934340-ce6e53b6-d7f7-4772-89da-a3390e192d33.png)
+    ![зображення](https://user-images.githubusercontent.com/97990456/214297722-4e7232cb-0c39-4147-a97a-964a520d8fa8.png)
 
 - Jenkinsfile has several variables:
  - $result - result of search for test`s stage conditionn
- - ${BRANCH_NAME} - name  of brunch on telegram bot message
-
+ - $Message_OK - message  for Telegram Bot when BUILD SUCCESS
+ - $Message_NOT_OK - message  for Telegram Bot when BUILDFAILURE 
+ - ${BRANCH_NAME} - name of branch 
+ - ${JOB_NAME} - Project/Branch Name
+ - ${BUILD_NUMBER} - Build number
+ - ${BUILD_URL} - Build url
+ - $Log - add console to ${BUILD_URL}
+ - $Chng - add changes to ${BUILD_URL}
+ 
 
 **Infrastructure:**
 
@@ -353,6 +382,7 @@ For use Telegram bot need:
 
 **Telegram notifications:**
 
-![image](https://user-images.githubusercontent.com/97990456/214017058-9cd620aa-0394-4b16-8cd6-517946e35f2d.png)
+![зображення](https://user-images.githubusercontent.com/97990456/214297955-660951dd-6926-425c-9794-cc15af690353.png)![зображення](https://user-images.githubusercontent.com/97990456/214297995-57879c56-2a52-497e-a47b-2ca0077a1133.png)
+
 
 
