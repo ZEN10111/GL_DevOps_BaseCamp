@@ -115,8 +115,8 @@ For Jenkins add сredentials:
  
 **Create Mutibranch pupline:**
 
-![зображення](https://user-images.githubusercontent.com/97990456/213930581-79e11ca4-7e97-48da-9249-61781f30b71c.png)
-![зображення](https://user-images.githubusercontent.com/97990456/213930609-9b988c14-83ad-41fe-833c-be750f71b58b.png)
+![зображення](https://user-images.githubusercontent.com/97990456/214290087-81ab9584-b985-490b-aca1-d00f8e63f57d.png)
+
 ![зображення](https://user-images.githubusercontent.com/97990456/213930644-bcf63757-e85e-4628-bd58-2f08078021a8.png)
 
 **After validating the credentials, Jenkins displays the branches:**
