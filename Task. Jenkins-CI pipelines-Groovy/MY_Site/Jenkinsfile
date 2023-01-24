@@ -39,12 +39,6 @@ pipeline {
             }
             steps {
             sh '''
-            echo "------------------pre test Starter-------------------------"
-            ls -la
-            cat Site/index.html
-            echo "------------------pre test Finished------------------------" 
-              '''
-            sh '''
             echo "------------------Test Starter-------------------------"
             result=`grep "Bukovel" Site/index.html | wc -l`
             echo $result 
@@ -101,12 +95,6 @@ pipeline {
                 }
             }
             steps {
-            sh '''
-            echo "------------------pre test Starter-------------------------"
-            ls -la
-            cat Site/index.html
-            echo "------------------pre test Finished------------------------" 
-              '''
             sh '''
             echo "------------------Test Starter-------------------------"
             result=`grep "Bukovel" Site/index.html | wc -l`
