@@ -370,7 +370,7 @@ For use Telegram bot need:
 
 **Telegram notifications:**
 
-file:///home/zen/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B8/Telegram.png![зображення](https://user-images.githubusercontent.com/97990456/214316915-d6c6b559-e5e3-47ec-9bff-bf5f027ed901.png)
+![зображення](https://user-images.githubusercontent.com/97990456/214316915-d6c6b559-e5e3-47ec-9bff-bf5f027ed901.png)
 
 
 
