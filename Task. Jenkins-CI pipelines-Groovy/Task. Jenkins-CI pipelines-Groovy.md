@@ -369,10 +369,9 @@ For use Telegram bot need:
  
 
 **Telegram notifications:**
- 
-  ![зображення](https://user-images.githubusercontent.com/97990456/214297955-660951dd-6926-425c-9794-cc15af690353.png)
-  
-  ![зображення](https://user-images.githubusercontent.com/97990456/214297995-57879c56-2a52-497e-a47b-2ca0077a1133.png)
+
+![зображення](https://user-images.githubusercontent.com/97990456/214316083-e9f991ac-db95-4b36-8052-8d8bb6358835.png)
+
 
 
 
