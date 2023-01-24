@@ -304,11 +304,11 @@ For Jenkins add сredentials:
 }
 
 ```
-
- - Stage "Build" - use github  to get Site files
- - Stage "Test"-  serach word Bukovel on index.html and  pass win fins 1  or more сoincidence 
- - Stage "Deploy"  - Deliver site  files  to  servers via ssh
- - post section (Telegram bot notification) - how  to use Telegram bot - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md
+- Stages description:
+  - Stage "Build" - gets Site files from  github
+  - Stage "Test"-  search word Bukovel in index.html and pass when finds 1 or more сoincidences
+  - Stage "Deploy"  - Deliver site  files  to  servers via ssh
+  - post section - Telegram bot notification (how  to use Telegram bot - https://github.com/jenkinsci/telegram-notifications-plugin/blob/master/README.md)
  
  
  For  Deliver site  files  to  servers via ssh need :
