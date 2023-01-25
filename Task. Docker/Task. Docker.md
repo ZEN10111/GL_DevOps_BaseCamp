@@ -14,20 +14,23 @@ sudo apt-get install -y \
     gnupg \
     lsb-release
 
-echo \
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+cho \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
+
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
-# Test docker
-sudo docker run hello-world
-
-# Post install : add permision  for  curent user  to run  docker  commands
+#  add permision for curent user to run docker commands(need re-log in a to apply the new rights)
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
+docker run hello-world
+
 ```
 
  - chmod +x install_dosker.sh
