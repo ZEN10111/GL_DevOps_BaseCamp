@@ -1,6 +1,6 @@
 **Task 1**
 
-Install docker:
+**Install docker:**
 
  - nano  install_dosker.sh
 
@@ -49,5 +49,51 @@ echo -e "\nFor curent user $USER need re-login to run docker commands without su
  
   ![зображення](https://user-images.githubusercontent.com/97990456/214573566-e0404e6e-3c4a-49e9-b528-f6af0d34e812.png)
 
+**Prepare a dockerfile based on Apache or Nginx image and 
+Added your own index.html page with your name and surname to the docker image**
+
+ - Get own  site files from github:
+
+   - git clone https://github.com/ZEN10111/site.git
+
+   ![зображення](https://user-images.githubusercontent.com/97990456/214716128-efdc2d10-6bcc-4b59-a6d1-cfcdc017464c.png)
 
 
+ - enter into site directory and watch files :
+     ```
+     cd site
+     ls -la
+    ```   
+   ![зображення](https://user-images.githubusercontent.com/97990456/214716975-4fb3e1f9-5916-4b24-9a66-2f36fd1b2449.png)
+ 
+ - make .dockerignore file ( to ignore the  files that  not  need in image:
+   ```echo '.git' > .dockerignore```
+ 
+ - make Dockerfile:
+   ```nano Dockerfile```
+
+```
+FROM nginx
+RUN rm -rf /usr/share/nginx/html/index.html
+ADD . /usr/share/nginx/html/
+RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
+
+```
+ - build image
+  ``` docker build -f Dockerfile -t my_site_nginx . ```
+  
+ ![зображення](https://user-images.githubusercontent.com/97990456/214718722-4cbeecdd-64a5-444e-ba9e-9bf027017682.png)
+ 
+ **Run the docker container at port 8080**
+ 
+ ```docker run -p 8080:80 -d --name my_prod_sit my_site_nginx ```
+ 
+ ![зображення](https://user-images.githubusercontent.com/97990456/214719304-156906eb-ad0d-42aa-95f7-d7d974ec0a46.png)
+
+**Open page in Web Browser**
+
+![зображення](https://user-images.githubusercontent.com/97990456/214719950-5ad68c6a-e29c-4e36-8242-9c6530d13a27.png)
+
+ 
+
+  
