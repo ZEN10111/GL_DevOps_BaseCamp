@@ -60,17 +60,16 @@ Added your own index.html page with your name and surname to the docker image**
 
 
  - enter into site directory and watch files :
-     ```
-     cd site
-     ls -la
-    ```   
+   - cd site
+   - ls -la
+  
    ![зображення](https://user-images.githubusercontent.com/97990456/214716975-4fb3e1f9-5916-4b24-9a66-2f36fd1b2449.png)
  
  - make .dockerignore file ( to ignore the  files that  not  need in image:
-   ```echo '.git' > .dockerignore```
+   - echo '.git' > .dockerignore
  
  - make Dockerfile:
-   ```nano Dockerfile```
+   - nano Dockerfile
 
 ```
 FROM nginx
@@ -80,13 +79,13 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
 
 ```
  - build image
-  ``` docker build -f Dockerfile -t my_site_nginx . ```
+   - docker build -f Dockerfile -t my_site_nginx .
   
  ![зображення](https://user-images.githubusercontent.com/97990456/214718722-4cbeecdd-64a5-444e-ba9e-9bf027017682.png)
  
  **Run the docker container at port 8080**
  
- ```docker run -p 8080:80 -d --name my_prod_sit my_site_nginx ```
+   - docker run -p 8080:80 -d --name my_prod_sit my_site_nginx
  
  ![зображення](https://user-images.githubusercontent.com/97990456/214719304-156906eb-ad0d-42aa-95f7-d7d974ec0a46.png)
 
