@@ -4,6 +4,7 @@
 
  - nano  install_dosker.sh
 
+install_dosker.sh: 
 ```
 #!/bin/bash
 
