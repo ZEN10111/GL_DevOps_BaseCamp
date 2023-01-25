@@ -42,12 +42,12 @@ echo -e "\nFor curent user $USER need re-login to run docker commands without su
 
  - result :
  
- ![зображення](https://user-images.githubusercontent.com/97990456/214573119-d4447ac1-5cfc-43f6-928d-246aff1c94ec.png)
- ![зображення](https://user-images.githubusercontent.com/97990456/214573244-115eeb5a-5e32-437f-af19-39651538371f.png)
+  ![зображення](https://user-images.githubusercontent.com/97990456/214573119-d4447ac1-5cfc-43f6-928d-246aff1c94ec.png)
+  ![зображення](https://user-images.githubusercontent.com/97990456/214573244-115eeb5a-5e32-437f-af19-39651538371f.png)
   
  - after re-login curent user:
  
- ![зображення](https://user-images.githubusercontent.com/97990456/214573566-e0404e6e-3c4a-49e9-b528-f6af0d34e812.png)
+  ![зображення](https://user-images.githubusercontent.com/97990456/214573566-e0404e6e-3c4a-49e9-b528-f6af0d34e812.png)
 
 
 
