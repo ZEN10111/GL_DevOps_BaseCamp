@@ -51,9 +51,9 @@ echo -e "\nFor curent user $USER need re-login to run docker commands without su
   ![зображення](https://user-images.githubusercontent.com/97990456/214573566-e0404e6e-3c4a-49e9-b528-f6af0d34e812.png)
 
 **Prepare a dockerfile based on Apache or Nginx image and 
-Added your own index.html page with your name and surname to the docker image**
+Added your own index.html page with my name and surname to the docker image**
 
- - Get own  site files from github:
+ - Get own  site files from github(site contains my name) :
 
    - git clone https://github.com/ZEN10111/site.git
 
