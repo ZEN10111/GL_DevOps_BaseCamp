@@ -61,11 +61,10 @@ Added your own index.html page with my name and surname to the docker image**
 
 
   enter into site directory and watch files :
-  
-    ``` 
+   
     cd site
     ls -la 
-    ```
+
   
    ![зображення](https://user-images.githubusercontent.com/97990456/214716975-4fb3e1f9-5916-4b24-9a66-2f36fd1b2449.png)
  
