@@ -117,6 +117,7 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
  **2. Prepare one dockerfile based on ubuntu with the ping command**
  
  - make Dockerfile:
+ 
    ``` nano Dockerfile ```
 
 ```
