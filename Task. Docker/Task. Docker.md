@@ -204,6 +204,6 @@ example: google.com )**
  
       - but if we  try to ping external address  -  ping not  pass  because in this  container we  have only private network
        
-      ![зображення](https://user-images.githubusercontent.com/97990456/214764637-722a9b07-bb55-465a-9f19-147e7510e16b.png)
+      ![зображення](https://user-images.githubusercontent.com/97990456/214768806-d67ab10c-7efe-474e-9697-4adc5372ac73.png)
 
  
