@@ -1,6 +1,6 @@
 **Task 1**
 
-**Install docker:**
+**1. Install docker:**
 
  - nano  install_dosker.sh
 
@@ -50,7 +50,7 @@ echo -e "\nFor curent user $USER need re-login to run docker commands without su
  
   ![зображення](https://user-images.githubusercontent.com/97990456/214573566-e0404e6e-3c4a-49e9-b528-f6af0d34e812.png)
 
-**Prepare a dockerfile based on Apache or Nginx image and 
+**2-3. Prepare a dockerfile based on Apache or Nginx image and 
 Added your own index.html page with my name and surname to the docker image**
 
  - Get own  site files from github(site contains my name) :
@@ -84,21 +84,21 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
   
  ![зображення](https://user-images.githubusercontent.com/97990456/214718722-4cbeecdd-64a5-444e-ba9e-9bf027017682.png)
  
- **Run the docker container at port 8080**
+ **4. Run the docker container at port 8080**
  
    - docker run -p 8080:80 -d --name my_prod_site my_site_nginx
  
  ![зображення](https://user-images.githubusercontent.com/97990456/214721242-68823077-13c3-4fff-ba50-3e7a24125683.png)
 
 
-**Open page in Web Browser**
+**5. Open page in Web Browser**
 
 ![зображення](https://user-images.githubusercontent.com/97990456/214719950-5ad68c6a-e29c-4e36-8242-9c6530d13a27.png)
 
  
 **Task 2**
   
-  **Prepare private and public network**
+  **1. Prepare private and public network**
   
    - docker network create --internal private-network (Default driver "bridge")
    
@@ -108,7 +108,7 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
    
    ![зображення](https://user-images.githubusercontent.com/97990456/214739580-bc28a51c-c645-4086-b897-668cc01860f9.png)
  
- **Prepare one dockerfile based on ubuntu with the ping command**
+ **2. Prepare one dockerfile based on ubuntu with the ping command**
  
  - make Dockerfile:
    - nano Dockerfile
@@ -123,7 +123,7 @@ CMD ping ${HOST}
  
  ![зображення](https://user-images.githubusercontent.com/97990456/214753683-eda85854-604f-49be-bd67-7e04affe15cb.png)
  
-**One container must have access to the private and public networks 
+**3. One container must have access to the private and public networks 
   the second container must be in the private network**
   
  - docker run -d --network public-network -e 'HOST=www.globallogic.com' --name public-container ping_host
@@ -152,5 +152,28 @@ CMD ping ${HOST}
  
  ![зображення](https://user-images.githubusercontent.com/97990456/214758902-408a5e00-0ff6-439d-8e54-64efb1657964.png)
 
+ **4. A ) Run a container that has access to the public network and ping some resources (
+example: google.com )**
+ in  our  containter we  will ping  www.globallogic.com :)
+ 
+ we  can do in  in two ways:
+ 
+  - attach to  container :
+  
+    - docker attach public-container 
+   
+    ![зображення](https://user-images.githubusercontent.com/97990456/214760120-8720f09d-7156-46ff-a0c8-fca260fb0125.png)
+    
+    - to de-attach in another host shell  do: 
+      ps -ef | grep attach  
+      kill kill -9 <PID>
+ 
+  -  or  run  commad 
+ 
+    - docker exec -it public-container ping www.globallogic.com
+ 
+    ![зображення](https://user-images.githubusercontent.com/97990456/214760914-32c2766f-7693-4eea-924d-90c24f03f8e9.png)
+
+    - For interrupt  press ctrl+C
 
 
