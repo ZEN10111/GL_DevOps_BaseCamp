@@ -188,22 +188,22 @@ example: google.com )**
  
  **4. B ) The second container ping the first container via a private network**
  
-    - we also can do it in two ways:
+   - we also can do it in two ways:
  
-      - attach to  container :
+     - attach to  container :
  
-        ``` docker attach private-container ```
+       ``` docker attach private-container ```
  
      ![зображення](https://user-images.githubusercontent.com/97990456/214763940-19b86203-691d-4ae4-9c9d-0b6de5904e4c.png)
     
-      - run ping commad : 
+     - run ping commad : 
  
-        ``` docker exec -it private-container ping 172.19.0.2 ```
+       ``` docker exec -it private-container ping 172.19.0.2 ```
  
-      ![зображення](https://user-images.githubusercontent.com/97990456/214764341-841017c4-49a3-4f89-801f-02ec71c33c25.png)
+     ![зображення](https://user-images.githubusercontent.com/97990456/214764341-841017c4-49a3-4f89-801f-02ec71c33c25.png)
  
-       - but if we  try to ping external address  -  ping not  pass  because in this  container we  have only private network
+      - but if we  try to ping external address  -  ping not  pass  because in this  container we  have only private network
        
-       ![зображення](https://user-images.githubusercontent.com/97990456/214764637-722a9b07-bb55-465a-9f19-147e7510e16b.png)
+      ![зображення](https://user-images.githubusercontent.com/97990456/214764637-722a9b07-bb55-465a-9f19-147e7510e16b.png)
 
  
