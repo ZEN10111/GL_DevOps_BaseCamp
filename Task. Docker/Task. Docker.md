@@ -66,7 +66,7 @@ Added your own index.html page with my name and surname to the docker image**
   
    ![зображення](https://user-images.githubusercontent.com/97990456/214716975-4fb3e1f9-5916-4b24-9a66-2f36fd1b2449.png)
  
- - make .dockerignore file ( to ignore the  files that  not  need in image:
+ - make .dockerignore file ( to ignore files that are not needed in the image):
    - echo '.git' > .dockerignore
  
  - make Dockerfile:
