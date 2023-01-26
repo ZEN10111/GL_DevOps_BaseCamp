@@ -36,9 +36,9 @@ echo -e "\nFor curent user $USER need re-login to run docker commands without su
 
 ```
 
- - chmod +x install_dosker.sh
+ ``` chmod +x install_dosker.sh ```
  
- - ./install_dosker.sh
+ ``` ./install_dosker.sh ```
 
 
  - result :
@@ -55,23 +55,27 @@ Added your own index.html page with my name and surname to the docker image**
 
  - Get own  site files from github(site contains my name) :
 
-   ``` git clone https://github.com/ZEN10111/site.git ````
+   ``` git clone https://github.com/ZEN10111/site.git ```
 
    ![зображення](https://user-images.githubusercontent.com/97990456/214716128-efdc2d10-6bcc-4b59-a6d1-cfcdc017464c.png)
 
 
   enter into site directory and watch files :
+  
       ``` 
       cd site
+      
       ls -la 
       ```
   
    ![зображення](https://user-images.githubusercontent.com/97990456/214716975-4fb3e1f9-5916-4b24-9a66-2f36fd1b2449.png)
  
  - make .dockerignore file ( to ignore files that are not needed in the image):
+  
    ``` echo '.git' > .dockerignore ```
  
  - make Dockerfile:
+ 
    ```nano Dockerfile```
 
 ```
@@ -82,6 +86,7 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
 
 ```
  - build image
+ 
    ``` docker build -f Dockerfile -t my_site_nginx . ```
   
  ![зображення](https://user-images.githubusercontent.com/97990456/214718722-4cbeecdd-64a5-444e-ba9e-9bf027017682.png)
