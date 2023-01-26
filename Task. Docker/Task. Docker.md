@@ -86,9 +86,10 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
  
  **Run the docker container at port 8080**
  
-   - docker run -p 8080:80 -d --name my_prod_sit my_site_nginx
+   - docker run -p 8080:80 -d --name my_prod_site my_site_nginx
  
- ![зображення](https://user-images.githubusercontent.com/97990456/214719304-156906eb-ad0d-42aa-95f7-d7d974ec0a46.png)
+ ![зображення](https://user-images.githubusercontent.com/97990456/214721242-68823077-13c3-4fff-ba50-3e7a24125683.png)
+
 
 **Open page in Web Browser**
 
