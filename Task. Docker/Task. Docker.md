@@ -155,26 +155,48 @@ CMD ping ${HOST}
  **4. A ) Run a container that has access to the public network and ping some resources (
 example: google.com )**
 
- in  our  containter we  will ping  www.globallogic.com :)
+  in our container we will ping www.globallogic.com :)
  
- we  can do in  in two ways:
+  we  can do it in two ways:
  
-  - attach to  container :
+   - attach to  container :
   
-    - docker attach public-container 
+     - docker attach public-container 
    
-    ![зображення](https://user-images.githubusercontent.com/97990456/214760120-8720f09d-7156-46ff-a0c8-fca260fb0125.png)
+     ![зображення](https://user-images.githubusercontent.com/97990456/214760120-8720f09d-7156-46ff-a0c8-fca260fb0125.png)
     
-    - to de-attach in another host shell  do
-      - ps -ef | grep attach  
-      - kill -9 <PID>
+     - to de-attach in another host shell  do
+       - ps -ef | grep attach  
+       - kill -9 <PID>
  
- - or run ping commad  
+  - or run ping commad  
  
-   - docker exec -it public-container ping www.globallogic.com
+    - docker exec -it public-container ping www.globallogic.com
  
     ![зображення](https://user-images.githubusercontent.com/97990456/214760914-32c2766f-7693-4eea-924d-90c24f03f8e9.png)
 
-   - For interrupt  press ctrl+C
+    - For interrupt  press ctrl+C
+ 
+ **4. B ) The second container ping the first container via a private network**
+ 
+    - we also can do it in two ways:
+ 
+      - attach to  container :
+ 
+        - docker attach private-container
+ 
+     ![зображення](https://user-images.githubusercontent.com/97990456/214763940-19b86203-691d-4ae4-9c9d-0b6de5904e4c.png)
+    
+      - run ping commad
+        - docker exec -it private-container ping 172.19.0.2
+ 
+      ![зображення](https://user-images.githubusercontent.com/97990456/214764341-841017c4-49a3-4f89-801f-02ec71c33c25.png)
+ 
+       - but if we  try to ping external address  ping not  pass  because in this  container  only private network
+       
+       ![зображення](https://user-images.githubusercontent.com/97990456/214764637-722a9b07-bb55-465a-9f19-147e7510e16b.png)
 
+ 
+      
 
+ 
