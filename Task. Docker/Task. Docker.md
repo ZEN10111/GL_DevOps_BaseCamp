@@ -165,11 +165,11 @@ example: google.com )**
    
      ![зображення](https://user-images.githubusercontent.com/97990456/214760120-8720f09d-7156-46ff-a0c8-fca260fb0125.png)
     
-     - to de-attach in another host shell  do
+     - to detach in another host shell  do:
        - ps -ef | grep attach  
        - kill -9 <PID>
  
-  - or run ping commad  
+  - or run ping commad:  
  
     - docker exec -it public-container ping www.globallogic.com
  
@@ -187,12 +187,13 @@ example: google.com )**
  
      ![зображення](https://user-images.githubusercontent.com/97990456/214763940-19b86203-691d-4ae4-9c9d-0b6de5904e4c.png)
     
-      - run ping commad
+      - run ping commad : 
+ 
         - docker exec -it private-container ping 172.19.0.2
  
       ![зображення](https://user-images.githubusercontent.com/97990456/214764341-841017c4-49a3-4f89-801f-02ec71c33c25.png)
  
-       - but if we  try to ping external address  ping not  pass  because in this  container  only private network
+       - but if we  try to ping external address  -  ping not  pass  because in this  container we  have only private network
        
        ![зображення](https://user-images.githubusercontent.com/97990456/214764637-722a9b07-bb55-465a-9f19-147e7510e16b.png)
 
