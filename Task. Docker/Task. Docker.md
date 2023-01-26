@@ -188,7 +188,7 @@ example: google.com )**
  
  **4. B ) The second container ping the first container via a private network**
  
-   - we also can do it in two ways:
+   - we can also do it in the same two ways:
  
      - attach to  container :
  
@@ -196,7 +196,7 @@ example: google.com )**
  
      ![зображення](https://user-images.githubusercontent.com/97990456/214763940-19b86203-691d-4ae4-9c9d-0b6de5904e4c.png)
     
-     - run ping commad : 
+     - or run ping commad : 
  
        ``` docker exec -it private-container ping 172.19.0.2 ```
  
