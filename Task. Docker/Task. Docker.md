@@ -106,7 +106,7 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
   
   **1. Prepare private and public network**
   
-   ``` docker network create --internal private-network (Default driver "bridge") ```
+   ``` docker network create --internal private-network ``` (Default driver "bridge")
    
    ![зображення](https://user-images.githubusercontent.com/97990456/214736601-72e2a8d9-cac8-4320-ba48-1d2d18b7a9b8.png)
 
