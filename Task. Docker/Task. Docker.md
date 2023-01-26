@@ -173,7 +173,7 @@ example: google.com )**
    
      ![зображення](https://user-images.githubusercontent.com/97990456/214760120-8720f09d-7156-46ff-a0c8-fca260fb0125.png)
     
-     - to detach in another shell on  this  host do:
+     - to detach  - in another shell on  this  host do:
      
          ``` 
          ps -ef | grep attach  
