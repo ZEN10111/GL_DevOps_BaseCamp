@@ -60,7 +60,7 @@ Added your own index.html page with my name and surname to the docker image**
    ![зображення](https://user-images.githubusercontent.com/97990456/214716128-efdc2d10-6bcc-4b59-a6d1-cfcdc017464c.png)
 
 
-  enter into site directory and watch files :
+  - enter into site directory and watch files :
    
     cd site
     ls -la 
@@ -203,8 +203,5 @@ example: google.com )**
        - but if we  try to ping external address  -  ping not  pass  because in this  container we  have only private network
        
        ![зображення](https://user-images.githubusercontent.com/97990456/214764637-722a9b07-bb55-465a-9f19-147e7510e16b.png)
-
- 
-      
 
  
