@@ -108,4 +108,42 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
    ![зображення](https://user-images.githubusercontent.com/97990456/214739580-bc28a51c-c645-4086-b897-668cc01860f9.png)
  
  **Prepare one dockerfile based on ubuntu with the ping command**
+ - make Dockerfile:
+   - nano Dockerfile
+
+```
+FROM ubuntu
+RUN apt-get update && apt-get install -y iputils-ping
+ENV HOST = 127.0.0.1
+CMD ping ${HOST}
+```
+ - docker build -f Dockerfile -t ping_host .
+ ![зображення](https://user-images.githubusercontent.com/97990456/214753683-eda85854-604f-49be-bd67-7e04affe15cb.png)
+ 
+**One container must have access to the private and public networks 
+  the second container must be in the private network**
+  
+ - docker run -d --network public-network -e 'HOST=www.globallogic.com' --name public-container ping_host
+ 
+ ![зображення](https://user-images.githubusercontent.com/97990456/214757236-017e3ff4-5d98-47e1-9412-710014be0e7a.png)
+ 
+   - docker network connect private-network public-container
+ 
+   - docker inspect public-network
+   
+   ![зображення](https://user-images.githubusercontent.com/97990456/214757660-c8e3de39-963b-4815-8248-4e697fc28557.png)
+   
+   - docker inspect private-network
+   
+   ![зображення](https://user-images.githubusercontent.com/97990456/214757881-a200817b-81a8-4be6-9e09-ed51c0ff784a.png)
+   
+ - docker run -d --network private-network -e 'HOST=172.19.0.2' --name private-container ping_host
+ ![зображення](https://user-images.githubusercontent.com/97990456/214758239-55ee2b06-c8f8-4603-bba1-04e919d006c2.png)
+ 
+ - docker inspect public-network (contains only one container)
+ ![зображення](https://user-images.githubusercontent.com/97990456/214758663-a105d3e2-e50f-49c7-9a8d-bfa5fda8fe0f.png)
+ - docker inspect private-network (contains two container)
+ ![зображення](https://user-images.githubusercontent.com/97990456/214758902-408a5e00-0ff6-439d-8e54-64efb1657964.png)
+
+
 
