@@ -103,4 +103,7 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
    
    ![зображення](https://user-images.githubusercontent.com/97990456/214736601-72e2a8d9-cac8-4320-ba48-1d2d18b7a9b8.png)
 
+   - docker network create public-network (Default driver "bridge")
+   
+   ![зображення](https://user-images.githubusercontent.com/97990456/214738803-1cf2e50f-89cf-4356-843b-f3516ce11198.png)
 
