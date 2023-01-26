@@ -154,6 +154,7 @@ CMD ping ${HOST}
 
  **4. A ) Run a container that has access to the public network and ping some resources (
 example: google.com )**
+
  in  our  containter we  will ping  www.globallogic.com :)
  
  we  can do in  in two ways:
@@ -164,12 +165,11 @@ example: google.com )**
    
     ![зображення](https://user-images.githubusercontent.com/97990456/214760120-8720f09d-7156-46ff-a0c8-fca260fb0125.png)
     
-    - to de-attach in another host shell  do: 
-      ps -ef | grep attach  
-      kill kill -9 <PID>
+    - to de-attach in another host shell  do
+     - ps -ef | grep attach  
+     - kill -9 <PID>
  
   -  or  run  commad 
- 
     - docker exec -it public-container ping www.globallogic.com
  
     ![зображення](https://user-images.githubusercontent.com/97990456/214760914-32c2766f-7693-4eea-924d-90c24f03f8e9.png)
