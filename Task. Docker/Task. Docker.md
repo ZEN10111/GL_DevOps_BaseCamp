@@ -105,5 +105,7 @@ RUN sed -i "s/%%hostname%%/$(hostname)/" /usr/share/nginx/html/index.html
 
    - docker network create public-network (Default driver "bridge")
    
-   ![зображення](https://user-images.githubusercontent.com/97990456/214738803-1cf2e50f-89cf-4356-843b-f3516ce11198.png)
+   ![зображення](https://user-images.githubusercontent.com/97990456/214739580-bc28a51c-c645-4086-b897-668cc01860f9.png)
+ 
+ **Prepare one dockerfile based on ubuntu with the ping command**
 
