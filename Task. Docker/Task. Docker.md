@@ -2,7 +2,7 @@
 
 **1. Install docker:**
 
- - nano  install_dosker.sh
+ ``` nano  install_dosker.sh```
 
 install_dosker.sh: 
 ```
