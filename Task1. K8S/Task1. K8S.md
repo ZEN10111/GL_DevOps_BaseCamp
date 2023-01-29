@@ -1,12 +1,9 @@
 **Setup Kubernetes Cluster**
 
 1 Prepare kubemaster and kubenode VMs with the same parametrs:
--	4 CPU
--	8 GB RAM
--	Ubuntu (only for this task)
+ (4 CPU. 8 GB RAM, Ubuntu (only for this task)_
 
-
- - kubemaster
+- kubemaster
  
   - ![изображение](https://user-images.githubusercontent.com/97990456/215341643-40d38bcb-223a-4351-804c-6affcfb9dce0.png)
     
