@@ -20,3 +20,6 @@
 ![изображение](https://user-images.githubusercontent.com/97990456/215343410-3dc041da-1d8d-4d2e-aed4-2e2c3af93886.png)
 
 
+SSH to VM-s
+
+![изображение](https://user-images.githubusercontent.com/97990456/215343988-4dc8a47c-7cd2-474d-8ea9-dd74f265eff9.png)
