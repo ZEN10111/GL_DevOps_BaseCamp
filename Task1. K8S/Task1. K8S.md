@@ -284,7 +284,7 @@ Wait when all pods will be ready:
 
 **Advanced**
 
-Add  label to  worker  node
+Add  ROLES label to  worker  node
 
 ```kubectl label node kubenode node-role.kubernetes.io/worker=worker```
 
