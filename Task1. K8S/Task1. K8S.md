@@ -282,4 +282,14 @@ Wait when all pods will be ready:
 
 **Successfully deployed Kubernetes**
 
+**Advanced**
+
+Add  label to  worker  node
+
+```kubectl label node kubenode node-role.kubernetes.io/worker=worker```
+
+![изображение](https://user-images.githubusercontent.com/97990456/215352888-6c04177d-0459-4ed9-997c-a95f045faabc.png)
+
+
+
 
