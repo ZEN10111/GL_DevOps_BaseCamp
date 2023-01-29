@@ -247,7 +247,7 @@ kubeadm join 10.156.0.27:6443 --token 2nq14z.2jbuwvi1eo2nt6wb \
 ![изображение](https://user-images.githubusercontent.com/97990456/215350327-a31e7dee-2241-4d11-a05d-89a14321f9c9.png)
 
 
-**Comeback to kubemaster : **
+**Comeback to kubemaster :**
 
 Install network:
 
