@@ -288,6 +288,8 @@ Add  ROLES label to  worker  node
 
 ```kubectl label node kubenode node-role.kubernetes.io/worker=worker```
 
+```kubectl get nodes -o wide```
+
 ![изображение](https://user-images.githubusercontent.com/97990456/215352888-6c04177d-0459-4ed9-997c-a95f045faabc.png)
 
 
