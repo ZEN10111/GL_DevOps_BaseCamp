@@ -290,6 +290,9 @@ Add  ROLES label to  worker  node
 
 ![зображення](https://user-images.githubusercontent.com/97990456/215755362-29aaa4e9-c322-4967-9bda-15456635111e.png)
 
+![зображення](https://user-images.githubusercontent.com/97990456/215755685-2ca56af6-2b9c-4d9c-a0f8-6689324e247a.png)
+
+
 ```kubectl get nodes -o wide```
 
 ![изображение](https://user-images.githubusercontent.com/97990456/215352888-6c04177d-0459-4ed9-997c-a95f045faabc.png)
