@@ -15,3 +15,5 @@
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216450528-da4fa978-ee90-4326-bec0-65b290c2456a.png)
 
+**3) Prepare deployment.yaml file which will create a Deployment with 3 pods of Nginx or Apache 
+     and service for access to these pods via ClusterIP and NodePort.**
