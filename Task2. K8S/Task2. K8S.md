@@ -13,5 +13,5 @@
 
 ```kubectl create namespace devops```
 
-![изображение](https://user-images.githubusercontent.com/97990456/216450384-6f9b9b9b-6c7c-4cf4-961e-5aabfb5997ca.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216450528-da4fa978-ee90-4326-bec0-65b290c2456a.png)
 
