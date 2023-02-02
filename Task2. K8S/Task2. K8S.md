@@ -1,4 +1,5 @@
 **Home Task k8s part 1**
+
 1) Get information about your worker node and save it in some file
 
 ```kubectl describe nodes kubenode > worker_node_des.txt```
