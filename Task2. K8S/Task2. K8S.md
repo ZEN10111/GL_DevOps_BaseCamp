@@ -20,6 +20,8 @@
  
  Deployment-service.yml
  
+ (ClusterIP created by default so we  describe only NodePort)
+ 
  ```
  apiVersion: apps/v1
 kind: Deployment
@@ -60,3 +62,9 @@ spec:
  ```
  
  [Deployment-service_link](Deployment-service.yml)
+
+```
+kubectl apply -f ./Deployment-service.yml
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216794171-c4bb069b-bdd5-442c-b23c-8e7df1801677.png)
