@@ -64,7 +64,8 @@ spec:
  [Deployment-service_link](Deployment-service.yml)
 
 ```
-kubectl apply -f ./Deployment-service.yml
+kubectl apply -f ./Deployment-service.yml -n devops
 ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/216794171-c4bb069b-bdd5-442c-b23c-8e7df1801677.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216794295-a328bd8a-40ce-47a3-a29d-de75ab8abf52.png)
+
