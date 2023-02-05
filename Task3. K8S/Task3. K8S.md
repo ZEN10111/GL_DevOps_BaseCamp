@@ -30,4 +30,31 @@
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216848705-73543da2-c2f3-4759-b81d-5ba5ae60ab9f.png)
 
+**6. Copy and edit inventory file**
+
+```
+cp -rfp inventory/sample inventory/mycluster
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216849266-e698e74e-5bd9-4c89-ae91-42e35b95d6e6.png)
+
+```
+[all]
+node1 ansible_host=34.140.160.128
+[kube_control_plane]
+node1
+
+[etcd]
+node1
+
+[kube_node]
+node1
+
+[calico_rr]
+
+[k8s_cluster:children]
+kube_control_plane
+kube_node
+calico_rr
+```
 
