@@ -230,7 +230,7 @@ spec:
   [CronJob_NGINX_port_status_link](files/CronJob_NGINX_port_status.yml)
  
  ```
- apiVersion: batch/v1
+apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: nginx-port-status
@@ -247,7 +247,7 @@ spec:
             command: 
             - /bin/sh
             - -c
-            - echo 'ClusterIP status:'; nmap -p 80 10.101.152.62 --script=http-headers; echo '--------------------------------------------------'; echo 'NodePort status:'; nmap -p 30010 10.156.0.28 --script=http-headers 
+            - echo 'ClusterIP status:'; nmap -p 80 10.101.152.62 --script=http-headers; echo '--------------------------------------------------'; echo 'NodePort status:'; nmap -sV -p 30010 10.156.0.28 --script=http-headers 
           restartPolicy: OnFailure
       backoffLimit: 4
  ```
