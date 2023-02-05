@@ -20,45 +20,49 @@
  
  Deployment-service.yml
  
- (ClusterIP created by default so we  describe only NodePort)
+ (ClusterIP created by default so need  describe only NodePort)
  
  ```
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: nginx-server
   labels:
     app: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx-server
+      app.kubernetes.io/name: nginx-server
   template:
     metadata:
       labels:
-        app: nginx-server
+        app.kubernetes.io/name: nginx-server
     spec:
       containers:
       - name: nginx
-        image: nginx
+        image: nginx:stable
         ports:
         - containerPort: 80
+          name: http-web-svc
+
 
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-server-service
+  name: nginx-service
 spec:
   type: NodePort
   selector:
     app.kubernetes.io/name: nginx-server
   ports:
-    - port: 80
-      targetPort: 80
-      nodePort: 30010
+  - name: nginx-service-port
+    protocol: TCP
+    port: 80
+    targetPort: http-web-svc
+    nodePort: 30010
  ```
  
  [Deployment-service_link](Deployment-service.yml)
@@ -67,24 +71,35 @@ spec:
 kubectl apply -f ./Deployment-service.yml -n devops
 ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/216794295-a328bd8a-40ce-47a3-a29d-de75ab8abf52.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216797001-49b6f39e-ecb0-4750-9002-2390af6dc1c6.png)
 
 
 **a) Show the status of deployment, pods and services. Describe all resources which you will create and logs from pods**
 
 ```
-kubectl get service  -n devops
+kubectl get deployment -n devops
 ```
-
-![изображение](https://user-images.githubusercontent.com/97990456/216794599-a58b4e2c-cd94-49ee-8473-b5a23c1b339c.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216797061-ee5f1129-8b15-4d34-8ab2-1eb0dd922dd7.png)
 
 ```
 kubectl get pods  -n devops
 ```
-![изображение](https://user-images.githubusercontent.com/97990456/216794671-0891e445-6c01-4d8c-a64d-cb4d135980ef.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216797080-7b80d3a1-8f3f-45dc-b612-f2ce275a64b4.png)
 
 ```
 kubectl get services  -n devops
 ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/216794723-e9c5e4fe-92d6-4330-83f8-35daf10c7777.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216797103-183056f1-d467-4a42-b2e7-e7db40ecef29.png)
+
+
+```
+kubectl get replicaset  -n devops
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216797126-1e88e45f-20fb-4436-9682-bbe4ac39b1c4.png)
+
+**Decription:**
+
+I have created a deployment that contains 3 nginx pods and a service that allows access to these nodes via ClusterIP (10.101.152.62) and nodePort( 10.156.0.28:30010 - from the worker node) and replicaset is automatically created
+
