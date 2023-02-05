@@ -223,7 +223,7 @@ spec:
  
  **5) Prepare Cronjob.yaml file which will test the connection to Nginx or Apache service every 3 minutes.**
  
- I will  test ClusterIP and  NodePort availability of the service
+ I will test ClusterIP and  NodePort availability of the service and headers
  
  CronJob_NGINX_port_status.yml
  
@@ -247,7 +247,7 @@ spec:
             command: 
             - /bin/sh
             - -c
-            - echo 'ClusterIP status:'; nmap -p 80 10.101.152.62; echo '---------------------------------------'; echo 'NodePort status:'; nmap -p 30010 10.156.0.28  
+            - echo 'ClusterIP status:'; nmap -p 80 10.101.152.62 --script=http-headers; echo '--------------------------------------------------'; echo 'NodePort status:'; nmap -p 30010 10.156.0.28 --script=http-headers 
           restartPolicy: OnFailure
       backoffLimit: 4
  ```
