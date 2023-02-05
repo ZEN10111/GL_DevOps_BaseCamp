@@ -19,3 +19,16 @@ ssh 34.140.160.128
 '''
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216845428-d816dd53-0f5a-4b3e-88ff-fbf7362f6063.png)
+
+**5. Clone Kubespray release  repository**
+
+'''
+git clone https://github.com/kubernetes-sigs/kubespray.git
+cd kubespray
+git checkout release-2.20
+
+'''
+
+![изображение](https://user-images.githubusercontent.com/97990456/216848705-73543da2-c2f3-4759-b81d-5ba5ae60ab9f.png)
+
+
