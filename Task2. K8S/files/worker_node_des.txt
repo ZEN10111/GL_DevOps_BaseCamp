@@ -1,0 +1,79 @@
+Name:               kubenode
+Roles:              worker
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=kubenode
+                    kubernetes.io/os=linux
+                    kubernetes.io/role=worker
+                    node-role.kubernetes.io/worker=worker
+Annotations:        csi.volume.kubernetes.io/nodeid: {"csi.tigera.io":"kubenode"}
+                    kubeadm.alpha.kubernetes.io/cri-socket: unix:///var/run/containerd/containerd.sock
+                    node.alpha.kubernetes.io/ttl: 0
+                    projectcalico.org/IPv4Address: 10.156.0.28/32
+                    projectcalico.org/IPv4VXLANTunnelAddr: 192.168.188.192
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Sun, 29 Jan 2023 19:12:15 +0000
+Taints:             <none>
+Unschedulable:      false
+Lease:
+  HolderIdentity:  kubenode
+  AcquireTime:     <unset>
+  RenewTime:       Thu, 02 Feb 2023 20:45:41 +0000
+Conditions:
+  Type                 Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----                 ------  -----------------                 ------------------                ------                       -------
+  NetworkUnavailable   False   Sun, 29 Jan 2023 19:20:59 +0000   Sun, 29 Jan 2023 19:20:59 +0000   CalicoIsUp                   Calico is running on this node
+  MemoryPressure       False   Thu, 02 Feb 2023 20:44:16 +0000   Sun, 29 Jan 2023 19:12:15 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure         False   Thu, 02 Feb 2023 20:44:16 +0000   Sun, 29 Jan 2023 19:12:15 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure          False   Thu, 02 Feb 2023 20:44:16 +0000   Sun, 29 Jan 2023 19:12:15 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready                True    Thu, 02 Feb 2023 20:44:16 +0000   Sun, 29 Jan 2023 19:20:55 +0000   KubeletReady                 kubelet is posting ready status. AppArmor enabled
+Addresses:
+  InternalIP:  10.156.0.28
+  Hostname:    kubenode
+Capacity:
+  cpu:                4
+  ephemeral-storage:  25215872Ki
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             8136992Ki
+  pods:               110
+Allocatable:
+  cpu:                4
+  ephemeral-storage:  23238947597
+  hugepages-1Gi:      0
+  hugepages-2Mi:      0
+  memory:             8034592Ki
+  pods:               110
+System Info:
+  Machine ID:                 bfce9761b8b8ee89a81fb697bcec854e
+  System UUID:                bfce9761-b8b8-ee89-a81f-b697bcec854e
+  Boot ID:                    117f01c6-683c-481f-a022-6c58c900bd2d
+  Kernel Version:             5.15.0-1027-gcp
+  OS Image:                   Ubuntu 20.04.5 LTS
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  containerd://1.6.15
+  Kubelet Version:            v1.26.1
+  Kube-Proxy Version:         v1.26.1
+PodCIDR:                      192.168.1.0/24
+PodCIDRs:                     192.168.1.0/24
+Non-terminated Pods:          (6 in total)
+  Namespace                   Name                                 CPU Requests  CPU Limits  Memory Requests  Memory Limits  Age
+  ---------                   ----                                 ------------  ----------  ---------------  -------------  ---
+  calico-apiserver            calico-apiserver-59fb64954b-wt9tc    0 (0%)        0 (0%)      0 (0%)           0 (0%)         4d1h
+  calico-system               calico-node-c8hbv                    0 (0%)        0 (0%)      0 (0%)           0 (0%)         4d1h
+  calico-system               calico-typha-54c8f695bb-n5c2p        0 (0%)        0 (0%)      0 (0%)           0 (0%)         4d1h
+  calico-system               csi-node-driver-6xf5s                0 (0%)        0 (0%)      0 (0%)           0 (0%)         4d1h
+  kube-system                 kube-proxy-48tnb                     0 (0%)        0 (0%)      0 (0%)           0 (0%)         4d1h
+  tigera-operator             tigera-operator-54b47459dd-hpqt2     0 (0%)        0 (0%)      0 (0%)           0 (0%)         4d1h
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests  Limits
+  --------           --------  ------
+  cpu                0 (0%)    0 (0%)
+  memory             0 (0%)    0 (0%)
+  ephemeral-storage  0 (0%)    0 (0%)
+  hugepages-1Gi      0 (0%)    0 (0%)
+  hugepages-2Mi      0 (0%)    0 (0%)
+Events:              <none>
