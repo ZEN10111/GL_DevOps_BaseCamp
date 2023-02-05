@@ -82,8 +82,8 @@ calico_rr
  
 **8. Run execute container**
 
-```
-docker run --rm -it -v /home/zen/hometask13/:/mnt   -v /home/zen/.ssh:/pem   quay.io/kubespray/kubespray:v2.20.0 bash
-```
-![изображение](https://user-images.githubusercontent.com/97990456/216852444-894e8422-0560-4b74-b047-2ed3acfce07c.png)
-
+ ```
+ docker run --rm -it -v /home/zen/hometask13:/mnt   -v /home/zen/.ssh:/pem   quay.io/kubespray/kubespray:v2.20.0 bash
+ ```
+ 
+ ![изображение](https://user-images.githubusercontent.com/97990456/216852985-1911d512-b709-4750-a9c1-7cf78d95ea2d.png)
