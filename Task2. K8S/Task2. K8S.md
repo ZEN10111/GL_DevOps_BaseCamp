@@ -172,9 +172,9 @@ spec:
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216821903-62e053b0-a73a-4d39-abc9-de71c27559b3.png)
 
-```
-kubectl get pods -n devops
-```
+ ```
+ kubectl get pods -n devops
+ ```
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216821968-eb78e721-c01b-415b-b352-456ae4bb9ec7.png)
 
@@ -199,8 +199,8 @@ spec:
   backoffLimit: 4
  ```
 
- worker node 10.156.0.28 
- NodePort 30010 
+ - worker node 10.156.0.28 
+ - NodePort 30010 
  
  ```
  kubectl apply -f ./Job_curl_NodePort.yml -n devops
