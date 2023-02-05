@@ -125,9 +125,10 @@ kubectl logs nginx-server-868b759c67-vks87 -n devops
 ![изображение](https://user-images.githubusercontent.com/97990456/216797684-859a123f-3f9e-45c3-a14d-983088b0367a.png)
 
 
-**Prepare two job yaml files:
+**Prepare two job yaml files:**
+
  a) One gets content via curl from an internal port (ClusterIP)
- b)Second, get content via curl from an external port (NodePort)**
+ b) Second, get content via curl from an external port (NodePort)
  
  
  **a)  Job_curl_ClusterIP.yml**
@@ -157,10 +158,17 @@ spec:
  ```
  
  ![изображение](https://user-images.githubusercontent.com/97990456/216821814-2e36337b-3485-4176-b0ac-3837f76f4607.png)
+ 
+ ```
+ kubectl get jobs -n devops
+ ```
 
-```
-kubectl logs job.batch/curl-clusterip -n devops
-```
+![изображение](https://user-images.githubusercontent.com/97990456/216823691-8b2b40f1-2eb9-44c2-bfa5-57e7deb0533f.png)
+
+
+ ```
+ kubectl logs job.batch/curl-clusterip -n devops
+ ```
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216821903-62e053b0-a73a-4d39-abc9-de71c27559b3.png)
 
@@ -171,7 +179,34 @@ kubectl get pods -n devops
 ![изображение](https://user-images.githubusercontent.com/97990456/216821968-eb78e721-c01b-415b-b352-456ae4bb9ec7.png)
 
 
+ **b) Job_curl_NodePort.yml**
+ 
+ [Job_curl_NodePort_link](files/Job_curl_NodePort.yml)
 
+ worker node 10.156.0.28 
+ NodePort 30010 
+ 
+ ```
+ kubectl apply -f ./Job_curl_NodePort.yml -n devops
+ ``` 
+ 
+ ![изображение](https://user-images.githubusercontent.com/97990456/216823793-7abcce34-e6c7-45b4-b69a-1b33209ddef1.png)
 
+ ```
+ kubectl get jobs -n devops
+ ```
+ 
+ ![изображение](https://user-images.githubusercontent.com/97990456/216823895-f2364a66-bdb9-4c4d-bc68-7843ea40389f.png)
+ 
+ ```
+ kubectl logs job.batch/curl-nodeport -n devops
+ ```
+ 
+ ![изображение](https://user-images.githubusercontent.com/97990456/216824019-4f347938-f8cd-4db9-ab5c-3d180424c9f6.png)
 
+ 
+ 
+
+ 
+ 
  
