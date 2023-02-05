@@ -125,10 +125,10 @@ kubectl logs nginx-server-868b759c67-vks87 -n devops
 ![изображение](https://user-images.githubusercontent.com/97990456/216797684-859a123f-3f9e-45c3-a14d-983088b0367a.png)
 
 
-**Prepare two job yaml files:**
+**4) Prepare two job yaml files:**
 
- a) One gets content via curl from an internal port (ClusterIP)
- b) Second, get content via curl from an external port (NodePort)
+   a) One gets content via curl from an internal port (ClusterIP)
+   b) Second, get content via curl from an external port (NodePort)
  
  
  **a)  Job_curl_ClusterIP.yml**
