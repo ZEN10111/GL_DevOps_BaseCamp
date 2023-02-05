@@ -182,6 +182,22 @@ kubectl get pods -n devops
  **b) Job_curl_NodePort.yml**
  
  [Job_curl_NodePort_link](files/Job_curl_NodePort.yml)
+ 
+ ```
+ apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl-nodeport
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl
+        command: ['curl', '10.156.0.28:30010']
+      restartPolicy: OnFailure
+  backoffLimit: 4
+ ```
 
  worker node 10.156.0.28 
  NodePort 30010 
@@ -207,5 +223,64 @@ kubectl get pods -n devops
  
  **5) Prepare Cronjob.yaml file which will test the connection to Nginx or Apache service every 3 minutes.**
  
+ I will  test ClusterIP and  NodePort availability of the service
  
+ CronJob_NGINX_port_status.yml
  
+  [CronJob_NGINX_port_status_link](files/CronJob_NGINX_port_status.yml)
+ 
+ ```
+ apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: nginx-port-status
+spec:
+  schedule: "*/3 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: nmap
+            image: instrumentisto/nmap
+            imagePullPolicy: IfNotPresent
+            command: 
+            - /bin/sh
+            - -c
+            - echo 'ClusterIP status:'; nmap -p 80 10.101.152.62; echo '---------------------------------------'; echo 'NodePort status:'; nmap -p 30010 10.156.0.28  
+          restartPolicy: OnFailure
+      backoffLimit: 4
+ ```
+
+ ```
+  kubectl apply -f ./CronJob_NGINX_port_status.yml -n devops
+ ```
+ 
+ ![изображение](https://user-images.githubusercontent.com/97990456/216835608-33e727cf-6e0c-4a16-90b8-62bc24ad6075.png)
+ 
+ ```
+ kubectl get CronJob -n devops
+ ```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216835659-58b4122c-3e25-4555-83a3-c0c801f3428d.png)
+
+
+ ```
+ kubectl get jobs --watch -n devops
+ ```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216835837-689d512c-bd41-4932-a14b-f65fa2a869ff.png)
+
+
+ ```
+ kubectl get pods -n devops
+ ```
+
+ ![изображение](https://user-images.githubusercontent.com/97990456/216836033-a2ffda59-5a51-4f70-9481-9298f70f6867.png)
+
+ ```
+ kubectl logs nginx-port-status-27926982-p9r9r -n devops
+ ```
+
+ ![изображение](https://user-images.githubusercontent.com/97990456/216836144-a82b5989-37bc-4fe8-8a18-bdae1612a40d.png)
+
