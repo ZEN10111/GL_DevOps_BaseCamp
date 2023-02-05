@@ -125,3 +125,53 @@ kubectl logs nginx-server-868b759c67-vks87 -n devops
 ![изображение](https://user-images.githubusercontent.com/97990456/216797684-859a123f-3f9e-45c3-a14d-983088b0367a.png)
 
 
+**Prepare two job yaml files:
+ a) One gets content via curl from an internal port (ClusterIP)
+ b)Second, get content via curl from an external port (NodePort)**
+ 
+ 
+ **a)  Job_curl_ClusterIP.yml**
+ 
+ [Job_curl_ClusterIP_link](files/Job_curl_ClusterIP.yml)
+ 
+ClusterIP  10.101.152.62
+ 
+ ```
+ apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl-clusterip
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl
+        command: ['curl', '10.101.152.62']
+      restartPolicy: OnFailure
+  backoffLimit: 4
+ ```
+ 
+ ```
+ kubectl apply -f ./Job_curl_ClusterIP.yml -n devops
+ ```
+ 
+ ![изображение](https://user-images.githubusercontent.com/97990456/216821814-2e36337b-3485-4176-b0ac-3837f76f4607.png)
+
+```
+kubectl logs job.batch/curl-clusterip -n devops
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216821903-62e053b0-a73a-4d39-abc9-de71c27559b3.png)
+
+```
+kubectl get pods -n devops
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216821968-eb78e721-c01b-415b-b352-456ae4bb9ec7.png)
+
+
+
+
+
+ 
