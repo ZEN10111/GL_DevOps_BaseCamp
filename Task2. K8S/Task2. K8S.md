@@ -205,7 +205,7 @@ kubectl get pods -n devops
  ![изображение](https://user-images.githubusercontent.com/97990456/216824019-4f347938-f8cd-4db9-ab5c-3d180424c9f6.png)
 
  
- **5.  Prepare Cronjob.yaml file which will test the connection to Nginx or Apache service every 3 minutes.**
+ **5) Prepare Cronjob.yaml file which will test the connection to Nginx or Apache service every 3 minutes.**
  
  
  
