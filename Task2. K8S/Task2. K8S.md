@@ -109,7 +109,7 @@ I have created a deployment that contains 3 nginx pods and a service that allows
 kubectl logs nginx-server-868b759c67-bhvd5
 ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/216797574-d488e8fd-8d5f-4119-a30e-a1a0b5fa49c4.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216797719-20162fea-f02d-4a33-91c4-0ddc859b895c.png)
 
 
 ```
