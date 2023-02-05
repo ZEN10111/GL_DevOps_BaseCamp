@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-server
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nginx-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nginx-server
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+          name: http-web-svc
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: NodePort
+  selector:
+    app.kubernetes.io/name: nginx-server
+  ports:
+  - name: nginx-service-port
+    protocol: TCP
+    port: 80
+    targetPort: http-web-svc
+    nodePort: 30010
