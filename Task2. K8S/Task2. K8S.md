@@ -103,3 +103,25 @@ kubectl get replicaset  -n devops
 
 I have created a deployment that contains 3 nginx pods and a service that allows access to these nodes via ClusterIP (10.101.152.62) and nodePort( 10.156.0.28:30010 - from the worker node) and replicaset is automatically created
 
+**Logs from pods**
+
+```
+kubectl logs nginx-server-868b759c67-bhvd5
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216797574-d488e8fd-8d5f-4119-a30e-a1a0b5fa49c4.png)
+
+
+```
+kubectl logs nginx-server-868b759c67-pcrzl -n devops
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216797640-afaece39-3e0b-41ce-bf0e-0d49f820b185.png)
+
+```
+kubectl logs nginx-server-868b759c67-vks87 -n devops
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216797684-859a123f-3f9e-45c3-a14d-983088b0367a.png)
+
+
