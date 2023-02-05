@@ -65,7 +65,7 @@ spec:
     nodePort: 30010
  ```
  
- [Deployment-service_link](Deployment-service.yml)
+ [Deployment-service_link](files/Deployment-service.yml)
 
 ```
 kubectl apply -f ./Deployment-service.yml -n devops
