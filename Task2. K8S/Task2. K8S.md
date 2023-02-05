@@ -269,18 +269,18 @@ spec:
  kubectl get jobs --watch -n devops
  ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/216835837-689d512c-bd41-4932-a14b-f65fa2a869ff.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216838582-388b16b7-e5cd-4532-8d33-78982ba012f8.png)
 
 
  ```
  kubectl get pods -n devops
  ```
 
- ![изображение](https://user-images.githubusercontent.com/97990456/216836033-a2ffda59-5a51-4f70-9481-9298f70f6867.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216838619-fcae7f8d-c264-4e23-ab01-ca7141356d69.png)
 
  ```
- kubectl logs nginx-port-status-27926982-p9r9r -n devops
+ kubectl logs nginx-port-status-27927042-c42tz -n devops
  ```
 
- ![изображение](https://user-images.githubusercontent.com/97990456/216836144-a82b5989-37bc-4fe8-8a18-bdae1612a40d.png)
+ ![изображение](https://user-images.githubusercontent.com/97990456/216839042-b1d1d1f4-2fdb-4095-8c75-f3cf285f993e.png)
 
