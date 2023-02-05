@@ -80,3 +80,10 @@ calico_rr
  kube_proxy_strict_arp: true
  ```
  
+**8. Run execute container**
+
+```
+docker run --rm -it -v /home/zen/hometask13/:/mnt   -v /home/zen/.ssh:/pem   quay.io/kubespray/kubespray:v2.20.0 bash
+```
+![изображение](https://user-images.githubusercontent.com/97990456/216852444-894e8422-0560-4b74-b047-2ed3acfce07c.png)
+
