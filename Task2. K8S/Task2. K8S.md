@@ -223,7 +223,7 @@ spec:
  
  **5) Prepare Cronjob.yaml file which will test the connection to Nginx or Apache service every 3 minutes.**
  
- I will test ClusterIP and  NodePort availability of the service and headers
+ I will test ClusterIP and  NodePort availability and headers of the service 
  
  CronJob_NGINX_port_status.yml
  
