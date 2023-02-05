@@ -58,3 +58,16 @@ kube_node
 calico_rr
 ```
 
+**7. Turn on MetalLB**
+
+ ```
+ nano inventory/mycluster/group_vars/k8s_cluster/addons.yml
+ ```
+
+ ```
+ metallb_enabled: true
+ metallb_speaker_enabled: true
+ metallb_ip_range:
+  - "10.200.0.2/32"
+ metallb_avoid_buggy_ips: true
+ ```
