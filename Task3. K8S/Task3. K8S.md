@@ -71,3 +71,12 @@ calico_rr
   - "10.200.0.2/32"
  metallb_avoid_buggy_ips: true
  ```
+
+ ```
+ nano inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+ ```
+ 
+ ```
+ kube_proxy_strict_arp: true
+ ```
+ 
