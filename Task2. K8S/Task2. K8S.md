@@ -269,7 +269,7 @@ spec:
  kubectl get jobs --watch -n devops
  ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/216839762-22caa319-e79e-42e7-b8fc-292798ce8b5d.png)
+![изображение](https://user-images.githubusercontent.com/97990456/216840460-0259669f-59a4-4b3c-ba8b-d70910bdffbe.png)
 
 
  ```
