@@ -162,3 +162,13 @@ calico_rr
 **Task 3**
 
 **1. Prepare domain name (free resource https://dynv6.com/ )**
+
+```
+devopscert.dynv6.net 
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/217089027-81a066ad-98dd-4084-9d2d-9ada5f63c360.png)
+
+
+**2.	Configure cert-manager (https://cert-manager.io/) with Letsencrypt.**
+
