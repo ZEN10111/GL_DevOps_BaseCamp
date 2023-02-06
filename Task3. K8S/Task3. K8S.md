@@ -127,3 +127,9 @@ kubectl get ns
 kubectl get nodes
 ```
 ![изображение](https://user-images.githubusercontent.com/97990456/216857769-531e3672-4e12-4105-ad85-0073c3674016.png)
+
+**Task 2**
+
+**1. Install Ingress-controller**
+
+
