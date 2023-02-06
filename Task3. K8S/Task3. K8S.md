@@ -183,7 +183,9 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 
 
 
-Deploy   Issuer
+Deploy   ClusterIssuer
+
+[ClusterIssuer_link](files/ClusterIssuer.yml)
 
 ```
 apiVersion: cert-manager.io/v1
