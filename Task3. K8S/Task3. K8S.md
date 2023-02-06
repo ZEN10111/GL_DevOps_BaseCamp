@@ -187,21 +187,28 @@ Deploy   Issuer
 
 ```
 apiVersion: cert-manager.io/v1
-   kind: Issuer
-   metadata:
-     name: letsencrypt-prod
-   spec:
-     acme:
-       # The ACME server URL
-       server: https://acme-v02.api.letsencrypt.org/directory
-       # Email address used for ACME registration
-       email: evgeniysemerenko100@gmail.com
-       # Name of a secret used to store the ACME account private key
-       privateKeySecretRef:
-         name: letsencrypt-prod
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+   # The ACME server URL
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: evgeniysemerenko100@gmail.com
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-prod
        # Enable the HTTP-01 challenge provider
-       solvers:
-       - http01:
-           ingress:
-             class: nginx-server
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
 ```
+
+```
+
+kubectl apply -f ClusterIssuer.yml
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/217102288-e2356a9a-1a70-4d5b-98ae-f1530065b1fa.png)
