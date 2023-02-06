@@ -87,3 +87,18 @@ calico_rr
  ```
  
  ![изображение](https://user-images.githubusercontent.com/97990456/216852985-1911d512-b709-4750-a9c1-7cf78d95ea2d.png)
+ 
+ **9. Go to kubespray folder and start ansible-playbook**
+ 
+ ```
+ cd /mnt/kubespray
+ ```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216853115-afdf1138-52e8-4656-8e94-15dadea08088.png)
+
+```
+ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=zen -b  cluster.yml
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216856731-3c992b4e-ab6c-48b1-8024-38be15b143e2.png)
+
