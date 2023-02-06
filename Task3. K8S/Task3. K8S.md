@@ -164,16 +164,16 @@ calico_rr
 **1. Prepare domain name (free resource https://dynv6.com/ )**
 
 ```
-devopscert.dynv6.net 
+ web1.devopscert.dynv6.net
 ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/217089027-81a066ad-98dd-4084-9d2d-9ada5f63c360.png)
+![изображение](https://user-images.githubusercontent.com/97990456/217100029-71011b06-f74a-4519-9844-534d6a5220a2.png)
 
 
 **2.	Configure cert-manager (https://cert-manager.io/) with Letsencrypt.**
 
 
-install cert-manager
+Deploy cert-manager
 
 ```
 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
@@ -183,4 +183,25 @@ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/
 
 
 
+Deploy   Issuer
 
+```
+apiVersion: cert-manager.io/v1
+   kind: Issuer
+   metadata:
+     name: letsencrypt-prod
+   spec:
+     acme:
+       # The ACME server URL
+       server: https://acme-v02.api.letsencrypt.org/directory
+       # Email address used for ACME registration
+       email: evgeniysemerenko100@gmail.com
+       # Name of a secret used to store the ACME account private key
+       privateKeySecretRef:
+         name: letsencrypt-prod
+       # Enable the HTTP-01 challenge provider
+       solvers:
+       - http01:
+           ingress:
+             class: nginx-server
+```
