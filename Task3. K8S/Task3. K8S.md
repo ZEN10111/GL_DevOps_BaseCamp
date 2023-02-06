@@ -105,31 +105,58 @@ calico_rr
 
 **10. After successful installation connect to VM and copy kubectl configuration file.**
 
-```
-ssh -i /pem/id_rsa zen@34.140.160.128
-```
+ ```
+ ssh -i /pem/id_rsa zen@34.140.160.128
+ ```
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216857259-87d84acb-15bd-4743-8c88-a5292d7e2fc4.png)
 
-```
-mkdir ~/.kube
-sudo cp /etc/kubernetes/admin.conf ~/.kube/config
-sudo chmod 777 ~/.kube/config
-kubectl get nodes
-```
+ ```
+ mkdir ~/.kube
+ sudo cp /etc/kubernetes/admin.conf ~/.kube/config
+ sudo chmod 777 ~/.kube/config
+ kubectl get nodes
+ ```
 ![изображение](https://user-images.githubusercontent.com/97990456/216857469-9a4bc82c-3fe0-4009-b8fb-2d1a8ecb7142.png)
 
 
 **11. As result, you will see installed node**
 
-```
-kubectl get ns
-kubectl get nodes
-```
+ ```
+ kubectl get ns
+ kubectl get nodes
+ ```
 ![изображение](https://user-images.githubusercontent.com/97990456/216857769-531e3672-4e12-4105-ad85-0073c3674016.png)
 
 **Task 2**
 
 **1. Install Ingress-controller**
+
+ ```
+ kubectl apply -f nginx-ctl.yaml
+
+ ```
+
+![зображення](https://user-images.githubusercontent.com/97990456/216997140-2c964535-fa29-4ed5-aabe-2a2444d8d33d.png)
+
+ ```
+ kubectl apply -f path_provisioner.yaml
+ ```
+
+![зображення](https://user-images.githubusercontent.com/97990456/216998669-407e7890-4441-4442-90bf-953961ac085d.png)
+
+
+ ```
+ kubectl get pods -n ingress-nginx -w
+ ```
+
+![зображення](https://user-images.githubusercontent.com/97990456/216999046-ce066dfc-5d30-41af-9267-cbda422a72d1.png)
+
+
+ ```
+ kubectl get svc --all-namespaces
+ ```
+ 
+![зображення](https://user-images.githubusercontent.com/97990456/217000608-bd3b1440-6ca7-4054-945f-c17522afce9f.png)
 
 
