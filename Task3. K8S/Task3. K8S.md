@@ -96,9 +96,18 @@ calico_rr
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216853115-afdf1138-52e8-4656-8e94-15dadea08088.png)
 
-```
-ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=zen -b  cluster.yml
-```
+ ```
+ ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=zen -b  cluster.yml
+ ```
 
 ![изображение](https://user-images.githubusercontent.com/97990456/216856731-3c992b4e-ab6c-48b1-8024-38be15b143e2.png)
+
+
+**10. After successful installation connect to VM and copy kubectl configuration file.**
+
+```
+ssh -i /pem/id_rsa zen@34.140.160.128
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/216857259-87d84acb-15bd-4743-8c88-a5292d7e2fc4.png)
 
