@@ -172,3 +172,15 @@ devopscert.dynv6.net
 
 **2.	Configure cert-manager (https://cert-manager.io/) with Letsencrypt.**
 
+
+install cert-manager
+
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
+```
+
+![изображение](https://user-images.githubusercontent.com/97990456/217093145-0ab923ce-2b7e-44da-8f2f-a317490c749d.png)
+
+
+
+
