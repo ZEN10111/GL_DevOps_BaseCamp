@@ -159,3 +159,6 @@ calico_rr
 ![зображення](https://user-images.githubusercontent.com/97990456/217000608-bd3b1440-6ca7-4054-945f-c17522afce9f.png)
 
 
+**Task 3**
+
+**1. Prepare domain name (free resource https://dynv6.com/ )**
