@@ -134,7 +134,6 @@ calico_rr
 
  ```
  kubectl apply -f nginx-ctl.yaml
-
  ```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/216997140-2c964535-fa29-4ed5-aabe-2a2444d8d33d.png)
