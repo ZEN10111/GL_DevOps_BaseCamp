@@ -68,7 +68,7 @@ calico_rr
  metallb_enabled: true
  metallb_speaker_enabled: true
  metallb_ip_range:
-  - "10.200.0.2/32"
+  - "10.132.0.2/32"
  metallb_avoid_buggy_ips: true
  ```
 
