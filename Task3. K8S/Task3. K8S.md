@@ -213,3 +213,81 @@ kubectl apply -f ClusterIssuer.yml
 ```
 
 ![изображение](https://user-images.githubusercontent.com/97990456/217102288-e2356a9a-1a70-4d5b-98ae-f1530065b1fa.png)
+
+**Task 4**
+Prepare Nginx deployment:
+  - Deployment
+  - Service
+  - Ingress (which will be connected to ClusterIssuer and use the letsencrypt certificate)
+
+Deployment-service-ingess.yml
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-server
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: nginx-server
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: nginx-server
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:stable
+        ports:
+        - containerPort: 80
+          name: http-web-svc
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app.kubernetes.io/name: nginx-server
+  ports:
+  - name: nginx-service-port
+    protocol: TCP
+    port: 80
+    targetPort: http-web-svc
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+spec:
+  tls:
+  - hosts:
+    - esemerenko.dns.navy
+    secretName: quickstart-example-tls
+  rules:
+  - host: esemerenko.dns.navy
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+```
+
+
+![зображення](https://user-images.githubusercontent.com/97990456/217252654-04bcce16-b7db-406e-ac28-a3738a7a3093.png)
