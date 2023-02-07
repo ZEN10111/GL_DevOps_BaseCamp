@@ -222,6 +222,8 @@ Prepare Nginx deployment:
 
 Deployment-service-ingess.yml
 
+[Deployment-service-ingess_link](files/Deployment-service-ingess.yml)
+
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -245,10 +247,7 @@ spec:
         ports:
         - containerPort: 80
           name: http-web-svc
-
-
 ---
-
 
 apiVersion: v1
 kind: Service
@@ -263,6 +262,7 @@ spec:
     port: 80
     targetPort: http-web-svc
 ---
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
