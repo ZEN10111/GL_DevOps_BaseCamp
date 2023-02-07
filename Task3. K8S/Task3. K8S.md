@@ -185,9 +185,10 @@ Deploy cert-manager
 
 Deploy   ClusterIssuer
 
+ClusterIssuer.yml
+
 [ClusterIssuer_link](files/ClusterIssuer.yml)
 
-ClusterIssuer.yml
 
 ```
 apiVersion: cert-manager.io/v1
