@@ -222,7 +222,7 @@ spec:
 
 **Task 4**
 
-**1. Prepare Nginx deployment:
+**1. Prepare Nginx deployment:**
       - Deployment
       - Service
       - Ingress (which will be connected to ClusterIssuer and use the letsencrypt certificate)
