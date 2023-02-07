@@ -188,43 +188,6 @@ Deploy   ClusterIssuer
 [ClusterIssuer_link](files/ClusterIssuer.yml)
 
 ```
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-prod
-spec:
-  acme:
-   # The ACME server URL
-    server: https://acme-v02.api.letsencrypt.org/directory
-    # Email address used for ACME registration
-    email: zen002@ukr.net
-    # Name of a secret used to store the ACME account private key
-    privateKeySecretRef:
-      name: letsencrypt-prod
-       # Enable the HTTP-01 challenge provider
-    solvers:
-      - http01:
-         ingress:
-           class: nginx
-```
-
-```
-kubectl apply -f ClusterIssuer.yml
-```
-
-![изображение](https://user-images.githubusercontent.com/97990456/217102288-e2356a9a-1a70-4d5b-98ae-f1530065b1fa.png)
-
-**Task 4**
-Prepare Nginx deployment:
-  - Deployment
-  - Service
-  - Ingress (which will be connected to ClusterIssuer and use the letsencrypt certificate)
-
-Deployment-service-ingess.yml
-
-[Deployment-service-ingess_link](files/Deployment-service-ingess.yml)
-
-```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -247,6 +210,8 @@ spec:
         ports:
         - containerPort: 80
           name: http-web-svc
+
+
 ---
 
 apiVersion: v1
@@ -262,6 +227,7 @@ spec:
     port: 80
     targetPort: http-web-svc
 ---
+
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
