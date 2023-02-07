@@ -213,8 +213,16 @@ spec:
 ![зображення](https://user-images.githubusercontent.com/97990456/217255096-4d955414-e1a8-4b5e-a78f-e6a523644670.png)
 
 
+**Task 4**
 
+**1. Prepare Nginx deployment:
+      - Deployment
+      - Service
+      - Ingress (which will be connected to ClusterIssuer and use the letsencrypt certificate)
 
+Deployment-service-ingess.yml
+
+[Deployment-service-ingess_link](files/Deployment-service-ingess.yml)
 
 ```
 apiVersion: apps/v1
@@ -283,6 +291,8 @@ spec:
             port:
               number: 80
 ```
+
+Deploy Deployment-service-ingess
 
 ```
 kubectl apply -f Deployment-service-ingess.yml
