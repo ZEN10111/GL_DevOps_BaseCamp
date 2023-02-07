@@ -187,6 +187,7 @@ Deploy   ClusterIssuer
 
 [ClusterIssuer_link](files/ClusterIssuer.yml)
 
+```
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -208,7 +209,6 @@ spec:
 ```
 
 ```
-
 kubectl apply -f ClusterIssuer.yml
 ```
 
