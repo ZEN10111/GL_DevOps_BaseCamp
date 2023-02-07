@@ -317,9 +317,9 @@ kubectl get ingress
 ![зображення](https://user-images.githubusercontent.com/97990456/217257409-eae51112-96f2-4b1c-be44-3f7e70259c25.png)
 
 
-go to site  ```esemerenko.dns.navy```
+Go to site  ```esemerenko.dns.navy```
 
-![зображення](https://user-images.githubusercontent.com/97990456/217259784-d6d44250-8991-4efc-906d-d05870534da6.png)
+![зображення](https://user-images.githubusercontent.com/97990456/217263724-3595f69c-7c4e-435e-a502-a074d3eac990.png)
 
 
 ```
