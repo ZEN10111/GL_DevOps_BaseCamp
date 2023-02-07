@@ -156,7 +156,6 @@ calico_rr
  kubectl get svc --all-namespaces
  ```
  
-![зображення](https://user-images.githubusercontent.com/97990456/217000608-bd3b1440-6ca7-4054-945f-c17522afce9f.png)
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217249038-b0561ef5-82d8-4f0f-afd9-458a071e8ac4.png)
 
