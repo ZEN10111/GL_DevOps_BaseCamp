@@ -257,6 +257,6 @@ spec:
 
 ```
 kubectl apply -f Deployment-service-ingess.yml
-``
+```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217252654-04bcce16-b7db-406e-ac28-a3738a7a3093.png)
