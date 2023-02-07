@@ -163,9 +163,9 @@ calico_rr
 
 **1. Prepare domain name (free resource https://dynv6.com/ )**
 
-```
+ ```
  esemerenko.dns.navy 
-```
+ ```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217249646-59c3bec8-fc28-4572-8189-624b24530600.png)
 
@@ -175,9 +175,9 @@ calico_rr
 
 Deploy cert-manager
 
-```
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
-```
+ ```
+ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.0/cert-manager.yaml
+ ```
 
 ![изображение](https://user-images.githubusercontent.com/97990456/217093145-0ab923ce-2b7e-44da-8f2f-a317490c749d.png)
 
@@ -211,6 +211,12 @@ spec:
 ```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217255096-4d955414-e1a8-4b5e-a78f-e6a523644670.png)
+
+ ```
+ kubectl get Clusterissuer
+ ```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217256680-2656e9e3-46f0-46c3-b46d-3cabf2f17cd8.png)
 
 
 **Task 4**
@@ -299,3 +305,31 @@ kubectl apply -f Deployment-service-ingess.yml
 ```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217252654-04bcce16-b7db-406e-ac28-a3738a7a3093.png)
+
+
+```
+kubectl get Deployment
+kubectl get services
+kubectl get ingress
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217257409-eae51112-96f2-4b1c-be44-3f7e70259c25.png)
+
+
+go to site  esemerenko.dns.navy
+
+![зображення](https://user-images.githubusercontent.com/97990456/217259784-d6d44250-8991-4efc-906d-d05870534da6.png)
+
+
+```
+kubectl get certificate
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217261013-7e30bd20-23df-4951-b8eb-5e6b8228d181.png)
+
+
+```
+kubectl describe certificate quickstart-example-tls
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217261993-8f3e5111-f2ff-4d1a-8907-157227b0a652.png)
