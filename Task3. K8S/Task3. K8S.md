@@ -164,10 +164,10 @@ calico_rr
 **1. Prepare domain name (free resource https://dynv6.com/ )**
 
 ```
- web1.devopscert.dynv6.net
+ esemerenko.dns.navy 
 ```
 
-![изображение](https://user-images.githubusercontent.com/97990456/217100029-71011b06-f74a-4519-9844-534d6a5220a2.png)
+![зображення](https://user-images.githubusercontent.com/97990456/217249646-59c3bec8-fc28-4572-8189-624b24530600.png)
 
 
 **2.	Configure cert-manager (https://cert-manager.io/) with Letsencrypt.**
