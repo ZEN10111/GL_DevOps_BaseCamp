@@ -145,14 +145,13 @@ Install Helm chart
 helm install nginx-server nginx-server/
 ```
 
-
-![зображення](https://user-images.githubusercontent.com/97990456/217713389-932f2e33-25a8-4540-b1c2-007c38d67636.png)
+![зображення](https://user-images.githubusercontent.com/97990456/217718016-712f2c8e-450e-43a3-b08e-427f3c498935.png)
 
 ```
 helm ls
 ```
 
-![зображення](https://user-images.githubusercontent.com/97990456/217714400-192e382a-f834-4df7-9534-17933579da85.png)
+![зображення](https://user-images.githubusercontent.com/97990456/217718147-d2cc3ad4-2e4f-4abd-bd8a-5f8c8fc96729.png)
 
 
 Go to site ```https://esemerenko.dns.navy/```
@@ -167,4 +166,25 @@ kubectl get ingress
 kubectl get pods
 ```
 
-![зображення](https://user-images.githubusercontent.com/97990456/217714142-f5103b50-81f7-42f7-98b5-fab008b21f83.png)
+![зображення](https://user-images.githubusercontent.com/97990456/217718341-85363e6a-4459-4c8f-90c5-75748ed14400.png)
+
+
+Update: add  one pod  and  change domain  to ```web1.zen.dp.ua```
+```
+helm upgrade --install --atomic nginx-server nginx-server/ --set replicaCount=4 --set dnsName=web1.zen.dp.ua
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217719687-4c200613-5a60-4ae6-89ea-426464d72b52.png)
+
+
+```
+kubectl get pods
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217718722-ad472ca1-509f-40ec-b9c0-559e11c39dff.png)
+
+
+Go to site ```web1.zen.dp.ua```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217719956-e79e839e-c95e-4bf8-b4de-d8ffb6868b7d.png)
+
