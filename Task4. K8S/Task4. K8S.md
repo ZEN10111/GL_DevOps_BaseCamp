@@ -200,11 +200,12 @@ expected result:
 ![зображення](https://user-images.githubusercontent.com/97990456/217721011-040016a3-2e5e-485f-8468-b34aeffbfce4.png)
 
 
-Pacman based on  nginx  so  we  need  only update  image and  if  we  want another variables 
+Pac-man is based on nginx, so we only need to update images and other variables if we want
 
-we cat  do  this  in  two   ways:  
 
-  -  install  priverios chart but set another name and  pacman`s image  ```golucky5/pacman``` and  another dns pac-man.dns.navy
+**we can do this in two ways: **
+
+ -  install  priverios chart, but set another name and  pacman`s image  ```golucky5/pacman``` and  another dns pac-man.dns.navy
 
   ```
    helm install pac-man  nginx-server/ --set container.image=golucky5/pacman --set dnsName=pac-man.dns.navy
@@ -228,7 +229,8 @@ Go  to site ```pac-man.dns.navy```
 
 
 
-or 
+**or second way: **
+
   - copy and  update  priverios chart files
   
 ```
@@ -263,3 +265,9 @@ install  Helm chart
 Go  to site ```pac-man.dns.navy```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217734039-c1635ed3-12f4-4702-8d4e-96f4b0615145.png)
+
+
+**Extra Task 3 (not mandatory)**
+
+**Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm **
+
