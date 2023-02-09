@@ -1,0 +1,8 @@
+# Default Valuev  for helm chart
+
+conainer:
+  image: nginx:latest
+
+replicaCount: 3
+
+dnsName: esemerenko.dns.navy
