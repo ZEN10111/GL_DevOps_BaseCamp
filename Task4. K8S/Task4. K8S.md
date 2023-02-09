@@ -18,7 +18,7 @@ sudo snap install helm --classic
 Create  Helm chart ```nginx-server```
 
 
-![зображення](https://user-images.githubusercontent.com/97990456/217708232-93d2aa6f-b4cb-4c16-bac2-80f014bcb35c.png)
+![зображення](https://user-images.githubusercontent.com/97990456/217709982-156358f6-faef-4cc8-9bb2-240d89758f94.png)
 
 
 
