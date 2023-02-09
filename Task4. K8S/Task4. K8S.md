@@ -275,5 +275,5 @@ Go  to site ```pac-man.dns.navy```
 
 **Extra Task 3 (not mandatory)**
 
-**Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm **
+**Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm**
 
