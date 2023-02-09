@@ -193,7 +193,8 @@ Go to site ```web1.zen.dp.ua```
 
 **Task 2**
 
-**2. Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. ( https://helm.sh/docs/chart_template_guide/getting_started/ )**
+**2. Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. 
+     ( https://helm.sh/docs/chart_template_guide/getting_started/ )**
 
 expected result:
 ![зображення](https://user-images.githubusercontent.com/97990456/217721011-040016a3-2e5e-485f-8468-b34aeffbfce4.png)
