@@ -62,5 +62,109 @@ nginx-server/templates/Deployment.yaml
 
 
 ```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: {{ .Values.container.image }}
+        ports:
+        - containerPort: 80
+          name: http-web-svc
 
 ```
+
+
+nginx-server/templates/Service.yaml
+
+[Service.yaml_link](files/nginx-server/templates/Service.yaml)
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Release.Name }}
+spec:
+  selector:
+    app.kubernetes.io/name: {{.Release.Name }}
+  ports:
+  - name: nginx-service-port
+    protocol: TCP
+    port: 80
+    targetPort: http-web-svc
+
+```
+
+nginx-server/templates/Ingess.yaml
+
+[Ingess.yaml_link](files/nginx-server/templates/Ingess.yaml)
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{.Release.Name }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.dnsName }}
+    secretName: quickstart-example-tls
+  rules:
+  - host: {{ .Values.dnsName }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{.Release.Name }}
+            port:
+              number: 80
+```
+
+Install Helm chart
+
+```
+helm install nginx-server nginx-server/
+```
+
+
+![зображення](https://user-images.githubusercontent.com/97990456/217713389-932f2e33-25a8-4540-b1c2-007c38d67636.png)
+
+```
+helm ls
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217714400-192e382a-f834-4df7-9534-17933579da85.png)
+
+
+Go to site ```https://esemerenko.dns.navy/```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217713694-9a9a5f47-9803-4c71-8960-09b3c161ba84.png)
+
+
+```
+kubectl get deployments
+kubectl get services
+kubectl get ingress
+kubectl get pods
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217714142-f5103b50-81f7-42f7-98b5-fab008b21f83.png)
