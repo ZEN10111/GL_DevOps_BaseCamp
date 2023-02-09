@@ -186,5 +186,5 @@ kubectl get pods
 
 Go to site ```web1.zen.dp.ua```
 
-![зображення](https://user-images.githubusercontent.com/97990456/217719956-e79e839e-c95e-4bf8-b4de-d8ffb6868b7d.png)
+![зображення](https://user-images.githubusercontent.com/97990456/217720340-3352f7d2-80c2-40db-a458-5385c24375d9.png)
 
