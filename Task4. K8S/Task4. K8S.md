@@ -197,6 +197,7 @@ Go to site ```web1.zen.dp.ua```
      ( https://helm.sh/docs/chart_template_guide/getting_started/ )**
 
 expected result:
+
 ![зображення](https://user-images.githubusercontent.com/97990456/217721011-040016a3-2e5e-485f-8468-b34aeffbfce4.png)
 
 
@@ -239,6 +240,11 @@ cp -R nginx-server/* pac-man/
 ```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217733001-e53812b3-e84a-4618-8a09-32d04a6eee3e.png)
+
+[pac-man_Helm_chart_ link](files/pac-man/)
+
+[values.yaml_link](files/pac-man/values.yaml)
+
 
 nano pac-man/values.yaml
 
