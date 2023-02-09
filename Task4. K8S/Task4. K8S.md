@@ -190,3 +190,32 @@ Go to site ```web1.zen.dp.ua```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/217720340-3352f7d2-80c2-40db-a458-5385c24375d9.png)
 
+
+**Task 2**
+
+**2. Create and deploy your own chart with the Pacman ( https://hub.docker.com/r/golucky5/pacman ) game. ( https://helm.sh/docs/chart_template_guide/getting_started/ )**
+
+expected result:
+![зображення](https://user-images.githubusercontent.com/97990456/217721011-040016a3-2e5e-485f-8468-b34aeffbfce4.png)
+
+
+Pacman based on  nginx  so  we  need  only update  image and  
+
+we cat  do  this  in  two   ways:  
+
+  -  install  priverios chart but set another name and  pacman`s image  ```golucky5/pacman```
+
+  ```
+   helm install pac-man  nginx-server/ --set container.image=golucky5/pacman
+   
+  ```
+  
+  ![зображення](https://user-images.githubusercontent.com/97990456/217722675-50af967e-1775-4c9b-8ba8-e129890fd6c2.png)
+
+Go  to site ```https://esemerenko.dns.navy/```
+
+
+
+  - copy and  update  priverios chart files ( Pacman based on  nginx  so  we  need  only update  image)
+  
+
