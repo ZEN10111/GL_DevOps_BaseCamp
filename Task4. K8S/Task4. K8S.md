@@ -204,7 +204,7 @@ expected result:
 Pac-man is based on nginx, so we only need to update images and other variables if we want
 
 
-**we can do this in two ways: **
+**we can do this in two ways:**
 
  -  install  priverios chart, but set another name and  pacman`s image  ```golucky5/pacman``` and  another dns pac-man.dns.navy
 
