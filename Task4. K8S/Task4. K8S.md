@@ -230,7 +230,7 @@ Go  to site ```pac-man.dns.navy```
 
 
 
-**or second way: **
+**or second way:**
 
   - copy and  update  priverios chart files
   
