@@ -169,7 +169,9 @@ kubectl get pods
 ![зображення](https://user-images.githubusercontent.com/97990456/217718341-85363e6a-4459-4c8f-90c5-75748ed14400.png)
 
 
-Update: add  one pod  and  change domain  to ```web1.zen.dp.ua```
+**Update Chart: add  one pod  and  change domain  to ```web1.zen.dp.ua```**
+
+
 ```
 helm upgrade --install --atomic nginx-server nginx-server/ --set replicaCount=4 --set dnsName=web1.zen.dp.ua
 ```
