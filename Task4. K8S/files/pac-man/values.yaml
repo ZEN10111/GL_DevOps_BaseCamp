@@ -1,0 +1,8 @@
+# Default Valuev  for helm chart
+
+container:
+  image: golucky5/pacman
+
+replicaCount: 3
+
+dnsName: pac-man.dns.navy
