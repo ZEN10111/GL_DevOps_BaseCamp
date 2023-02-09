@@ -199,23 +199,66 @@ expected result:
 ![зображення](https://user-images.githubusercontent.com/97990456/217721011-040016a3-2e5e-485f-8468-b34aeffbfce4.png)
 
 
-Pacman based on  nginx  so  we  need  only update  image and  
+Pacman based on  nginx  so  we  need  only update  image and  if  we  want another variables 
 
 we cat  do  this  in  two   ways:  
 
-  -  install  priverios chart but set another name and  pacman`s image  ```golucky5/pacman```
+  -  install  priverios chart but set another name and  pacman`s image  ```golucky5/pacman``` and  another dns pac-man.dns.navy
 
   ```
-   helm install pac-man  nginx-server/ --set container.image=golucky5/pacman
+   helm install pac-man  nginx-server/ --set container.image=golucky5/pacman --set dnsName=pac-man.dns.navy
    
   ```
   
   ![зображення](https://user-images.githubusercontent.com/97990456/217722675-50af967e-1775-4c9b-8ba8-e129890fd6c2.png)
 
-Go  to site ```https://esemerenko.dns.navy/```
+
+```
+helm ls
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217731799-366572d0-ba6c-459c-8b31-d7f3a969b458.png)
+
+
+Go  to site ```pac-man.dns.navy```
+
+
+![зображення](https://user-images.githubusercontent.com/97990456/217732081-e8b0dde2-9957-43f9-ba8c-843fb467a73e.png)
 
 
 
-  - copy and  update  priverios chart files ( Pacman based on  nginx  so  we  need  only update  image)
+or 
+  - copy and  update  priverios chart files
   
+```
+mkdir pac-man
+cp -R nginx-server/* pac-man/
+```
 
+![зображення](https://user-images.githubusercontent.com/97990456/217733001-e53812b3-e84a-4618-8a09-32d04a6eee3e.png)
+
+nano pac-man/values.yaml
+
+```
+# Default Valuev  for helm chart
+
+container:
+  image: golucky5/pacman
+
+replicaCount: 3
+
+dnsName: pac-man.dns.navy
+```
+
+install  Helm chart
+
+```
+ helm install pac-man  pac-man/
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217733904-a6ac0777-a009-47a1-8479-b053ce2badd3.png)
+
+
+Go  to site ```pac-man.dns.navy```
+
+![зображення](https://user-images.githubusercontent.com/97990456/217734039-c1635ed3-12f4-4702-8d4e-96f4b0615145.png)
