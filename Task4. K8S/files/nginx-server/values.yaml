@@ -1,6 +1,6 @@
 # Default Valuev  for helm chart
 
-conainer:
+container:
   image: nginx:latest
 
 replicaCount: 3
