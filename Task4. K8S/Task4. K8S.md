@@ -277,3 +277,135 @@ Go  to site ```pac-man.dns.navy```
 
 **Deploy MERN stack (MongoDB, Express.js, React.js, Node.js) via helm**
 
+
+1 . Downloading the mern-stack 
+
+```
+git clone https://github.com/nodeshift/mern-workshop.git
+mkdir my-mern
+cp -R mern-workshop/* my-mern/
+```
+
+```
+ ls -la  my-mern/
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/218237077-01c4298d-2b44-40b3-8b24-903dbccf6759.png)
+
+ 
+ 2 . log in  into  gitlab.com
+ 
+ ```
+ docker login registry.gitlab.com
+ ```
+ 
+ ![зображення](https://user-images.githubusercontent.com/97990456/218237110-8fd17743-422e-4dd1-9774-cb5eab55888c.png)
+
+ create and push  containers  into  gitlab repositories:
+ 
+ **backend**
+ 
+ ```
+ cd backend/
+ ```
+ 
+ Dockerfile
+ 
+ ```
+ # Install the app dependencies in a full Node docker image
+FROM node:12
+
+WORKDIR "/app"
+
+# Install OS updates
+RUN apt-get update \
+ && apt-get dist-upgrade -y \
+ && apt-get clean \
+ && echo 'Finished installing dependencies'
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm install --production
+
+# Copy the dependencies into a Slim Node docker image
+FROM node:12-slim
+
+WORKDIR "/app"
+
+# Install OS updates
+RUN apt-get update \
+ && apt-get dist-upgrade -y \
+ && apt-get clean \
+ && echo 'Finished installing dependencies'
+
+# Install app dependencies
+COPY --from=0 /app/node_modules /app/node_modules
+COPY . /app
+
+ENV NODE_ENV production
+ENV PORT 30555
+
+
+EXPOSE 30555
+CMD ["npm", "start"]
+ ```
+ 
+ ```
+ docker build -t registry.gitlab.com/devops6485606/backend .
+ ```
+ 
+ ![зображення](https://user-images.githubusercontent.com/97990456/218237289-9dec880a-047e-4701-ac3d-c9dada56e2fb.png)
+
+ ```
+ docker push registry.gitlab.com/devops6485606/backend
+ ```
+ 
+ ![зображення](https://user-images.githubusercontent.com/97990456/218237331-dacaf157-a1de-497f-b816-bc233c09edec.png)
+ 
+ ![зображення](https://user-images.githubusercontent.com/97990456/218237990-359e8890-b0f0-4653-98ef-127932ec7aef.png)
+
+ **frontend**
+ 
+ ```
+ cd ..
+ cd frontend/
+ ```
+
+ Dockerfile
+ 
+ ```
+ ### STAGE 1: Build ###
+FROM node:12 as build
+RUN mkdir /usr/src/app
+WORKDIR /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY package.json /usr/src/app/package.json
+RUN npm install --silent
+RUN npm install react-scripts -g --silent
+COPY . /usr/src/app
+RUN npm run build
+
+### STAGE 2: Production Environment ###
+FROM nginx:1.16.1-alpine
+COPY --from=build /usr/src/app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+ ```
+
+```
+docker build -t registry.gitlab.com/devops6485606/frontend .
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/218238016-a9dc2e2e-a2b3-48c4-86c8-ffa2d80fec0e.png)
+
+```
+docker push registry.gitlab.com/devops6485606/frontend
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/218238101-4c5b3c48-472c-4d23-a0e1-6c3e39948f11.png)
+
+
+![зображення](https://user-images.githubusercontent.com/97990456/218238134-6f23f547-d66c-49b6-9459-accdef3c3588.png)
+
