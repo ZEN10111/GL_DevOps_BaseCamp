@@ -301,9 +301,9 @@ cp -R mern-workshop/* my-mern/
  
  ![зображення](https://user-images.githubusercontent.com/97990456/218237110-8fd17743-422e-4dd1-9774-cb5eab55888c.png)
 
- create and push  containers  into  gitlab repositories:
+3. create and push  backend container  into  gitlab repository:
  
- **backend**
+
  
  ```
  cd backend/
@@ -365,8 +365,8 @@ CMD ["npm", "start"]
  ![зображення](https://user-images.githubusercontent.com/97990456/218237331-dacaf157-a1de-497f-b816-bc233c09edec.png)
  
  ![зображення](https://user-images.githubusercontent.com/97990456/218237990-359e8890-b0f0-4653-98ef-127932ec7aef.png)
-
- **frontend**
+ 
+ 4.  create and push  frontend container  into  gitlab repository:
  
  ```
  cd ..
@@ -408,4 +408,12 @@ docker push registry.gitlab.com/devops6485606/frontend
 
 
 ![зображення](https://user-images.githubusercontent.com/97990456/218238134-6f23f547-d66c-49b6-9459-accdef3c3588.png)
+
+
+
+5 . Create secret with gitlab credentials
+
+```
+kubectl create secret docker-registry gitlab --docker-server=registry.gitlab.com --docker-username=<username> --docker-password=<docker-password>
+```
 
