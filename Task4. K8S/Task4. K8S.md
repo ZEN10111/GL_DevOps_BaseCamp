@@ -411,7 +411,7 @@ docker push registry.gitlab.com/devops6485606/frontend
 
 
 
-5 . Create secret with gitlab credentials
+5. Create secret with gitlab credentials
 
 ```
 kubectl create secret docker-registry gitlab --docker-server=registry.gitlab.com --docker-username=<username> --docker-password=<docker-password>
