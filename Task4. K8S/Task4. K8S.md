@@ -624,7 +624,7 @@ spec:
         - containerPort: {{ .Values.service.servicePort}}
       imagePullSecrets:
        - name: gitlab
-``
+```
 
 
 [service.yaml_link](files/my-mern/frontend/chart/frontend/templates/service.yaml)`
