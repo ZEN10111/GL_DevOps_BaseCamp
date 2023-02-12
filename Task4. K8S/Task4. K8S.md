@@ -417,3 +417,250 @@ docker push registry.gitlab.com/devops6485606/frontend
 kubectl create secret docker-registry gitlab --docker-server=registry.gitlab.com --docker-username=<username> --docker-password=<docker-password>
 ```
 
+6. modify chart backend files
+
+backend
+
+```
+nano backend/chart/backend/values.yaml
+```
+
+
+replicaCount: 1
+revisionHistoryLimit: 1
+image:
+  repository: registry.gitlab.com/devops6485606/backend
+  tag: latest
+  pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 200m
+      memory: 300Mi
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+service:
+  name: backend
+  type: ClusterIP
+  servicePort: 30555
+services:
+  mongo:
+     url: mongo-mongodb
+     name: todos
+     env: production
+
+dnsName: esemerenko.dns.navy
+
+```
+
+
+```
+nano backend/chart/backend/templates/deployment.yaml
+```
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    chart: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.servicePort }}
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds}}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds}}
+        ports:
+        - containerPort: {{ .Values.service.servicePort}}
+        env:
+          - name: PORT
+            value : "{{ .Values.service.servicePort }}"
+          - name: APPLICATION_NAME
+            value: "{{ .Release.Name }}"
+          - name: MONGO_URL
+            value: {{ .Values.services.mongo.url }}
+          - name: MONGO_DB_NAME
+            value: {{ .Values.services.mongo.name }}
+      imagePullSecrets:
+       - name: gitlab
+```
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: 'true'
+  name: backend
+spec:
+  ports:
+  - name: http
+    targetPort: {{ .Values.service.servicePort }}
+    port: 30555
+  type: ClusterIP
+  selector:
+    app: backend
+```
+
+7. modify chart frontend files
+
+```
+nano frontend/chart/frontend/values.yaml
+```
+
+```
+replicaCount: 1
+revisionHistoryLimit: 1
+image:
+  repository: registry.gitlab.com/devops6485606/frontend
+  tag: latest
+  pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 200m
+      memory: 300Mi
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+service:
+  name: frontend
+  type: ClusterIP
+  servicePort: 80 # the port where nginx serves its traffic
+
+dnsName: esemerenko.dns.navy
+```
+
+
+```
+nano frontend/chart/frontend/templates/deployment.yaml
+```
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    chart: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.service.servicePort }}
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds}}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds}}
+        ports:
+        - containerPort: {{ .Values.service.servicePort}}
+      imagePullSecrets:
+       - name: gitlab
+```
+
+```
+nano frontend/chart/frontend/templates/service.yaml
+```
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    prometheus.io/scrape: 'true'
+  name: frontend
+spec:
+  ports:
+  - name: http
+    targetPort: {{ .Values.service.servicePort }}
+    port: 30444
+  type: ClusterIP
+  selector:
+    app: frontend
+```
+
+
+```
+nano frontend/chart/frontend/templates/Ingess.yaml
+```
+
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.dnsName }}
+    secretName: quickstart-example-tls
+  rules:
+  - host: {{ .Values.dnsName }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 30444
+```
+
+
+8 . install mern
+
+
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install mongo --set auth.enabled=false,replicaSet.enabled=true,service.type=ClusterIP,replicaSet.replicas.secondary=1 bitnami/mongodb
+helm install backend backend/chart/backend
+helm install frontend frontend/chart/frontend
+
+```
+
+
+Go to frontend
+
+```
+https://esemerenko.dns.navy/
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/218340328-5f385f85-c5d2-44f2-9871-be99c06be742.png)
+
+
+Go to backend
+
+```
+https://esemerenko.dns.navy/api/todos
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/218340387-c58233e5-b201-4863-ab78-7fd342e6da7b.png)
