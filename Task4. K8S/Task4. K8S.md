@@ -421,7 +421,7 @@ kubectl create secret docker-registry gitlab --docker-server=registry.gitlab.com
 
 backend
 
-[backend/values.yaml_link](filesfiles/my-mern/backend/chart/backend/values.yaml)
+[backend/values.yaml_link](files/my-mern/backend/chart/backend/values.yaml)
 
 ```
 nano backend/chart/backend/values.yaml
