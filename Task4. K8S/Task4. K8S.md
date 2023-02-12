@@ -309,49 +309,6 @@ cp -R mern-workshop/* my-mern/
  cd backend/
  ```
  
- Dockerfile
- 
- ```
- # Install the app dependencies in a full Node docker image
-FROM node:12
-
-WORKDIR "/app"
-
-# Install OS updates
-RUN apt-get update \
- && apt-get dist-upgrade -y \
- && apt-get clean \
- && echo 'Finished installing dependencies'
-
-# Copy package.json and package-lock.json
-COPY package*.json ./
-
-# Install app dependencies
-RUN npm install --production
-
-# Copy the dependencies into a Slim Node docker image
-FROM node:12-slim
-
-WORKDIR "/app"
-
-# Install OS updates
-RUN apt-get update \
- && apt-get dist-upgrade -y \
- && apt-get clean \
- && echo 'Finished installing dependencies'
-
-# Install app dependencies
-COPY --from=0 /app/node_modules /app/node_modules
-COPY . /app
-
-ENV NODE_ENV production
-ENV PORT 30555
-
-
-EXPOSE 30555
-CMD ["npm", "start"]
- ```
- 
  ```
  docker build -t registry.gitlab.com/devops6485606/backend .
  ```
@@ -371,27 +328,6 @@ CMD ["npm", "start"]
  ```
  cd ..
  cd frontend/
- ```
-
- Dockerfile
- 
- ```
- ### STAGE 1: Build ###
-FROM node:12 as build
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-COPY package.json /usr/src/app/package.json
-RUN npm install --silent
-RUN npm install react-scripts -g --silent
-COPY . /usr/src/app
-RUN npm run build
-
-### STAGE 2: Production Environment ###
-FROM nginx:1.16.1-alpine
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
  ```
 
 ```
