@@ -454,6 +454,7 @@ services:
 dnsName: esemerenko.dns.navy
 ```
 
+[deployment.yamll_link](files/my-mern/backend/chart/backend/templates/deployment.yaml)
 
 ```
 nano backend/chart/backend/templates/deployment.yaml
@@ -500,6 +501,13 @@ spec:
        - name: gitlab
 ```
 
+[service.yaml_link](files/my-mern/backend/chart/backend/templates/service.yaml)
+
+```
+nano backend/chart/backend/templates/service.yaml
+```
+
+
 ```
 apiVersion: v1
 kind: Service
@@ -517,7 +525,42 @@ spec:
     app: backend
 ```
 
+[Ingess.yaml_link](files/my-mern/backend/chart/backend/templates/Ingess.yaml)
+
+```
+nano backend/chart/backend/templates/Ingess.yaml
+```
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  tls:
+  - hosts:
+    - {{ .Values.dnsName }}
+    secretName: quickstart-example-tls
+spec:
+  rules:
+  - host: {{ .Values.dnsName }}
+    http:
+      paths:
+      - path: /api/todos
+        pathType: Prefix
+        backend:
+          service:
+            name: backend
+            port:
+              number: 30555
+```
+
 7. modify chart frontend files
+
+[frontend/values.yaml_link](files/my-mern/frontend/chart/frontend/values.yaml)
 
 ```
 nano frontend/chart/frontend/values.yaml
@@ -545,6 +588,7 @@ service:
 dnsName: esemerenko.dns.navy
 ```
 
+[deployment.yaml_link](files/my-mern/frontend/chart/frontend/templates/deployment.yaml)
 
 ```
 nano frontend/chart/frontend/templates/deployment.yaml
@@ -580,7 +624,10 @@ spec:
         - containerPort: {{ .Values.service.servicePort}}
       imagePullSecrets:
        - name: gitlab
-```
+``
+
+
+[service.yaml_link](files/my-mern/frontend/chart/frontend/templates/service.yaml)`
 
 ```
 nano frontend/chart/frontend/templates/service.yaml
@@ -602,7 +649,7 @@ spec:
   selector:
     app: frontend
 ```
-
+[Ingess.yaml_link](files/my-mern/frontend/chart/frontend/templates/Ingess.yaml)`
 
 ```
 nano frontend/chart/frontend/templates/Ingess.yaml
