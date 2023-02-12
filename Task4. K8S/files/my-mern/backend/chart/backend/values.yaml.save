@@ -1,0 +1,21 @@
+replicaCount: 1
+revisionHistoryLimit: 1
+image:
+  repository: registry.gitlab.com/devops6485606/backend
+  tag: latest
+  pullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 200m
+      memory: 300Mi
+livenessProbe:
+  initialDelaySeconds: 30
+  periodSeconds: 10
+service:
+  name: backend
+services:
+  mongo:
+     url: mongo-mongodb
+     name: todos
+     env: production
+dnsName: web1.zen.dp.ua

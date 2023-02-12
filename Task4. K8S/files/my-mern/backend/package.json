@@ -1,0 +1,23 @@
+{
+  "name": "node-backend",
+  "version": "1.0.0",
+  "description": "Cool MERN app for Docker/Kubernetes",
+  "private": true,
+  "engines": {
+    "node": "^12.14.1"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "NODE_ENV=production webpack"
+  },
+  "dependencies": {
+    "appmetrics-dash": "^5.3.0",
+    "appmetrics-prometheus": "^3.1.0",
+    "body-parser": "^1.17.1",
+    "connect-mongo": "^3.2.0",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "log4js": "^6.4.0",
+    "mongoose": "^5.8.11"
+  }
+}
