@@ -425,7 +425,7 @@ backend
 nano backend/chart/backend/values.yaml
 ```
 
-
+```
 replicaCount: 1
 revisionHistoryLimit: 1
 image:
@@ -450,7 +450,6 @@ services:
      env: production
 
 dnsName: esemerenko.dns.navy
-
 ```
 
 
