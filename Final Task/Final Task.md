@@ -13,6 +13,9 @@
 **Ansible:**	
 
   - perform basic hardening (keyless-only ssh, unattended upgrade, firewall)
-	- (optional) perform hardening to reach CIS-CAT score at least 80 (please find https://learn.cisecurity.org/cis-cat-lite)
-	- deploy K8s (single-node cluster via Kubespray)
-![зображення](https://user-images.githubusercontent.com/97990456/219210340-1378acd1-d0c1-4192-8400-78a23c1bdf91.png)
+  - (optional) perform hardening to reach CIS-CAT score at least 80 (please find https://learn.cisecurity.org/cis-cat-lite)
+  - deploy K8s (single-node cluster via Kubespray)
+
+
+
+ perform basic hardening (keyless-only ssh, unattended upgrade, firewall)
