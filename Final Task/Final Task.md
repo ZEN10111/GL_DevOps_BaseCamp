@@ -97,3 +97,31 @@ ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa 
 ```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/219480701-bfab8370-1f50-4468-a1c6-90a328a17638.png)
+
+
+**After successful installation create  and  run ansible  playbook**
+
+with roles:
+
+ - copy config file
+ - install software
+ - Get Cluster information
+
+
+install  kubernetes.core collection 
+
+```
+ansible-galaxy collection install kubernetes.core
+```
+
+
+```
+ansible-playbook initialization_cluster.yml  --private-key ~/.ssh/id_rsa
+```
+
+![зображення](https://user-images.githubusercontent.com/97990456/219787115-2bb197af-3746-479a-a6dd-dd08e4818ddf.png)
+
+
+
+
+
