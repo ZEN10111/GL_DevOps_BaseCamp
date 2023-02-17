@@ -123,5 +123,9 @@ ansible-playbook initialization_cluster.yml  --private-key ~/.ssh/id_rsa
 
 
 
+**3. Kubernetes:**
+  - prepare ansible-playbook for deploying Wordpress
+	- deploy WordPress with connection to DataBase
+
 
 
