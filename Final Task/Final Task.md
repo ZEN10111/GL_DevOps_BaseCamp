@@ -84,7 +84,7 @@ docker run --rm -it -v /home/zen/hometask_final/Ansible/:/mnt   -v /home/zen/.ss
 ![зображення](https://user-images.githubusercontent.com/97990456/219472875-40353608-56a2-4b93-a014-c8e43085d81a.png)
 
 
-** Go to kubespray folder and start ansible-playbook**
+**Go to kubespray folder and start ansible-playbook**
 
 ```
 cd /mnt/kubespray
