@@ -93,7 +93,7 @@ cd /mnt/kubespray
 ![зображення](https://user-images.githubusercontent.com/97990456/219473199-14032523-9489-43dc-8b38-5516d912a280.png)
 
 ```
-ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=thenyasemerenko -b  cluster.yml
+ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=zen -b  cluster.yml
 ```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/219480701-bfab8370-1f50-4468-a1c6-90a328a17638.png)
