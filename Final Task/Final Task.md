@@ -7,7 +7,7 @@
 
 
 
-![зображення](https://user-images.githubusercontent.com/97990456/218873388-290a29db-2793-4311-aa57-d978a4ae1be5.png)
+![зображення](https://user-images.githubusercontent.com/97990456/219986199-347a8b3e-4358-486f-a3fe-23dce3272165.png)
 
 
 **2. Ansible:**	
