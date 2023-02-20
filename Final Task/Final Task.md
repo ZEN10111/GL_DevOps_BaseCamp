@@ -61,7 +61,7 @@ nano inventory/mycluster/group_vars/k8s_cluster/addons.yml
 metallb_enabled: true
 metallb_speaker_enabled: true
 metallb_ip_range:
- - "10.0.0.2/32"
+ - "10.2.0.2/32"
 metallb_avoid_buggy_ips: true
 ```
 
