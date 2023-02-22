@@ -146,3 +146,6 @@ ansible-playbook prepare_cluster.yml  --private-key ~/.ssh/id_rsa
 ![зображення](https://user-images.githubusercontent.com/97990456/219986484-d2808cf5-30a9-4b98-b60d-9a32716ac11a.png)
 
 
+
+![зображення](https://user-images.githubusercontent.com/97990456/220729164-e0762f41-491a-49e5-8192-74758dfddedd.png)
+
