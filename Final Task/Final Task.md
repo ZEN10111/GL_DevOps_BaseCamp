@@ -21,76 +21,7 @@
  perform basic hardening (keyless-only ssh, unattended upgrade, firewall)
 
 
-
-
-
- **Clone Kubespray release repository**
- 
- ```
-git clone https://github.com/kubernetes-sigs/kubespray.git
-cd kubespray
-git checkout release-2.20
- ```
- 
- ![зображення](https://user-images.githubusercontent.com/97990456/219468352-b3c68fed-73ed-474e-be4b-6d1b2c055ec8.png)
- 
- 
- **Copy and edit inventory file*
- 
- ```
- cp -rfp inventory/sample inventory/mycluster
- ```
- 
- ![зображення](https://user-images.githubusercontent.com/97990456/219468801-1818c3cf-f508-44f3-8c8c-005a6ffd6abd.png)
-
-```
- nano inventory/mycluster/inventory.ini
-```
-
-
-![зображення](https://user-images.githubusercontent.com/97990456/219469751-4afaadb4-b764-48cc-b97f-cebc26ad6466.png)
-
-
-**Turn on MetalLB**
-
-```
-nano inventory/mycluster/group_vars/k8s_cluster/addons.yml
-```
-
-```
-metallb_enabled: true
-metallb_speaker_enabled: true
-metallb_ip_range:
- - "10.2.0.2/32"
-metallb_avoid_buggy_ips: true
-```
-
-```
-nano inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
-```
-
-```
-kube_proxy_strict_arp: true
-```
-
-
-**Run execute container**
-
-
-```
-docker run --rm -it -v /home/zen/hometask_final/Ansible/:/mnt   -v /home/zen/.ssh:/pem   quay.io/kubespray/kubespray:v2.20.0 bash
-```
-
-![зображення](https://user-images.githubusercontent.com/97990456/219472875-40353608-56a2-4b93-a014-c8e43085d81a.png)
-
-
-**Go to kubespray folder and start ansible-playbook**
-
-```
-cd /mnt/kubespray
-```
-
-![зображення](https://user-images.githubusercontent.com/97990456/219473199-14032523-9489-43dc-8b38-5516d912a280.png)
+**deploy K8s (single-node cluster via Kubespray)**
 
 ```
 ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=zen -b  cluster.yml
