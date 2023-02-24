@@ -36,9 +36,9 @@
  
  (optional) perform hardening to reach CIS-CAT score at least 80 (please find https://learn.cisecurity.org/cis-cat-lite)
  
- '''
+```
 ansible-playbook advanced_hardening.yml --private-key ~/.ssh/id_rsa
-'''
+```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/221188797-440f2ab4-4613-4100-a2e2-836f9d29a438.png)
 
