@@ -18,8 +18,23 @@
 
 
 
- perform basic hardening (keyless-only ssh, unattended upgrade, firewall)
+ **perform basic hardening**
+ 
+  - keyless-only ssh
+  - Install unattended-upgrades
+  - Ensure SSH root login is disabled
 
+ 
+ ```
+ ansible-playbook hardening.yml --private-key ~/.ssh/id_rsa
+ ```
+
+![зображення](https://user-images.githubusercontent.com/97990456/221068527-5a105ae5-0016-414f-b532-f8a4c3f9ab33.png)
+
+
+ **perform advanced basic hardening**
+ 
+ 
 
 **deploy K8s (single-node cluster via Kubespray)**
 
