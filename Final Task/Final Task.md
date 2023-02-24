@@ -5,7 +5,7 @@
   - create instance with External IP	
   - prepare managed DB (MySQL)	
 
-
+[Terraform_files_link](hometask_final/Teraform/)
 
 ![зображення](https://user-images.githubusercontent.com/97990456/219986199-347a8b3e-4358-486f-a3fe-23dce3272165.png)
 
