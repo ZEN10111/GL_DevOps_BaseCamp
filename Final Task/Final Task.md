@@ -32,7 +32,7 @@
 ![зображення](https://user-images.githubusercontent.com/97990456/221068527-5a105ae5-0016-414f-b532-f8a4c3f9ab33.png)
 
 
- **perform advanced basic hardening**
+ **perform advanced  hardening**
  
  
 
