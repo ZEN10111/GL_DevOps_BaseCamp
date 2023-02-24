@@ -40,7 +40,7 @@
 ansible-playbook advanced_hardening.yml --private-key ~/.ssh/id_rsa
 '''
 
-![зображення](https://user-images.githubusercontent.com/97990456/221105476-9a937f9c-5586-4b6c-a750-1a042db7bbe2.png)
+![зображення](https://user-images.githubusercontent.com/97990456/221188797-440f2ab4-4613-4100-a2e2-836f9d29a438.png)
 
 
 ![зображення](https://user-images.githubusercontent.com/97990456/221105810-720ef256-c030-40e2-bec9-bbf9bd301ba3.png)
