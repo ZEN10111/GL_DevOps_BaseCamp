@@ -1,0 +1,13 @@
+---
+
+- name: Copy  path_provisioner
+  ansible.builtin.copy:
+    src: /home/zen/hometask_final/Kubernetes/files/path_provisioner.yaml
+    dest: /home/zen/path_provisioner.yaml
+
+
+
+- name: install path_provisioner
+  kubernetes.core.k8s:
+    state: present
+    src: /home/zen/path_provisioner.yaml

@@ -1,0 +1,14 @@
+- name: Create a directory kube
+  ansible.builtin.file:
+    path: /home/zen/.kube
+    state: directory
+    owner: zen
+    group: zen
+    mode: '0775'
+
+- name: Copy  config file
+  ansible.builtin.copy:
+    src: /etc/kubernetes/admin.conf
+    dest: /home/zen/.kube/config
+    remote_src: yes
+    mode: '0777'

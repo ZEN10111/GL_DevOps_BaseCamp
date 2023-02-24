@@ -1,0 +1,437 @@
+
+- name: Ensure mounting of cramfs filesystems is disabled
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/cramfs.conf
+    line: install cramfs /bin/true
+    create: yes
+
+- name: Ensure mounting of cramfs filesystems is disabled cmd
+  ansible.builtin.command: rmmod cramfs
+  ignore_errors: true
+
+- name: Ensure mounting of freevxfs filesystems is disabled
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/freevxfs.conf
+    line: install freevxfs /bin/true
+    create: yes
+
+- name: Ensure mounting of freevxfs filesystems is disabled cmd
+  ansible.builtin.command: rmmod freevxfs
+  ignore_errors: true
+
+
+- name: Ensure mounting of jffs2 filesystems is disabled
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/jffs2.conf
+    line: install jffs2 /bin/true
+    create: yes
+
+- name: Ensure mounting of jffs2 filesystems is disabled cmd
+  ansible.builtin.command: rmmod jffs2
+  ignore_errors: true
+
+- name: Ensure mounting of hfs filesystems is disabled
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/hfs.conf
+    line: install hfs /bin/true
+    create: yes
+
+- name: Ensure mounting of hfs filesystems is disabled cmd
+  ansible.builtin.command: rmmod hfs
+  ignore_errors: true
+
+- name: Ensure mounting of hfsplus filesystems is disabled
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/hfsplus.conf
+    line: install hfsplus /bin/true
+    create: yes
+
+- name: Ensure mounting of hfsplus filesystems is disabled cmd
+  ansible.builtin.command: rmmod hfsplus
+  ignore_errors: true
+
+- name: Ensure mounting of udf filesystems is disabled
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/udf.conf
+    line: install udf /bin/true
+    create: yes
+
+- name: Ensure mounting of udf filesystems is disabled cmd
+  ansible.builtin.command: rmmod udf
+  ignore_errors: true
+
+- name: Ensure /tmp is configured
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    line: tmpfs /tmp tmpfs defaults,rw,nosuid,nodev,noexec,relatime 0 0
+
+- name: Ensure /tmp is configured2
+  ansible.builtin.command: systemctl daemon-reload
+  ignore_errors: true
+
+- name: Ensure /tmp is configured3
+  ansible.builtin.command: systemctl --now enable tmp.mount
+  ignore_errors: true
+
+- name: Ensure /dev/shm is configured
+  ansible.builtin.lineinfile:
+    path: /etc/fstab
+    line: tmpfs /dev/shm tmpfs defaults,noexec,nodev,nosuid,seclabel 0 0
+
+- name: Ensure /dev/shm is configured2
+  ansible.builtin.command: mount -o remount,noexec,nodev,nosuid /dev/shm
+  ignore_errors: true
+
+- name: Ensure core dumps are restricted
+  ansible.builtin.lineinfile:
+    path: /etc/security/limits.conf
+    line: "* hard core 0"
+
+- name: Ensure core dumps are restricted2
+  ansible.builtin.lineinfile:
+    path: /etc/sysctl.conf
+    line: fs.suid_dumpable = 0
+
+- name: Ensure core dumps are restricted3
+  ansible.builtin.command: sysctl -w fs.suid_dumpable=0
+  ignore_errors: true  
+
+- name: Ensure sudo commands use pty
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    line: Defaults use_pty
+
+- name: Ensure sudo log file exists
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    line: Defaults logfile="/var/log/sudo.log" 
+
+- name: Change file ownership, group and permissions /etc/issue.net
+  ansible.builtin.file:
+    path: /etc/ssh/sshd_config
+    mode: '0777'
+
+- name: Ensure SSH MaxAuthTries is set to 4 or less
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    line: MaxAuthTries 4
+
+
+- name: Ensure SSH LoginGraceTime is set to one minute or less
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    line: LoginGraceTime 60
+
+- name: Ensure SSH MaxStartups is configured
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    line: MaxStartups 10:30:60
+
+- name: Ensure SSH warning banner is configured
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    line: Banner /etc/issue.net
+
+- name: Ensure SSH access is limited
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    line: AllowUsers zen thenyasemerenko 
+
+- name: Ensure permissions on /etc/ssh/sshd_config are configured
+  ansible.builtin.command: chown root:root /etc/ssh/sshd_config
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/ssh/sshd_config are configured2
+  ansible.builtin.command: chmod og-rwx /etc/ssh/sshd_config
+  ignore_errors: true
+
+- name: Copy  Ensure sticky bit is set on all world-writable directories
+  ansible.builtin.copy:
+    src: /home/zen/hometask_final/Ansible/files/Ensure_sticky_bit_is_set_on_all_world_writable_directories.sh
+    dest: /home/zen/
+    mode: '0777'
+
+- name: Ensure sticky bit is set on all world-writable directories
+  ansible.builtin.command: ./Ensure_sticky_bit_is_set_on_all_world_writable_directories.sh
+  ignore_errors: true
+
+
+- name: Ensure permissions on bootloader config are not overridden
+  ansible.builtin.command: sed -ri 's/chmod\s+[0-7][0-7][0-7]\s+\$\{grub_cfg\}\.new/chmod 400 ${grub_cfg}.new/' /usr/sbin/grub-mkconfig 
+  ignore_errors: true
+
+
+- name: Ensure permissions on bootloader config are not overridden2
+  ansible.builtin.command: sed -ri 's/ && ! grep "\^password" \$\{grub_cfg\}.new >\/dev\/null//' /usr/sbin/grub-mkconfig 
+  ignore_errors: true
+
+- name: Ensure permissions on bootloader config are configured
+  ansible.builtin.command: chown root:root /boot/grub/grub.cfg
+  ignore_errors: true
+
+- name: Ensure permissions on bootloader config are configured2
+  ansible.builtin.command: chmod u-wx,go-rwx /boot/grub/grub.cfg
+  ignore_errors: true
+
+- name: Disable USB Storage
+  ansible.builtin.lineinfile:
+    path: /etc/modprobe.d/usb_storage.conf
+    line: install usb-storage /bin/true
+    create: yes
+
+- name: Disable USB Storage cmd
+  ansible.builtin.command: rmmod usb-storage
+  ignore_errors: true
+  
+- name: Ensure AIDE is installed
+  ansible.builtin.apt:
+    pkg:
+    - aide 
+    - aide-common
+    state: present
+    update_cache: yes
+
+- name: Ensure AIDE is installed cmd
+  ansible.builtin.command: aideinit
+  ignore_errors: true
+
+- name: Ensure AIDE is installed cmd2
+  ansible.builtin.command: mv /var/lib/aide/aide.db.new /var/lib/aide/aide.db 
+  ignore_errors: true
+
+- name: Ensure filesystem integrity is regularly checked
+  ansible.builtin.cron:
+    name: "check dirs"
+    minute: "0"
+    hour: "5"
+    job: /usr/bin/aide.wrapper --config /etc/aide/aide.conf --check 
+
+- name: Change file ownership, group and permissions /etc/issue
+  ansible.builtin.file:
+    path: /etc/issue
+    mode: '0777'
+
+- name: Ensure local login warning banner is configured properly
+  ansible.builtin.command: echo "Authorized uses only. All activity may be monitored and reported." > /etc/issue
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/issue are configured
+  ansible.builtin.command: chown root:root /etc/issue
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/issue are configured2
+  ansible.builtin.command: chmod u-x,go-wx /etc/issue
+  ignore_errors: true
+
+- name: Change file ownership, group and permissions /etc/issue.net
+  ansible.builtin.file:
+    path: /etc/issue.net
+    mode: '0777'
+
+- name: Ensure remote login warning banner is configured properly
+  ansible.builtin.command: echo "Authorized uses only. All activity may be monitored and reported." > /etc/issue.net
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/issue.net are configured
+  ansible.builtin.command: chown root:root /etc/issue.net
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/issue.net configured2
+  ansible.builtin.command: chmod u-x,go-wx /etc/issue.net
+  ignore_errors: true
+
+- name: Ensure telnet client is not installed
+  ansible.builtin.command: apt purge -y telnet
+  ignore_errors: true
+
+- name: Ensure rsync service is not installed
+  ansible.builtin.command: apt purge -y rsync 
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/crontab are configured
+  ansible.builtin.command: chown root:root /etc/crontab
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/crontab are configured2
+  ansible.builtin.command: chmod og-rwx /etc/crontab
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.hourly are configured
+  ansible.builtin.command: chown root:root /etc/cron.hourly/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.hourly are configured2
+  ansible.builtin.command: chmod og-rwx /etc/cron.hourly/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.daily are configured
+  ansible.builtin.command: chown root:root /etc/cron.daily/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.daily are configured2
+  ansible.builtin.command: chmod og-rwx /etc/cron.daily/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.weekly are configured
+  ansible.builtin.command: chown root:root /etc/cron.weekly/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.weekly are configured2
+  ansible.builtin.command: chmod og-rwx /etc/cron.weekly/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.monthly are configured
+  ansible.builtin.command: chown root:root /etc/cron.monthly/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.monthly are configured2
+  ansible.builtin.command: chmod og-rwx /etc/cron.monthly/ 
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.d are configured
+  ansible.builtin.command: chown root:root /etc/cron.d/
+  ignore_errors: true
+
+- name: Ensure permissions on /etc/cron.d are configured2
+  ansible.builtin.command: chmod og-rwx /etc/cron.d/ 
+  ignore_errors: true
+
+- name: Ensure cron is restricted to authorized users
+  ansible.builtin.command: rm /etc/cron.deny
+  ignore_errors: true
+
+- name: Ensure cron is restricted to authorized users2
+  ansible.builtin.command: touch /etc/cron.allow 
+  ignore_errors: true
+
+- name: Ensure cron is restricted to authorized users3
+  ansible.builtin.command: chmod g-wx,o-rwx /etc/cron.allow
+  ignore_errors: true
+
+- name: Ensure cron is restricted to authorized users4
+  ansible.builtin.command: chown root:root /etc/cron.allow 
+  ignore_errors: true
+
+- name: Ensure at is restricted to authorized users
+  ansible.builtin.command: rm /etc/at.deny
+  ignore_errors: true
+
+- name: Ensure at is restricted to authorized users2
+  ansible.builtin.command: touch /etc/at.allow 
+  ignore_errors: true
+
+
+- name: Ensure at is restricted to authorized users3
+  ansible.builtin.command: chmod g-wx,o-rwx /etc/at.allow
+  ignore_errors: true
+
+- name: Ensure at is restricted to authorized users4
+  ansible.builtin.command: chown root:root /etc/at.allow 
+  ignore_errors: true
+  
+- name: Install pwquality
+  ansible.builtin.apt:
+    pkg:
+    - libpam-pwquality
+    - cracklib-runtime
+    state: present
+    update_cache: yes
+
+- name: Add a rule for  users and root  "Do not use your username in password" 
+  ansible.builtin.replace:
+    path: /etc/pam.d/common-password
+    regexp: 'pam_pwquality.so retry=3'
+    replace: 'pam_pwquality.so retry=3 usercheck = 1 enforce_for_root'
+
+- name: Ensure minlen = 14
+  ansible.builtin.lineinfile:
+    path: /etc/security/pwquality.conf
+    line: minlen = 14
+
+- name: Ensure minclass = 4
+  ansible.builtin.lineinfile:
+    path: /etc/security/pwquality.conf
+    line: minclass = 4
+
+- name: Ensure lockout for failed password attempts is configured
+  ansible.builtin.lineinfile:
+    path: /etc/pam.d/common-auth
+    line: auth required pam_tally2.so onerr=fail audit silent deny=5 unlock_time=900
+
+- name: Add a rule for  users and root  "Do not use your username in password" 
+  ansible.builtin.replace:
+    path: /etc/pam.d/common-password
+    regexp: 'account requisite                       pam_deny.so'
+    replace: 'account requisite pam_deny.so'
+
+- name: Ensure lockout for failed password attempts is configured3
+  ansible.builtin.lineinfile:
+    path: /etc/pam.d/common-account
+    line: account required pam_tally2.so 
+
+- name: Ensure password reuse is limited
+  ansible.builtin.lineinfile:
+    path:  /etc/pam.d/common-password
+    line: password required pam_pwhistory.so remember=5
+
+- name: Change file ownership, group and permissions /etc/login.defs
+  ansible.builtin.file:
+    path: /etc/login.defs
+    mode: '0777'
+
+- name: Ensure minimum days between password changes is configured1 
+  ansible.builtin.replace:
+    path: /etc/login.defs
+    regexp: 'PASS_MIN_DAYS'
+    replace: '#PASS_MIN_DAYS'
+
+- name:  Ensure password expiration is 365 days or less1 
+  ansible.builtin.replace:
+    path: /etc/login.defs
+    regexp: 'PASS_MAX_DAYS'
+    replace: '#PASS_MAX_DAYS'
+
+- name: Ensure minimum days between password changes is configured 
+  ansible.builtin.lineinfile:
+    path: /etc/login.defs
+    line: PASS_MIN_DAYS 1
+
+- name:  Ensure password expiration is 365 days or less 
+  ansible.builtin.lineinfile:
+    path: /etc/login.defs
+    line: PASS_MAX_DAYS 365
+
+- name: Change file ownership, group and permissions /etc/login.defs
+  ansible.builtin.file:
+    path: /etc/login.defs
+    mode: '0644'
+
+- name:  Ensure inactive password lock is 30 days or less
+  ansible.builtin.command: useradd -D -f 30 
+  ignore_errors: true
+
+- name:  Ensure journald is configured to send logs to rsyslog 
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/journald.conf
+    line: ForwardToSyslog=yes
+
+- name:  Ensure journald is configured to compress large log files 
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/journald.conf
+    line: Compress=yes
+
+- name:  Ensure journald is configured to write logfiles to persistent disk 
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/journald.conf
+    line: Storage=persistent
+
+- name:  Ensure journald is configured to write logfiles to persistent disk 
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/journald.conf
+    line: Storage=persistent
+
+- name:  Ensure logrotate assigns appropriate permissions 
+  ansible.builtin.replace:
+    path: /etc/logrotate.conf
+    regexp: 'create'
+    replace: 'create 0640 root utmp'

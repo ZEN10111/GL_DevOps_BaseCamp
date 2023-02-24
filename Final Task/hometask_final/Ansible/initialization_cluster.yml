@@ -1,0 +1,16 @@
+---
+
+- name: initialization_cluster
+  hosts: webservers_group_1
+  become: yes
+  roles:
+    - copy config file
+    - install software
+
+
+- name: Get Cluster information
+  hosts: webservers_group_1
+  gather_facts: yes
+  become: no
+  roles:
+    - Get Cluster information

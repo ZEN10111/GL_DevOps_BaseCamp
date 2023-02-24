@@ -1,0 +1,17 @@
+- name: install pip3
+  ansible.builtin.apt:
+    pkg:
+    - python3-pip
+    state: present
+    update_cache: yes
+
+- name: install pre-requisites
+  pip:
+    name:
+      - openshift
+      - pyyaml
+      - kubernetes 
+
+- name: install helm
+  ansible.builtin.command: snap install helm --classic
+  ignore_errors: true

@@ -1,0 +1,7 @@
+---
+
+- name: helm_install_wordpress
+  hosts: webservers_group_1
+  become: no
+  roles:
+    - helm_install_wordpress

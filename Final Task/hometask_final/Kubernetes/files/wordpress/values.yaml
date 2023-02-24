@@ -1,0 +1,13 @@
+# Default Valuev  for helm chart
+
+container:
+  image: bitnami/wordpress-nginx:latest
+
+replicaCount: 1
+
+dnsName: esemerenko.dns.navy
+
+wpDbHost: 10.56.0.2
+wpDbUser: wordpress
+wpDbPassword: put_db_password_here
+wpDbName: wordpress

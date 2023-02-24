@@ -1,0 +1,23 @@
+---
+
+- name: Create a directory wordpress
+  ansible.builtin.file:
+    path: /home/zen/wordpress
+    state: directory
+    owner: zen
+    group: zen
+    mode: '0775'
+
+
+- name: Copy 
+  ansible.builtin.copy:
+    src: /home/zen/hometask_final/Kubernetes/files/wordpress/
+    dest: /home/zen/wordpress
+
+
+- name: Deploy wordpress
+  kubernetes.core.helm:
+    name: wordpress
+    release_namespace: default
+    chart_ref: wordpress/
+    create_namespace: false

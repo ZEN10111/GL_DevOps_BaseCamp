@@ -1,0 +1,17 @@
+---
+
+- name: Copy ingress controller
+  ansible.builtin.copy:
+    src: /home/zen/hometask_final/Kubernetes/files/nginx-ctl.yaml
+    dest: /home/zen/nginx-ctl.yaml
+
+
+- name: install ingress controller
+  kubernetes.core.k8s:
+    state: present
+    src: /home/zen/nginx-ctl.yaml
+ 
+
+
+
+

@@ -1,0 +1,10 @@
+---
+
+- name: prepare_cluster
+  hosts: webservers_group_1
+  become: no
+  roles:
+    - install ingress controller
+    - install path_provisioner
+    - install cert-manager
+    - install ClusterIssuer

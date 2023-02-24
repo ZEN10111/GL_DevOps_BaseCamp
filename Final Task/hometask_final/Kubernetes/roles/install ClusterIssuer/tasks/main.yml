@@ -1,0 +1,12 @@
+---
+
+- name: install ClusterIssuer
+  ansible.builtin.copy:
+    src: /home/zen/hometask_final/Kubernetes/files/ClusterIssuer.yml
+    dest: /home/zen/ClusterIssuer.yml
+
+
+- name: install ClusterIssuer
+  kubernetes.core.k8s:
+    state: present
+    src: /home/zen/ClusterIssuer.yml

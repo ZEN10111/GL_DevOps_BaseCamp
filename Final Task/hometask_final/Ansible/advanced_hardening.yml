@@ -1,0 +1,8 @@
+---
+
+- name: advanced_hardening
+  hosts: webservers_group_1
+  gather_facts: yes
+  become: yes
+  roles:
+    - advanced_hardening

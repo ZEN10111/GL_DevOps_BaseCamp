@@ -1,0 +1,10 @@
+---
+
+- name: hardening
+  hosts: webservers_group_1
+  become: yes
+  roles:
+    - hardening
+
+
+  

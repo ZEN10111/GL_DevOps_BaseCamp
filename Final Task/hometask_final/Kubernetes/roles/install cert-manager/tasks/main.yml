@@ -1,0 +1,13 @@
+---
+
+- name: Copy cert-manager
+  ansible.builtin.copy:
+    src: /home/zen/hometask_final/Kubernetes/files/cert-manager.yaml
+    dest: /home/zen/cert-manager.yaml
+
+
+- name: install cert-manager
+  kubernetes.core.k8s:
+    state: present
+    src: /home/zen/cert-manager.yaml
+
