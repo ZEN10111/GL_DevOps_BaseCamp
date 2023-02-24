@@ -16,7 +16,7 @@
   - (optional) perform hardening to reach CIS-CAT score at least 80 (please find https://learn.cisecurity.org/cis-cat-lite)
   - deploy K8s (single-node cluster via Kubespray)
 
-[Ansible_files_link](hometask_final/Ansible/)
+**[Ansible_files_link](hometask_final/Ansible/)**
 
  **perform basic hardening**
  
