@@ -65,7 +65,6 @@ with roles:
  - install software
  - Get Cluster information
 
-![зображення](https://user-images.githubusercontent.com/97990456/221234787-ba070a07-e6a2-4c14-9141-a5e4ff6e83f1.png)
 
 install  kubernetes.core collection 
 
@@ -78,7 +77,8 @@ ansible-galaxy collection install kubernetes.core
 ansible-playbook initialization_cluster.yml  --private-key ~/.ssh/id_rsa
 ```
 
-![зображення](https://user-images.githubusercontent.com/97990456/219787115-2bb197af-3746-479a-a6dd-dd08e4818ddf.png)
+![зображення](https://user-images.githubusercontent.com/97990456/221235043-2bb96dda-288c-4bae-afad-e4ea4bf2e383.png)
+
 
 
 
