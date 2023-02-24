@@ -34,9 +34,21 @@
 
  **perform advanced  hardening**
  
+ (optional) perform hardening to reach CIS-CAT score at least 80 (please find https://learn.cisecurity.org/cis-cat-lite)
  
+ '''
+ansible-playbook advanced_hardening.yml --private-key ~/.ssh/id_rsa
+'''
+
+![зображення](https://user-images.githubusercontent.com/97990456/221105476-9a937f9c-5586-4b6c-a750-1a042db7bbe2.png)
+
+
+![зображення](https://user-images.githubusercontent.com/97990456/221105810-720ef256-c030-40e2-bec9-bbf9bd301ba3.png)
+
 
 **deploy K8s (single-node cluster via Kubespray)**
+
+
 
 ```
 ansible-playbook -i inventory/mycluster/inventory.ini --private-key /pem/id_rsa -e ansible_user=zen -b  cluster.yml
