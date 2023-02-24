@@ -113,7 +113,7 @@ ansible-playbook helm_install_wordpress.yml --private-key ~/.ssh/id_rsa
 ![зображення](https://user-images.githubusercontent.com/97990456/220732953-8145397c-69f1-4e85-94a6-b276e32aacd9.png)
 
 
-go to site:
+go to site: ```esemerenko.dns.navy```
 
 ![зображення](https://user-images.githubusercontent.com/97990456/220729164-e0762f41-491a-49e5-8192-74758dfddedd.png)
 
